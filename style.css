@@ -28,14 +28,14 @@
     src: url('Roboto-Light_0.ttf');
 }
 
- body{
+body{
     background-color: rgb(230, 236, 240);
     margin: 0;
-/*    font-family: Aaargh;*/
-/*    font-family:Poetsen One;*/
-/*    font-family:Bebas Neue;*/
+    /*    font-family: Aaargh;*/
+    /*    font-family:Poetsen One;*/
+    /*    font-family:Bebas Neue;*/
     font-family:Roboto Light;
-/*     font-family: Young;*/
+    /*     font-family: Young;*/
     font-size: 1em;
 }
 
@@ -73,15 +73,20 @@
     outline: none;
 }
 
-a{
-    color: white
-}
-
 .links{
     float: right;
-    color: white;
     margin: 10px;
     margin-right: 50px;
+    color: white;
+}
+
+.acc{
+    color: white;
+}
+
+.acc:hover{
+    color:lightgrey;
+    cursor: pointer;
 }
 
 .string{
@@ -92,6 +97,7 @@ a{
     width: fill;
     z-index: 0;
     text-align: center;
+    margin-bottom: 300px;
 }
 
 .pin{
@@ -101,7 +107,7 @@ a{
     width: 25px;
     height: 70px;
     margin-top: -30px;
-    margin-left: 115px;
+    margin-left: 105px;
     background-color: #e3a064;
 }
 
