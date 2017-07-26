@@ -1,24 +1,321 @@
 <html>
-
-    <head>
     
+    <head>
+        
+<!--        Link to FontAwesome -->
+        <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+        
+        
+        <script src="jquery-3.2.1.min.js"></script>
+        <meta name="viewport" content="width=device-width" />
+        
+        <link rel="stylesheet" type = "text/css" href="style.css">
+        
+        <style>
+            
+            #sidebar{
+                position: fixed;
+                z-index: 10;
+                top: 100px;
+                left: -230px;
+                transition: all 0.3s ease-in;
+                
+            }
+            
+            #sidebar:hover{
+                left: 30px;
+                transition: all 0.3s ease-in;
+            }
+            
+            #pulltab{
+                position: relative;
+                display: inline-block;
+                border-radius: 100px;
+                border-width: medium;
+                border-color: white;
+                border-style: solid;
+                width: 60px;
+                height: 60px;
+                background-color: darkslategrey;
+                margin: 10px;
+                top: 20px;
+                box-shadow: 2px 2px 15px rgba(57, 57, 57, 0.53);
+            }
+            
+            #info{
+                display:inline-block;
+                background-color: white;
+                height: 300px;
+                width: 200px;
+                padding: 15px;
+                border-radius: 10px;
+                box-shadow: 2px 2px 15px rgba(57, 57, 57, 0.53);
+            }
+            
+            #username{
+                color: #005377;
+                font-weight: bold;
+            }
+            
+            #description{
+                
+            }
+            
+        </style>
+        
     </head>
     
     <body>
+        <!--
+            1. Login
+            2. Register
+
+            Show all public pictures
+
+        -->
+        
+        <!-- Pull out user photo that reveals username and short description  -->
+        
+        <div id = "sidebar">
+            
+            <div id = "info">
+                <a id = "username">username</a>
+                <p id = "description">description goes here</p>
+            </div>
+            
+            <div id = "pulltab"></div>
+        
+        </div>
         
         <div id = "navbar">
             <div class = "searchbar">
-            
+                <input type = "search" id = "searchbox" placeholder="Search">
             </div>
             
             <div class="links">
-                <a id = "login">Log In</a>
+                <a class = "acc" id = "login">Log In</a>
                 |
-                <a id = "signup">Sign Up</a>
+                <a class = "acc" id = "signup">Sign Up</a>
             </div>
         </div>
         
+        <!-- string -->
         
+        <div class = "string">
+            <div class = "pin">
+        
+            </div>
+            
+            <!-- POLAROID PHOTO -->
+
+            <div class = "polaroid">
+
+                <div class = "thumbnail">
+
+                </div>
+
+            </div>
+            
+            <div class = "pin">
+        
+            </div>
+            
+            <!-- POLAROID PHOTO -->
+
+            <div class = "polaroid">
+
+                <div class = "thumbnail">
+
+                </div>
+
+            </div>
+            
+            <div class = "pin">
+        
+            </div>
+            
+            <!-- POLAROID PHOTO -->
+
+            <div class = "polaroid">
+
+                <div class = "thumbnail">
+
+                </div>
+
+            </div>
+            
+            <div class = "pin">
+        
+            </div>
+            
+            <!-- POLAROID PHOTO -->
+
+            <div class = "polaroid">
+
+                <div class = "thumbnail">
+
+                </div>
+
+            </div>
+            
+            <div class = "pin">
+        
+            </div>
+            
+            <!-- POLAROID PHOTO -->
+
+            <div class = "polaroid">
+
+                <div class = "thumbnail">
+
+                </div>
+
+            </div>
+        </div>
+        
+        <div class = "string">
+            <div class = "pin">
+        
+            </div>
+            
+            <!-- POLAROID PHOTO -->
+
+            <div class = "polaroid">
+
+                <div class = "thumbnail">
+
+                </div>
+
+            </div>
+            
+            <div class = "pin">
+        
+            </div>
+            
+            <!-- POLAROID PHOTO -->
+
+            <div class = "polaroid">
+
+                <div class = "thumbnail">
+
+                </div>
+
+            </div>
+            
+            <div class = "pin">
+        
+            </div>
+            
+            <!-- POLAROID PHOTO -->
+
+            <div class = "polaroid">
+
+                <div class = "thumbnail">
+
+                </div>
+
+            </div>
+            
+            <div class = "pin">
+        
+            </div>
+            
+            <!-- POLAROID PHOTO -->
+
+            <div class = "polaroid">
+
+                <div class = "thumbnail">
+
+                </div>
+
+            </div>
+            
+            <div class = "pin">
+        
+            </div>
+            
+            <!-- POLAROID PHOTO -->
+
+            <div class = "polaroid">
+
+                <div class = "thumbnail">
+
+                </div>
+
+            </div>
+        </div>
+        
+        <div class = "string">
+            <div class = "pin">
+        
+            </div>
+            
+            <!-- POLAROID PHOTO -->
+
+            <div class = "polaroid">
+
+                <div class = "thumbnail">
+
+                </div>
+
+            </div>
+            
+            <div class = "pin">
+        
+            </div>
+            
+            <!-- POLAROID PHOTO -->
+
+            <div class = "polaroid">
+
+                <div class = "thumbnail">
+
+                </div>
+
+            </div>
+            
+            <div class = "pin">
+        
+            </div>
+            
+            <!-- POLAROID PHOTO -->
+
+            <div class = "polaroid">
+
+                <div class = "thumbnail">
+
+                </div>
+
+            </div>
+            
+            <div class = "pin">
+        
+            </div>
+            
+            <!-- POLAROID PHOTO -->
+
+            <div class = "polaroid">
+
+                <div class = "thumbnail">
+
+                </div>
+
+            </div>
+            
+            <div class = "pin">
+        
+            </div>
+            
+            <!-- POLAROID PHOTO -->
+
+            <div class = "polaroid">
+
+                <div class = "thumbnail">
+
+                </div>
+
+            </div>
+        </div>
         
     </body>
     
