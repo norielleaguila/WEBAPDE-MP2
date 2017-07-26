@@ -2,72 +2,14 @@
     
     <head>
         
-        <style>
-            
-            body{
-                background-color: rgb(230, 236, 240);
-                margin: 0;
-            }
-            
-            #navbar{
-/*                background: linear-gradient(#005377, rgba(230, 236, 240, 0));*/
-                background-image: url('navbar.png');
-                position: fixed;
-                width: 100%;
-                height: 70px;
-                z-index:100;
-            }
-            
-            a{
-                color: white
-            }
-            
-            .links{
-                float: right;
-                color: white;
-                margin-right: 10px;
-            }
-            
-            .string{
-                position: relative;
-                top: 150px;
-                background-color: #e1b07e;
-                height: 5px;
-                width: fill;
-                z-index: 0;
-                text-align: center;
-            }
-            
-            .pin{
-                position: absolute;
-                display: inline-block;
-                z-index: 1;
-                width: 25px;
-                height: 70px;
-                margin-top: -30px;
-                margin-left: 115px;
-                background-color: #e3a064;
-            }
-            
-            .polaroid{
-                margin: 10px;
-                margin-top: 15px;
-                display: inline-block;
-                background-color: white;
-                height: 210px;
-                width: 190px;
-                padding: 10px;
-                padding-top: 15px;
-            }
-            
-            .thumbnail{
-                margin: 0 auto;
-                background-color: darkslategrey;
-                width: 180px;
-                height: 170px;
-            }
-            
-        </style>
+<!--        Link to FontAwesome -->
+        <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+        
+        
+        <script src="jquery-3.2.1.min.js"></script>
+        <meta name="viewport" content="width=device-width" />
+        
+        <link rel="stylesheet" type = "text/css" href="style.css">
         
     </head>
     
@@ -82,7 +24,7 @@
         
         <div id = "navbar">
             <div class = "searchbar">
-            
+                <input type = "search" id = "searchbox" placeholder="Search">
             </div>
             
             <div class="links">
