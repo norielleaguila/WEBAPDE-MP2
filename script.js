@@ -22,6 +22,7 @@
         //add classes
         $(stringDiv).addClass("string");
 
+
         for(i = 1; i <= 5 && max && i < max; i++){
             (function(i, loadA, stringDiv) {
                 $.ajax({
@@ -143,139 +144,163 @@
         });
     }
 
-$(document).ready(function(){
+    function changeNavBar() {
+        var navBar = document.getElementById('navbar');
+            navBar.innerHTML = "<div id = \"navbar\">" +
+                          "<a href = \"index.html\" id = \"title\"> twine </a>" +
+                          "<div class=\"links\" id = \"navBarLinks\">" +
+                          "<a class = \"acc\" id = \"profile\">Profile</a>" +
+                          "|" +
+                          "<a class = \"acc\" id = \"upload\">Upload</a>" +
+                          "|" +
+                          "<a class = \"acc\" id = \"signup\">Log Out</a>" +
+                          "<div id = \"clickedNavBarLinks\">" +
+                          "</div>" +
+                          "</div>" +
+                          "</div>";
 
-    for(var i = 0; i < 3; i++){     // 3 strings * 5 photos each
-        var stringDiv = loadPhotos();
-        $(".feed").append(stringDiv);
+                          console.log("WA");
     }
 
-//    loadPosts();
-//    loadAlbums();
-//
-//
-//    $(".feed").scroll(function() {
-//        var div = $(this);
-//        var scroll = 0;
-//
-///*                    setTimeout(function() {
-//            scroll = div.scrollTop();
-//        }, 200);
-//        console.log(scroll);*/
-//
-//        if (Math.round($(this).scrollTop()) == $(".feed")[0].scrollHeight - 600) { //scrollTop is 0 based
-//            console.log("Load more!");
-//
-//            loadPosts();
-//        }
-//    });
+    $(document).ready(function(){
 
-//    $(document).on('click', '.post-username', function(){
-//        window.location.href = "profile.html";
-//    });
-//
-//    $(document).on('click', '#username', function(){
-//        window.location.href = "profile.html";
-//    });
-//
-//    $(document).on('click', '#uPost', function(){
-//        document.getElementById("feed").style.display = "inline-block";
-//        document.getElementsByClassName("album-previews")[0].style.display = "none";
-//    });
-//
-//    $(document).on('click', '#uPhotos', function(){
-//        document.getElementById("feed").style.display = "none";
-//        document.getElementsByClassName("album-previews")[0].style.display = "inline-block";
-//    });
-
-
-    $(document).on('click', '#clickedNavBarLinks', function(event){
-        event.stopPropagation();
-    });
-
-    $(document).on('click', '#signUpButton', function(event){
-        var x = document.getElementById('clickedNavBarLinks');
-        var username = document.getElementById('username-input').value;
-        var password = document.getElementById('password-input').value;
-        var name = document.getElementById('name-input').value;
-
-        if(username !== null && password !== null && name !== null){
-            // Update database
-            console.log(name + ": " + username + " " + password + " ");
-            x.style.display = 'none';
+        for(var i = 0; i < 3; i++){     // 3 strings * 5 photos each
+            var stringDiv = loadPhotos();
+            $(".feed").append(stringDiv);
         }
-    });
+
+        if(true/*Check if user is logged in cookies(??) idk*/)
+            changeNavBar();
+
+    //    loadPosts();
+    //    loadAlbums();
+    //
+    //
+    //    $(".feed").scroll(function() {
+    //        var div = $(this);
+    //        var scroll = 0;
+    //
+    ///*                    setTimeout(function() {
+    //            scroll = div.scrollTop();
+    //        }, 200);
+    //        console.log(scroll);*/
+    //
+    //        if (Math.round($(this).scrollTop()) == $(".feed")[0].scrollHeight - 600) { //scrollTop is 0 based
+    //            console.log("Load more!");
+    //
+    //            loadPosts();
+    //        }
+    //    });
+
+    //    $(document).on('click', '.post-username', function(){
+    //        window.location.href = "profile.html";
+    //    });
+    //
+    //    $(document).on('click', '#username', function(){
+    //        window.location.href = "profile.html";
+    //    });
+    //
+    //    $(document).on('click', '#uPost', function(){
+    //        document.getElementById("feed").style.display = "inline-block";
+    //        document.getElementsByClassName("album-previews")[0].style.display = "none";
+    //    });
+    //
+    //    $(document).on('click', '#uPhotos', function(){
+    //        document.getElementById("feed").style.display = "none";
+    //        document.getElementsByClassName("album-previews")[0].style.display = "inline-block";
+    //    });
 
 
-    $(document).on('click', '#loginButton', function(event){
-        var x = document.getElementById('clickedNavBarLinks');
-        var username = document.getElementById('username-input').value;
-        var password = document.getElementById('password-input').value;
+        $(document).on('click', '#clickedNavBarLinks', function(event){
+            event.stopPropagation();
+        });
 
-        if(username !== null && password !== null){
-            // Update (Check from the database)
-            console.log(username + " " + password + " ");
-            x.style.display = 'none';
+        $(document).on('click', '#signUpButton', function(event){
+            var x = document.getElementById('clickedNavBarLinks');
+            var username = document.getElementById('username-input').value;
+            var password = document.getElementById('password-input').value;
+            var name = document.getElementById('name-input').value;
 
-            localStorage.setItem("username", username);
-            localStorage.setItem("password", password);
-            window.location.href = "profile.html";
-        }
-    });
-
-    $("#login").click(function(event){
-        event.stopPropagation();
-        var x = document.getElementById('clickedNavBarLinks');
-        x.style.display = 'block';
-
-        x.innerHTML = "<div>" +
-                      "<input id = \"username-input\" type = \"text\"  placeholder=\"Username\">" +
-                      "</div>" +
-                      "<div>" +
-                      "<input id = \"password-input\" type = \"password\" placeholder=\"Password\">" +
-                      "</div>" +
-                      "<button class=\"input-box\" id = \"loginButton\">Log In</button>";
-    });
-
-    $("#signup").click(function(event){
-        event.stopPropagation();
-        var x = document.getElementById('clickedNavBarLinks');
-        x.style.display = 'block';
-
-        x.innerHTML = "<div>" +
-                                  "<input id = \"username-input\" type = \"text\"  placeholder=\"Username\">" +
-                                  "</div>" +
-                                  "<div>" +
-                                  "<input id = \"password-input\" type = \"password\" placeholder=\"Password\">" +
-                                  "</div>" +
-                                  "<div>" +
-                                  "<input id = \"name-input\" type = \"text\" placeholder=\"Name\">" +
-                                  "</div>" +
-                                  "<button class = \"input-box\" id = \"signUpButton\">Sign Up</button>";
-    });
-
-
-    $(window).click(function(){
-        var x = document.getElementById('clickedNavBarLinks');
-        x.style.display = 'none';
-    });
-
-
-     $(window).scroll(function() {
-        var div = $(this);
-        var scroll = 0;
-        setTimeout(function() {
-            scroll = div.scrollTop();
-        }, 200);
-        console.log(Math.round($(this).scrollTop()) + " " + $(".feed")[0].scrollHeight +" " + window.innerHeight);
-//        console.log(div.scrollHeight);
-        if (Math.round($(this).scrollTop()) == $(".feed")[0].scrollHeight - window.innerHeight
-            /*document.getElementsByClassName("close")[0].style.display == "none"*/) { //scrollTop is 0 based
-            console.log("Load more!");
-            for(var i = 0; i < 3; i++){     // 3 strings * 5 photos each
-                var stringDiv = loadPhotos();
-                $(".feed").append(stringDiv);
+            if(username !== null && password !== null && name !== null){
+                // Update database
+                console.log(name + ": " + username + " " + password + " ");
+                x.style.display = 'none';
             }
-        }
+        });
+
+
+        $(document).on('click', '#loginButton', function(event){
+            var x = document.getElementById('clickedNavBarLinks');
+            var username = document.getElementById('username-input').value;
+            var password = document.getElementById('password-input').value;
+
+            if(username !== null && password !== null){
+                // Update (Check from the database)
+                console.log(username + " " + password + " ");
+                x.style.display = 'none';
+
+                localStorage.setItem("username", username);
+                localStorage.setItem("password", password);
+                window.location.href = "profile.html";
+            }
+        });
+
+        $("#login").click(function(event){
+            event.stopPropagation();
+            var x = document.getElementById('clickedNavBarLinks');
+            x.style.display = 'block';
+
+            x.innerHTML = "<div>" +
+                          "<input id = \"username-input\" type = \"text\"  placeholder=\"Username\">" +
+                          "</div>" +
+                          "<div>" +
+                          "<input id = \"password-input\" type = \"password\" placeholder=\"Password\">" +
+                          "</div>" +
+                          "<button class=\"input-box\" id = \"loginButton\">Log In</button>";
+        });
+
+        $("#signup").click(function(event){
+            event.stopPropagation();
+            var x = document.getElementById('clickedNavBarLinks');
+            x.style.display = 'block';
+
+            x.innerHTML = "<div>" +
+                                      "<input id = \"username-input\" type = \"text\"  placeholder=\"Username\">" +
+                                      "</div>" +
+                                      "<div>" +
+                                      "<input id = \"password-input\" type = \"password\" placeholder=\"Password\">" +
+                                      "</div>" +
+                                      "<div>" +
+                                      "<input id = \"name-input\" type = \"text\" placeholder=\"Name\">" +
+                                      "</div>" +
+                                      "<button class = \"input-box\" id = \"signUpButton\">Sign Up</button>";
+        });
+
+
+        $(window).click(function(){
+            var x = document.getElementById('clickedNavBarLinks');
+            x.style.display = 'none';
+        });
+
+
+        $(window).scroll(function() {
+            var div = $(this);
+            var scroll = 0;
+            setTimeout(function() {
+                scroll = div.scrollTop();
+            }, 200);
+            console.log(Math.round($(this).scrollTop()) + " " + $(".feed")[0].scrollHeight +" " + window.innerHeight);
+    //        console.log(div.scrollHeight);
+            if (Math.round($(this).scrollTop()) == $(".feed")[0].scrollHeight - window.innerHeight
+                /*document.getElementsByClassName("close")[0].style.display == "none"*/) { //scrollTop is 0 based
+                console.log("Load more!");
+                for(var i = 0; i < 3; i++){     // 3 strings * 5 photos each
+                    var stringDiv = loadPhotos();
+                    $(".feed").append(stringDiv);
+                }
+            }
+        });
+
+
+
     });
-});
