@@ -145,7 +145,7 @@
 
 $(document).ready(function(){
 
-    for(i = 0; i < 3; i++){     // 3 strings * 5 photos each
+    for(var i = 0; i < 3; i++){     // 3 strings * 5 photos each
         var stringDiv = loadPhotos();
         $(".feed").append(stringDiv);
     }
@@ -272,7 +272,7 @@ $(document).ready(function(){
         if (Math.round($(this).scrollTop()) == $(".feed")[0].scrollHeight - window.innerHeight
             /*document.getElementsByClassName("close")[0].style.display == "none"*/) { //scrollTop is 0 based
             console.log("Load more!");
-            for(i = 0; i < 3; i++){     // 3 strings * 5 photos each
+            for(var i = 0; i < 3; i++){     // 3 strings * 5 photos each
                 var stringDiv = loadPhotos();
                 $(".feed").append(stringDiv);
             }
