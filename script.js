@@ -45,58 +45,26 @@ $(document).ready(function(){
         event.stopPropagation();
     });
 
-    $(document).on('click', '#login', function(event){
-        event.stopPropagation();
-        var x = document.getElementById('clickedNavBarLinks');
-        x.style.display = 'block';
-
-        x.innerHTML = "<div id = \"username-input\">" +
-                      "<input type = \"text\"  placeholder=\"Username\">" +
-                      "</div>" +
-                      "<div id = \"password-input\">" +
-                      "<input type = \"password\" placeholder=\"Password\">" +
-                      "</div>" +
-                      "<button class=\"input-box\" id = \"loginButton\">Log In</button>";
-    });
-
-    $("#signup").click(function(event){
-        event.stopPropagation();
-        var x = document.getElementById('clickedNavBarLinks');
-        x.style.display = 'block';
-
-        x.innerHTML = "<div id = \"username-input\">" +
-                                  "<input type = \"text\"  placeholder=\"Username\">" +
-                                  "</div>" +
-                                  "<div id = \"password-input\">" +
-                                  "<input type = \"password\" placeholder=\"Password\">" +
-                                  "</div>" +
-                                  "<div id = \"name-input\">" +
-                                  "<input type = \"text\" placeholder=\"Name\">" +
-                                  "</div>" +
-                                  "<button class = \"input-box\" id = \"signUpButton\">Sign Up</button>";
-    });
-
-    $("#signUpButton").click(function(){
+    $(document).on('click', '#signUpButton', function(event){
         var x = document.getElementById('clickedNavBarLinks');
         var username = document.getElementById('username-input').value;
         var password = document.getElementById('password-input').value;
         var name = document.getElementById('name-input').value;
 
-        console.log("ASA");
-        console.log(name + ": " + username + " " + password + " ");
-        if(username.length != 0 && password.length != 0 && name.length != 0){
+        if(username !== null && password !== null && name !== null){
             // Update database
             console.log(name + ": " + username + " " + password + " ");
             x.style.display = 'none';
         }
     });
 
-    $("#loginButton").click(function(){
+
+    $(document).on('click', '#loginButton', function(event){
         var x = document.getElementById('clickedNavBarLinks');
         var username = document.getElementById('username-input').value;
         var password = document.getElementById('password-input').value;
 
-        if(username.length != 0 && password.length != 0){
+        if(username !== null && password !== null){
             // Update (Check from the database)
             console.log(username + " " + password + " ");
             x.style.display = 'none';
@@ -106,6 +74,38 @@ $(document).ready(function(){
             window.location.href = "profile.html";
         }
     });
+
+    $("#login").click(function(event){
+        event.stopPropagation();
+        var x = document.getElementById('clickedNavBarLinks');
+        x.style.display = 'block';
+
+        x.innerHTML = "<div>" +
+                      "<input id = \"username-input\" type = \"text\"  placeholder=\"Username\">" +
+                      "</div>" +
+                      "<div>" +
+                      "<input id = \"password-input\" type = \"password\" placeholder=\"Password\">" +
+                      "</div>" +
+                      "<button class=\"input-box\" id = \"loginButton\">Log In</button>";
+    });
+
+    $("#signup").click(function(event){
+        event.stopPropagation();
+        var x = document.getElementById('clickedNavBarLinks');
+        x.style.display = 'block';
+
+        x.innerHTML = "<div>" +
+                                  "<input id = \"username-input\" type = \"text\"  placeholder=\"Username\">" +
+                                  "</div>" +
+                                  "<div>" +
+                                  "<input id = \"password-input\" type = \"password\" placeholder=\"Password\">" +
+                                  "</div>" +
+                                  "<div>" +
+                                  "<input id = \"name-input\" type = \"text\" placeholder=\"Name\">" +
+                                  "</div>" +
+                                  "<button class = \"input-box\" id = \"signUpButton\">Sign Up</button>";
+    });
+
 
     $(window).click(function(){
         var x = document.getElementById('clickedNavBarLinks');
