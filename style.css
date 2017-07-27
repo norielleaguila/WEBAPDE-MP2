@@ -28,19 +28,6 @@
     src: url('media/Roboto-Light_0.ttf');
 }
 
-#clickedNavBarLinks{
-    position: relative;
-/*  margin-top: 15px;*/
-    display: none;
-    background-color: white;
-    height: 210px;
-    width: 190px;
-    padding: 10px;
-    padding-top: 15px;
-    box-shadow: 2px 2px 15px rgba(57, 57, 57, 0.53);
-    transform: all 0.3s ease-in;
-}
-
 body{
     background-color: rgb(230, 236, 240);
     margin: 0;
@@ -176,7 +163,27 @@ body{
     height: 170px;
 }
 
+
+
 #clickedNavBarLinks{
-    height: 100px;
+    position: relative;
+    display: none;
+    background-color: white;
+    width: 190px;
+    padding: 10px;
+    padding-top: 15px;
+    box-shadow: 2px 2px 15px rgba(57, 57, 57, 0.53);
+    transform: all 0.3s ease-in;
     direction: rtl;
+    border-radius: 2px;
+}
+
+input{
+    border-radius: 10px;
+    direction: ltr;
+    border-style: solid;
+    border-width: thin;
+    border-color: lightgrey;
+    padding: 10px;
+    margin: 5px;
 }

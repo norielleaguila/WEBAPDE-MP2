@@ -46,7 +46,7 @@ $(document).ready(function(){
         x.style.display = 'block';
 
         x.innerHTML = "<div id = \"username-input\">" +
-                      "<input type = \"search\"  placeholder=\"Username\">" +
+                      "<input type = \"text\"  placeholder=\"Username\">" +
                       "</div>" +
                       "<div id = \"password-input\">" +
                       "<input type = \"password\" placeholder=\"Password\">" +
@@ -60,13 +60,13 @@ $(document).ready(function(){
         x.style.display = 'block';
 
         x.innerHTML = "<div id = \"username-input\">" +
-                                  "<input type = \"search\"  placeholder=\"Username\">" +
+                                  "<input type = \"text\"  placeholder=\"Username\">" +
                                   "</div>" +
                                   "<div id = \"password-input\">" +
                                   "<input type = \"password\" placeholder=\"Password\">" +
                                   "</div>" +
                                   "<div id = \"name-input\">" +
-                                  "<input type = \"password\" placeholder=\"Name\">" +
+                                  "<input type = \"text\" placeholder=\"Name\">" +
                                   "</div>" +
                                   "<button>Sign Up</button>";
     });
