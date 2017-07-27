@@ -40,6 +40,11 @@ $(document).ready(function(){
 //        document.getElementsByClassName("album-previews")[0].style.display = "inline-block";
 //    });
 
+
+    $(document).on('click', '#clickedNavBarLinks', function(event){
+        event.stopPropagation();
+    });
+
     $(document).on('click', '#login', function(event){
         event.stopPropagation();
         var x = document.getElementById('clickedNavBarLinks');
@@ -51,7 +56,7 @@ $(document).ready(function(){
                       "<div id = \"password-input\">" +
                       "<input type = \"password\" placeholder=\"Password\">" +
                       "</div>" +
-                      "<button class=\"input-box\">Log In</button>";
+                      "<button class=\"input-box\" id = \"loginButton\">Log In</button>";
     });
 
     $("#signup").click(function(event){
@@ -68,7 +73,38 @@ $(document).ready(function(){
                                   "<div id = \"name-input\">" +
                                   "<input type = \"text\" placeholder=\"Name\">" +
                                   "</div>" +
-                                  "<button class = \"input-box\">Sign Up</button>";
+                                  "<button class = \"input-box\" id = \"signUpButton\">Sign Up</button>";
+    });
+
+    $("#signUpButton").click(function(){
+        var x = document.getElementById('clickedNavBarLinks');
+        var username = document.getElementById('username-input').value;
+        var password = document.getElementById('password-input').value;
+        var name = document.getElementById('name-input').value;
+
+        console.log("ASA");
+        console.log(name + ": " + username + " " + password + " ");
+        if(username.length != 0 && password.length != 0 && name.length != 0){
+            // Update database
+            console.log(name + ": " + username + " " + password + " ");
+            x.style.display = 'none';
+        }
+    });
+
+    $("#loginButton").click(function(){
+        var x = document.getElementById('clickedNavBarLinks');
+        var username = document.getElementById('username-input').value;
+        var password = document.getElementById('password-input').value;
+
+        if(username.length != 0 && password.length != 0){
+            // Update (Check from the database)
+            console.log(username + " " + password + " ");
+            x.style.display = 'none';
+
+            localStorage.setItem("username", username);
+            localStorage.setItem("password", password);
+            window.location.href = "profile.html";
+        }
     });
 
     $(window).click(function(){
