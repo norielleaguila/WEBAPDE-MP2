@@ -1,18 +1,18 @@
 <html>
-    
-    <head>
-        
-<!--        Link to FontAwesome -->
-        <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
-        
-        
-        <script src="jquery-3.2.1.min.js"></script>
-        <meta name="viewport" content="width=device-width" />
-        
-        <link rel="stylesheet" type = "text/css" href="style.css">
-        
-        <style>
-            
+
+<head>
+
+    <!--        Link to FontAwesome -->
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+
+
+    <script src="jquery-3.2.1.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="stylesheet" type = "text/css" href="style.css">
+
+    <style>
+
             #sidebar{
                 position: fixed;
                 z-index: 10;
@@ -20,12 +20,12 @@
                 left: -230px;
                 transition: all 0.5s ease-in;
             }
-            
+
             #sidebar:hover{
                 left: 30px;
                 transition: all 0.5s ease-in;
             }
-            
+
             #pulltab{
                 position: relative;
                 display: inline-block;
@@ -40,7 +40,7 @@
                 top: 20px;
                 box-shadow: 2px 2px 15px rgba(57, 57, 57, 0.53);
             }
-            
+
             #info{
                 display:inline-block;
                 background-color: white;
@@ -50,17 +50,21 @@
                 border-radius: 10px;
                 box-shadow: 2px 2px 15px rgba(57, 57, 57, 0.53);
             }
-            
+
             #username{
                 color: #005377;
                 font-weight: bold;
             }
-            
+
             #description{
-                
+
             }
-            
-            .slider-container{
+
+
+            /* The.slider-container - the box around the slider */
+            .slider-container {
+                position: fixed;
+                display: inline-block;
                 border-radius: 100px;
                 position: fixed;
                 z-index: 10;
@@ -72,53 +76,124 @@
                 text-align: center;
                 box-shadow: 2px 2px 2px rgba(57, 57, 57, 0.53);
             }
-            
-            #slider{
-                position: relative;
+
+            /* Hide default HTML checkbox */
+            .slider-container input {
+                display:none;
+            }
+
+            /* The slider */
+            .slider{
+                position: initial;
                 border-radius: 100px;
                 width: 25px;
                 height: 25px;
                 background-color: white;
                 transition: all 0.3s ease-in;
+                cursor: pointer;
+                -webkit-transition: .3s;
             }
-            
+
+            .slider:before {
+                position: absolute;
+                content: "";
+                border-radius: 100px;
+                width: 25px;
+                height: 25px;
+                left: 0px;
+                background-color: white;
+                -webkit-transition: .3s;
+                transition: all 0.3s ease-in;
+            }
+
+            input:checked + .slider {
+              background-color: #2196F3;
+            }
+
+            input:focus + .slider {
+              box-shadow: 0 0 1px #2196F3;
+            }
+
+            input:checked + .slider:before {
+              -webkit-transform: translateX(26px);
+              -ms-transform: translateX(26px);
+              transform: translateX(26px);
+            }
+
+            /* Rounded sliders */
+            .slider{
+              border-radius: 34px;
+            }
+
+            .slider:before {
+              border-radius: 50%;
+            }
         </style>
-        
-        <script>
+
+    <script>
             $(document).on('click', 'slider-container', function(event){
                 var x = $(document).getElementById('slider');
             });
         </script>
-        
-    </head>
-    
-    <body>
-        <!--
-            1. Login
-            2. Register
 
-            Show all public pictures
+</head>
 
-        -->
-        
-        <div class = "slider-container">
-            <div id = "slider">
-                
+<body>
+<!--
+    1. Login
+    2. Register
+
+    Show all public pictures
+
+-->
+
+
+<!-- Rounded.slider-container -->
+<label class="slider-container">
+    <input type="checkbox">
+    <span class="slider"></span>
+</label>
+<!-- Pull out user photo that reveals username and short description  -->
+
+<div id = "sidebar">
+
+    <div id = "info">
+        <a id = "username">username</a>
+        <p id = "description">description goes here</p>
+    </div>
+
+    <div id = "pulltab"></div>
+
+</div>
+
+<div id = "navbar">
+    <div class = "searchbar">
+        <input type = "search" id = "searchbox" placeholder="Search">
+    </div>
+
+    <div class="links">
+        <a class = "acc" id = "login">Log In</a>
+        |
+        <a class = "acc" id = "signup">Sign Up</a>
+    </div>
+</div>
+
+<div class = "string">
+    <div class = "pin">
+        <div class = "groove">
+            <div class = "metal">
             </div>
         </div>
-        
-        <!-- Pull out user photo that reveals username and short description  -->
-        
-        <div id = "sidebar">
-            
-            <div id = "info">
-                <a id = "username">username</a>
-                <p id = "description">description goes here</p>
-            </div>
-            
-            <div id = "pulltab"></div>
-        
+    </div>
+
+    <!-- POLAROID PHOTO -->
+
+    <div class = "polaroid">
+
+        <div class = "thumbnail">
+
         </div>
+<<<<<<< HEAD
         
         <div class = "searchbar">
             <input type = "search" id = "searchbox" placeholder="Search">
@@ -135,275 +210,259 @@
                 <a class = "acc" id = "signup">Sign Up</a>
                 <div id = "clickedNavBarLinks">
                 </div>
+=======
+
+    </div>
+
+    <div class = "pin">
+        <div class = "groove">
+            <div class = "metal">
+>>>>>>> 89787d660b25a9733f422ba86e5d299a299ea9df
             </div>
         </div>
-        
-        <div class = "string">
-            <div class = "pin">
-                <div class = "groove">
-                    <div class = "metal">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- POLAROID PHOTO -->
+    </div>
 
-            <div class = "polaroid">
+    <!-- POLAROID PHOTO -->
 
-                <div class = "thumbnail">
+    <div class = "polaroid">
 
-                </div>
+        <div class = "thumbnail">
 
-            </div>
-            
-            <div class = "pin">
-                <div class = "groove">
-                    <div class = "metal">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- POLAROID PHOTO -->
+        </div>
 
-            <div class = "polaroid">
+    </div>
 
-                <div class = "thumbnail">
-
-                </div>
-
-            </div>
-            
-            <div class = "pin">
-                <div class = "groove">
-                    <div class = "metal">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- POLAROID PHOTO -->
-
-            <div class = "polaroid">
-
-                <div class = "thumbnail">
-
-                </div>
-
-            </div>
-            
-            <div class = "pin">
-                <div class = "groove">
-                    <div class = "metal">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- POLAROID PHOTO -->
-
-            <div class = "polaroid">
-
-                <div class = "thumbnail">
-
-                </div>
-
-            </div>
-            
-            <div class = "pin">
-                <div class = "groove">
-                    <div class = "metal">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- POLAROID PHOTO -->
-
-            <div class = "polaroid">
-
-                <div class = "thumbnail">
-
-                </div>
-
+    <div class = "pin">
+        <div class = "groove">
+            <div class = "metal">
             </div>
         </div>
-        
-        <!-- string -->
-        
-        <div class = "string">
-            <div class = "pin">
-                <div class = "groove">
-                    <div class = "metal">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- POLAROID PHOTO -->
+    </div>
 
-            <div class = "polaroid">
+    <!-- POLAROID PHOTO -->
 
-                <div class = "thumbnail">
+    <div class = "polaroid">
 
-                </div>
+        <div class = "thumbnail">
 
-            </div>
-            
-            <div class = "pin">
-                <div class = "groove">
-                    <div class = "metal">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- POLAROID PHOTO -->
+        </div>
 
-            <div class = "polaroid">
+    </div>
 
-                <div class = "thumbnail">
-
-                </div>
-
-            </div>
-            
-            <div class = "pin">
-                <div class = "groove">
-                    <div class = "metal">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- POLAROID PHOTO -->
-
-            <div class = "polaroid">
-
-                <div class = "thumbnail">
-
-                </div>
-
-            </div>
-            
-            <div class = "pin">
-                <div class = "groove">
-                    <div class = "metal">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- POLAROID PHOTO -->
-
-            <div class = "polaroid">
-
-                <div class = "thumbnail">
-
-                </div>
-
-            </div>
-            
-            <div class = "pin">
-                <div class = "groove">
-                    <div class = "metal">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- POLAROID PHOTO -->
-
-            <div class = "polaroid">
-
-                <div class = "thumbnail">
-
-                </div>
-
+    <div class = "pin">
+        <div class = "groove">
+            <div class = "metal">
             </div>
         </div>
-        
-        <!-- string -->
-        
-        <div class = "string">
-            <div class = "pin">
-                <div class = "groove">
-                    <div class = "metal">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- POLAROID PHOTO -->
+    </div>
 
-            <div class = "polaroid">
+    <!-- POLAROID PHOTO -->
 
-                <div class = "thumbnail">
+    <div class = "polaroid">
 
-                </div>
+        <div class = "thumbnail">
 
-            </div>
-            
-            <div class = "pin">
-                <div class = "groove">
-                    <div class = "metal">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- POLAROID PHOTO -->
+        </div>
 
-            <div class = "polaroid">
+    </div>
 
-                <div class = "thumbnail">
-
-                </div>
-
-            </div>
-            
-            <div class = "pin">
-                <div class = "groove">
-                    <div class = "metal">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- POLAROID PHOTO -->
-
-            <div class = "polaroid">
-
-                <div class = "thumbnail">
-
-                </div>
-
-            </div>
-            
-            <div class = "pin">
-                <div class = "groove">
-                    <div class = "metal">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- POLAROID PHOTO -->
-
-            <div class = "polaroid">
-
-                <div class = "thumbnail">
-
-                </div>
-
-            </div>
-            
-            <div class = "pin">
-                <div class = "groove">
-                    <div class = "metal">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- POLAROID PHOTO -->
-
-            <div class = "polaroid">
-
-                <div class = "thumbnail">
-
-                </div>
-
+    <div class = "pin">
+        <div class = "groove">
+            <div class = "metal">
             </div>
         </div>
-        
-        
-    </body>
-    
+    </div>
+
+    <!-- POLAROID PHOTO -->
+
+    <div class = "polaroid">
+
+        <div class = "thumbnail">
+
+        </div>
+
+    </div>
+</div>
+
+<!-- string -->
+
+<div class = "string">
+    <div class = "pin">
+        <div class = "groove">
+            <div class = "metal">
+            </div>
+        </div>
+    </div>
+
+    <!-- POLAROID PHOTO -->
+
+    <div class = "polaroid">
+
+        <div class = "thumbnail">
+
+        </div>
+
+    </div>
+
+    <div class = "pin">
+        <div class = "groove">
+            <div class = "metal">
+            </div>
+        </div>
+    </div>
+
+    <!-- POLAROID PHOTO -->
+
+    <div class = "polaroid">
+
+        <div class = "thumbnail">
+
+        </div>
+
+    </div>
+
+    <div class = "pin">
+        <div class = "groove">
+            <div class = "metal">
+            </div>
+        </div>
+    </div>
+
+    <!-- POLAROID PHOTO -->
+
+    <div class = "polaroid">
+
+        <div class = "thumbnail">
+
+        </div>
+
+    </div>
+
+    <div class = "pin">
+        <div class = "groove">
+            <div class = "metal">
+            </div>
+        </div>
+    </div>
+
+    <!-- POLAROID PHOTO -->
+
+    <div class = "polaroid">
+
+        <div class = "thumbnail">
+
+        </div>
+
+    </div>
+
+    <div class = "pin">
+        <div class = "groove">
+            <div class = "metal">
+            </div>
+        </div>
+    </div>
+
+    <!-- POLAROID PHOTO -->
+
+    <div class = "polaroid">
+
+        <div class = "thumbnail">
+
+        </div>
+
+    </div>
+</div>
+
+<!-- string -->
+
+<div class = "string">
+    <div class = "pin">
+        <div class = "groove">
+            <div class = "metal">
+            </div>
+        </div>
+    </div>
+
+    <!-- POLAROID PHOTO -->
+
+    <div class = "polaroid">
+
+        <div class = "thumbnail">
+
+        </div>
+
+    </div>
+
+    <div class = "pin">
+        <div class = "groove">
+            <div class = "metal">
+            </div>
+        </div>
+    </div>
+
+    <!-- POLAROID PHOTO -->
+
+    <div class = "polaroid">
+
+        <div class = "thumbnail">
+
+        </div>
+
+    </div>
+
+    <div class = "pin">
+        <div class = "groove">
+            <div class = "metal">
+            </div>
+        </div>
+    </div>
+
+    <!-- POLAROID PHOTO -->
+
+    <div class = "polaroid">
+
+        <div class = "thumbnail">
+
+        </div>
+
+    </div>
+
+    <div class = "pin">
+        <div class = "groove">
+            <div class = "metal">
+            </div>
+        </div>
+    </div>
+
+    <!-- POLAROID PHOTO -->
+
+    <div class = "polaroid">
+
+        <div class = "thumbnail">
+
+        </div>
+
+    </div>
+
+    <div class = "pin">
+        <div class = "groove">
+            <div class = "metal">
+            </div>
+        </div>
+    </div>
+
+    <!-- POLAROID PHOTO -->
+
+    <div class = "polaroid">
+
+        <div class = "thumbnail">
+
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+
 </html>
