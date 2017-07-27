@@ -51,7 +51,7 @@ $(document).ready(function(){
                       "<div id = \"password-input\">" +
                       "<input type = \"password\" placeholder=\"Password\">" +
                       "</div>" +
-                      "<button>Log In</button>";
+                      "<button class=\"input-box\">Log In</button>";
     });
 
     $("#signup").click(function(event){
@@ -68,7 +68,7 @@ $(document).ready(function(){
                                   "<div id = \"name-input\">" +
                                   "<input type = \"text\" placeholder=\"Name\">" +
                                   "</div>" +
-                                  "<button>Sign Up</button>";
+                                  "<button class = \"input-box\">Sign Up</button>";
     });
 
     $(window).click(function(){
