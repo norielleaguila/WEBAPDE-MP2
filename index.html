@@ -10,7 +10,11 @@
         <meta name="viewport" content="width=device-width" />
         
         <link rel="stylesheet" type = "text/css" href="style.css">
-        
+        <!--<link rel="javascript" type = "text/javascript" href="script.js">-->
+
+        <script type="text/javascript" src="script.js"></script>
+
+        <!--<script type="text/javascript" src="script.js"></script>-->
     </head>
     
     <body>
@@ -39,10 +43,12 @@
                 <input type = "search" id = "searchbox" placeholder="Search">
             </div>
             
-            <div class="links">
+            <div class="links" id = "navBarLinks">
                 <a class = "acc" id = "login">Log In</a>
                 |
                 <a class = "acc" id = "signup">Sign Up</a>
+                <div id = "clickedNavBarLinks">
+                </div>
             </div>
         </div>
         
