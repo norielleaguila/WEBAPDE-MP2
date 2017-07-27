@@ -43,38 +43,38 @@ $(document).ready(function(){
     $(document).on('click', '#login', function(event){
         event.stopPropagation();
         var x = document.getElementById('clickedNavBarLinks');
-            x.style.display = 'block';
+        x.style.display = 'block';
 
-            x.innerHTML = "<div id = \"username-input\">" +
-                          "<input type = \"search\"  placeholder=\"Username\">" +
-                          "</div>" +
-                          "<div id = \"password-input\">" +
-                          "<input type = \"password\" placeholder=\"Password\">" +
-                          "</div>" +
-                          "<button>Log In</button>";
+        x.innerHTML = "<div id = \"username-input\">" +
+                      "<input type = \"search\"  placeholder=\"Username\">" +
+                      "</div>" +
+                      "<div id = \"password-input\">" +
+                      "<input type = \"password\" placeholder=\"Password\">" +
+                      "</div>" +
+                      "<button>Log In</button>";
     });
 
     $("#signup").click(function(event){
         event.stopPropagation();
         var x = document.getElementById('clickedNavBarLinks');
-            x.style.display = 'block';
+        x.style.display = 'block';
 
-            x.innerHTML = "<div id = \"username-input\">" +
-                                      "<input type = \"search\"  placeholder=\"Username\">" +
-                                      "</div>" +
-                                      "<div id = \"password-input\">" +
-                                      "<input type = \"password\" placeholder=\"Password\">" +
-                                      "</div>" +
-                                      "<div id = \"name-input\">" +
-                                      "<input type = \"password\" placeholder=\"Name\">" +
-                                      "</div>" +
-                                      "<button>Register</button>";
+        x.innerHTML = "<div id = \"username-input\">" +
+                                  "<input type = \"search\"  placeholder=\"Username\">" +
+                                  "</div>" +
+                                  "<div id = \"password-input\">" +
+                                  "<input type = \"password\" placeholder=\"Password\">" +
+                                  "</div>" +
+                                  "<div id = \"name-input\">" +
+                                  "<input type = \"password\" placeholder=\"Name\">" +
+                                  "</div>" +
+                                  "<button>Register</button>";
     });
 
     $(window).click(function(){
         var x = document.getElementById('clickedNavBarLinks');
-            x.style.display = 'none';
+        x.style.display = 'none';
     });
 
 
-})
+});
