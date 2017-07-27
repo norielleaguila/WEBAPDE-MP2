@@ -90,11 +90,12 @@ a{
 
 .close {
     position: absolute;
-    top: 15px;
+    top: 100px;
     right: 35px;
     color: #f1f1f1;
     font-size: 40px;
     font-weight: bold;
+    text-decoration: none;
     transition: 0.3s;
 }
 
@@ -118,7 +119,8 @@ a{
 .photo {
     margin: auto;
     display: block;
-    width: 80%;
+    transform: scale(0.8);
+    margin-top: 80px;
     margin-left: 100px;
     max-width: 600px;
     background-color:antiquewhite;
