@@ -92,6 +92,8 @@
         var photo = document.createElement("div");
         var caption = document.createElement("div");
 
+        var navbar = document.getElementById('navbar');
+
         //add classes
         $(pin).addClass("pin");
         $(groove).addClass("groove");
@@ -128,10 +130,12 @@
 
         $(polaroid).click(function(){
             modal.style.display = "flex";
+            navbar.style.display = "none";
         });
 
         $(close).click(function(){
             modal.style.display = "none";
+            navbar.style.display = "block";
         });
     }
 
@@ -259,8 +263,10 @@ $(document).ready(function(){
         setTimeout(function() {
             scroll = div.scrollTop();
         }, 200);
+//        console.log(Math.round($(this).scrollTop()) + " " + $(".feed")[0].scrollHeight +" " + window.innerHeight);
+//        console.log(div.scrollHeight);
         if (Math.round($(this).scrollTop()) == $(".feed")[0].scrollHeight - window.innerHeight &&
-            document.getElementsByClassName("close")[0].style.display == "none") { //scrollTop is 0 based
+            /*document.getElementsByClassName("close")[0].style.display == "none"*/) { //scrollTop is 0 based
             console.log("Load more!");
             for(i = 0; i < 3; i++){     // 3 strings * 5 photos each
                 var stringDiv = loadPhotos();
