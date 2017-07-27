@@ -9,6 +9,11 @@
 }
 
 @font-face{
+    font-family:Children of the Starlight;
+    src: url('media/Children of the Starlight.ttf');
+}
+
+@font-face{
     font-family:Poetsen One;
     src: url('media/PoetsenOne-Regular.ttf');
 }
@@ -41,21 +46,41 @@ body{
 
 #navbar{
 /*                background: linear-gradient(#005377, rgba(230, 236, 240, 0));*/
-    background-image: url('navbar.png');
+    background-image: url('test.png');
+    background-repeat:repeat-x;
     position: fixed;
     width: 100%;
-    height: 50px;
-    z-index:100;
+    height: 100px;
+    z-index:10;
     padding: 10px;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+}
+
+#title{
+    margin: 0 auto;
+    font-family: Children of the Starlight;
+    font-size: 3.5em;
+    display: inline-block;
+    align-self: center;
+    color: white;
+}
+
+#title:hover{
+    color: darkslategray;
+    cursor: pointer;
 }
 
 .modal{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 50; /* Sit on top */
+    z-index: 100; /* Sit on top */
     padding-top: 0;
     left: 0;
-    top: 70px;      /*Size of the nav bar*/
+    top: 0px;      /*Size of the nav bar*/
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: none; /* Enable scroll if needed */
@@ -94,13 +119,17 @@ body{
     margin: auto;
     display: block;
     width: 80%;
+    margin-left: 100px;
     max-width: 600px;
     background-color:antiquewhite;
 }
 
 .searchbar{
+    position: absolute;
+    z-index: 11;
     margin: 0 auto;
-    margin-top: 5px;
+    margin-top: 10px;
+    margin-left: 20px;
     display: inline-block;
     text-align: center;
     align-items: center;
@@ -138,7 +167,7 @@ body{
 }
 
 .acc:hover{
-    color:lightgrey;
+    color:darkslategrey;
     cursor: pointer;
 }
 
