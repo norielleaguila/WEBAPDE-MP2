@@ -91,6 +91,8 @@
         var close = document.createElement("span");
         var photo = document.createElement("div");
         var caption = document.createElement("div");
+        
+        var navbar = document.getElementById('navbar');
 
         //add classes
         $(pin).addClass("pin");
@@ -128,10 +130,12 @@
 
         $(polaroid).click(function(){
             modal.style.display = "flex";
+            navbar.style.display = "none";
         });
 
         $(close).click(function(){
             modal.style.display = "none";
+            navbar.style.display = "block";
         });
     }
 
