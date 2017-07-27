@@ -289,6 +289,8 @@
                                 " multiple name=\"file\" id=\"file\" /></div>" +
                                 "<button id=\"uploadButton\">Submit</button></form>";
 
+                                // update db (save images)
+
         });
 
         $("#profile").click(function(event){
