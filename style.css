@@ -147,12 +147,12 @@ body{
     padding: 10px;
     padding-top: 15px;
     box-shadow: 2px 2px 15px rgba(57, 57, 57, 0.53);
-    transform: all 0.3s ease-in;
+    transition: all 0.2s ease-in;
 }
 
 .polaroid:hover{
     transform: scale(1.1);
-    transform: all 0.3s ease-in;
+    transition: all 0.2s ease-in;
     z-index: 20;
 }
 
@@ -163,20 +163,28 @@ body{
     height: 170px;
 }
 
-
+@keyframes zoom {
+    from{transform: scale(0)}
+    to {transform: scale(1)}
+}
 
 #clickedNavBarLinks{
-    position: relative;
+    position: fixed;
     display: none;
     background-color: white;
     padding: 10px;
     padding-top: 15px;
     box-shadow: 2px 2px 15px rgba(57, 57, 57, 0.53);
-    transform: all 0.3s ease-in;
     direction: rtl;
     border-radius: 2px;
     text-align: center;
     margin: 10px;
+    transition: all 0.3s ease-in;
+    transform-origin:top right;
+    animation-name: zoom;
+    animation-delay: 0;
+    animation-duration: 0.5s;
+    animation-direction: normal;
 }
 
 input{
@@ -190,6 +198,10 @@ input{
     margin: 5px;
 }
 
+input:focus{
+    outline: none;
+}
+
 .input-box{
     margin: 10px;
     border-style: solid;
@@ -200,3 +212,4 @@ input{
     width: 100px;
     background-color: rgb(230, 236, 240);
 }
+
