@@ -68,7 +68,7 @@ $(document).ready(function(){
                                   "<div id = \"name-input\">" +
                                   "<input type = \"password\" placeholder=\"Name\">" +
                                   "</div>" +
-                                  "<button>Register</button>";
+                                  "<button>Sign Up</button>";
     });
 
     $(window).click(function(){

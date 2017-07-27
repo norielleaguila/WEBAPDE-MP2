@@ -93,6 +93,7 @@ body{
     margin: 10px;
     margin-right: 50px;
     color: white;
+    direction: rtl;
 }
 
 .acc{
@@ -173,4 +174,9 @@ body{
     background-color: darkslategrey;
     width: 180px;
     height: 170px;
+}
+
+#clickedNavBarLinks{
+    height: 100px;
+    direction: rtl;
 }
