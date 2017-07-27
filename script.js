@@ -149,17 +149,15 @@
             navBar.innerHTML = "<div id = \"navbar\">" +
                           "<a href = \"index.html\" id = \"title\"> twine </a>" +
                           "<div class=\"links\" id = \"navBarLinks\">" +
-                          "<a class = \"acc\" id = \"profile\">Profile</a>" +
+                          "<a class = \"acc\" id = \"profile\">Profile</a>" +       //Profile or username na niya? update db
                           "|" +
                           "<a class = \"acc\" id = \"upload\">Upload</a>" +
                           "|" +
-                          "<a class = \"acc\" id = \"signup\">Log Out</a>" +
+                          "<a class = \"acc\" id = \"logout\">Log Out</a>" +
                           "<div id = \"clickedNavBarLinks\">" +
                           "</div>" +
                           "</div>" +
                           "</div>";
-
-                          console.log("WA");
     }
 
     $(document).ready(function(){
@@ -169,7 +167,7 @@
             $(".feed").append(stringDiv);
         }
 
-        if(true/*Check if user is logged in cookies(??) idk*/)
+        if(window.location.toString().indexOf("profile") != -1/*Check if user is logged in cookies(??) idk*/)
             changeNavBar();
 
     //    loadPosts();
@@ -235,7 +233,7 @@
             var password = document.getElementById('password-input').value;
 
             if(username !== null && password !== null){
-                // Update (Check from the database)
+                // Update (Check from the database) && cookies jsp
                 console.log(username + " " + password + " ");
                 x.style.display = 'none';
 
@@ -276,6 +274,26 @@
                                       "<button class = \"input-box\" id = \"signUpButton\">Sign Up</button>";
         });
 
+        $("#logout").click(function(event){
+            window.location.href = "index.html";
+            // update jsp (cookies)
+        });
+
+        $("#upload").click(function(event){
+            event.stopPropagation();
+            var x = document.getElementById('clickedNavBarLinks');
+            x.style.display = 'block';
+
+            x.innerHTML = " <form action=\"\" method=\"post\" enctype=\"multipart/form-data\"" +
+                                " name=\"uploadForm\" id=\"uploadForm\"><div>upload file<input type=\"file\"" +
+                                " multiple name=\"file\" id=\"file\" /></div>" +
+                                "<button id=\"uploadButton\">Submit</button></form>";
+
+        });
+
+        $("#profile").click(function(event){
+            window.location.href = "profile.html";
+        });
 
         $(window).click(function(){
             var x = document.getElementById('clickedNavBarLinks');
