@@ -130,10 +130,16 @@
 
         $(polaroid).click(function(){
             modal.style.display = "flex";
+            
         });
+        
+        polaroid.addEventListener('click', function() {
+            document.body.classList.toggle('noscroll');
+        })
 
         $(close).click(function(){
             modal.style.display = "none";
+            document.body.classList.toggle('noscroll');
         });
     }
 

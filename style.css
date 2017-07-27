@@ -42,6 +42,11 @@ body{
     font-family:Roboto Light;
     /*     font-family: Young;*/
     font-size: 1em;
+/*    overflow: auto;*/
+}
+
+.noscroll { 
+  overflow: hidden;
 }
 
 #navbar{
@@ -127,7 +132,7 @@ a{
 }
 
 .searchbar{
-    position: absolute;
+    position: fixed;
     z-index: 11;
     margin: 0 auto;
     margin-top: 10px;
@@ -135,6 +140,7 @@ a{
     display: inline-block;
     text-align: center;
     align-items: center;
+    
 }
 
 #searchbox{
@@ -147,6 +153,7 @@ a{
     margin: 0 auto;
     border-radius: 100px;
     border-style: none;
+    opacity: 0%;
 }
 
 #searchbox:focus{
