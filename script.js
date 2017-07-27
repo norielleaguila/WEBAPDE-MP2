@@ -40,7 +40,7 @@ $(document).ready(function(){
 //        document.getElementsByClassName("album-previews")[0].style.display = "inline-block";
 //    });
 
-    $("#login").click(function(event){
+    $(document).on('click', '#login', function(event){
         event.stopPropagation();
         var x = document.getElementById('clickedNavBarLinks');
             x.style.display = 'block';
