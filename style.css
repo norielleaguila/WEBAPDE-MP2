@@ -181,7 +181,7 @@ a{
 }
 
 .string{
-    position: relative;
+/*    position: relative;*/
     top: 150px;
     background-color: #e1b07e;
     height: 5px;
