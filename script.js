@@ -185,9 +185,15 @@
         var nDaysExpiry = 21;   // 3 weeks
         d.setTime(d.getTime() + (nDaysExpiry*24*60*60*1000));
         var expires = "expires="+ d.toUTCString();
+        var loggedInUser     =  getCookie("loggedInUser").substring(getCookie("loggedInUser").indexOf("="), getCookie("loggedInUser").length);
+        var rememberedUser =  getCookie("username").substring(getCookie("username").indexOf("="), getCookie("username").length)
 
-        if(document.getElementById("rememberme") != null && document.getElementById("rememberme").checked && getCookie("loggedInUser") != "")
-            document.cookie = "username" + "=" + username + ";" + expires + ";path=/";
+        if( loggedInUser == rememberedUser && loggedInUser != ""){
+//            alert("Updating cookies");
+//            alert(loggedInUser);
+            document.cookie = "username" + "=" + rememberedUser + ";" + expires + ";path=/";
+            document.cookie = "loggedInUser" + "=" + rememberedUser + ";" + expires + ";path=/";
+        }/*else alert("NOT FOUND")*/;
 
 
         for(var i = 0; i < 3; i++){     // 3 strings * 5 photos each
@@ -349,10 +355,11 @@
         });
 
         $("#logout").click(function(event){
-            window.location.href = "index.html";
-
+            alert("expiring cookies");
             document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
             document.cookie = "loggedInUser=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+            window.location.href = "index.html";
         });
 
         $("#upload").click(function(event){
