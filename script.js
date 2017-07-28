@@ -163,6 +163,16 @@
         photo.addEventListener('mouseout', function(){
             tag.style.display = "none";
         });
+        
+        tag.addEventListener('mouseover', function(){
+           tag.style.width = "auto";
+            tag.innerHTML = "<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
+                "<p class = \"tagged\">Tagged: Harvey</p>";
+        });
+        
+        tag.addEventListener('mouseout', function(){
+            tag.innerHTML = "<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>";
+        });
     }
 
     function changeNavBar() {
@@ -429,11 +439,7 @@
             setTimeout(function() {
                 scroll = div.scrollTop();
             }, 200);
-//            console.log(Math.round($(this).scrollTop()) + " " + height +" " + window.innerHeight);
-    //        console.log(div.scrollHeight);
-            if (Math.round($(this).scrollTop()) == height - window.innerHeight
-                /*document.getElementsByClassName("close")[0].style.display == "none"*/) { //scrollTop is 0 based
-//                console.log("Load more!");
+            if (Math.round($(this).scrollTop()) == height - window.innerHeight){
                 for(var i = 0; i < 3; i++){     // 3 strings * 5 photos each
                     if(document.getElementById("checkBoxPane") != null && document.getElementById("checkBoxPane").checked){
                         var stringDiv = loadPhotos();

@@ -405,4 +405,17 @@ button{
     text-align: right;
     display: none;
     font-size: 30px;
+    max-width: 600px;
+}
+
+.tagged{
+    margin: 0;
+    padding-left: 20px;
+    display: inline-block;
+    cursor: default;
+    font-size: 18px;
+}
+
+.tagged:hover{
+    width: auto;
 }
