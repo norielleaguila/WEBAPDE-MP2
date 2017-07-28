@@ -393,8 +393,12 @@
                 document.getElementById('a1').innerHTML = "Shared Photos";
 //                $('body, html').animate({ scrollLeft: $(this).width }, 700);
 
-                feed.style.display = "none";
-                sharedFeed.style.display = "block";
+//                feed.style.display = "none";
+//                sharedFeed.style.display = "block";
+                
+                var x = document.getElementById('feedcontainer');
+                x.style.left = "-100%";
+                
                 document.body.scrollTop  = sharedFeedScrollTop;
             } else{
 
@@ -406,8 +410,12 @@
                 document.getElementById('a1').innerHTML = "Public Photos";
 //                $('body, html').animate({ scrollLeft: 0 }, 700);
 
-                sharedFeed.style.display = "none";
-                feed.style.display = "block";
+//                sharedFeed.style.display = "none";
+//                feed.style.display = "block";
+                
+                var x = document.getElementById('feedcontainer');
+                x.style.left = "0%";
+                
                 document.body.scrollTop  = feedScrollTop;
             }
         });

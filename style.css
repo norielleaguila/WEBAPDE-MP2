@@ -196,18 +196,17 @@ button:active{
     z-index: 0;
     text-align: center;
     margin-bottom: 320px;
-    animation: slide;
     transition: all 0.3s ease-in;
+    box-shadow: 2px 2px 5px rgba(57, 57, 57, 0.53);
     transform-origin: right;
     animation-name: slide;
     animation-delay: 0;
     animation-duration: 1s;
     animation-direction: normal;
-    box-shadow: 2px 2px 5px rgba(57, 57, 57, 0.53);
 }
 
 @keyframes slide{
-    from{transform: translateX(3000px)}
+    from{transform: translateX(5000px)}
     to {transform: translateX(0px)}
 }
 
@@ -299,13 +298,32 @@ button:active{
     animation-direction: normal;
 }
 
+#feedcontainer{
+    width: 100%;
+    height: 100%;
+    clear: both;
+    position: relative;
+    
+    -webkit-transition: left 2s;
+    -moz-transition: left 2s;
+    -o-transition: left 2s;
+    transition: left 2s;
+    
+    overflow: hidden;
+}
+
 .feed, .sharedFeed{
+    width: 100%;
     white-space: normal;
     padding-top: 200px;
+    display:inline-block;
+    float: left;
 }
 
 .sharedFeed{
-    display   : none;
+/*    display   : none;*/
+/*    left: 5000px;*/
+    background-color: black;
 }
 
 input{
