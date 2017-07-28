@@ -202,8 +202,10 @@
         var nDaysExpiry = 21;   // 3 weeks
         d.setTime(d.getTime() + (nDaysExpiry*24*60*60*1000));
         var expires = "expires="+ d.toUTCString();
-        var loggedInUser     =  getCookie("loggedInUser").substring(getCookie("loggedInUser").indexOf("="), getCookie("loggedInUser").length);
-        var rememberedUser =  getCookie("username").substring(getCookie("username").indexOf("="), getCookie("username").length)
+        var loggedInUser   =  getCookie("loggedInUser").substring(getCookie("loggedInUser").indexOf("="),
+                                                                  getCookie("loggedInUser").length);
+        var rememberedUser =  getCookie("username").substring(getCookie("username").indexOf("="),
+                                                              getCookie("username").length)
 
         if( loggedInUser == rememberedUser && loggedInUser != ""){
 //            alert("Updating cookies");
@@ -229,43 +231,6 @@
         if(getCookie("loggedInUser") != "")
             changeNavBar();
 
-    //    loadPosts();
-    //    loadAlbums();
-    //
-    //
-    //    $(".feed").scroll(function() {
-    //        var div = $(this);
-    //        var scroll = 0;
-    //
-    ///*                    setTimeout(function() {
-    //            scroll = div.scrollTop();
-    //        }, 200);
-    //        console.log(scroll);*/
-    //
-    //        if (Math.round($(this).scrollTop()) == $(".feed")[0].scrollHeight - 600) { //scrollTop is 0 based
-    //            console.log("Load more!");
-    //
-    //            loadPosts();
-    //        }
-    //    });
-
-    //    $(document).on('click', '.post-username', function(){
-    //        window.location.href = "profile.html";
-    //    });
-    //
-    //    $(document).on('click', '#username', function(){
-    //        window.location.href = "profile.html";
-    //    });
-    //
-    //    $(document).on('click', '#uPost', function(){
-    //        document.getElementById("feed").style.display = "inline-block";
-    //        document.getElementsByClassName("album-previews")[0].style.display = "none";
-    //    });
-    //
-    //    $(document).on('click', '#uPhotos', function(){
-    //        document.getElementById("feed").style.display = "none";
-    //        document.getElementsByClassName("album-previews")[0].style.display = "inline-block";
-    //    });
 
 
         $(document).on('click', '#clickedNavBarLinks', function(event){
@@ -322,24 +287,23 @@
                     document.cookie = "username" + "=" + username + ";" + expires + ";path=/";
                 document.cookie     = "loggedInUser" + "=" + username + ";path=/";
 
-                window.location.href = "profile.html";
+                window.location.href = "profile.html#" + username;
             }
             else{
-                x.innerHTML = 
-                    "<div class = \"errorlogin\">" +
-                        "Invalid username / password" +
-                    "</div>" +
-                    "<div>" +
-                        "<input id = \"username-input\" type = \"text\"  placeholder=\"Username\">" +
-                    "</div>" +
-                    "<div>" +
-                        "<input id = \"password-input\" type = \"password\" placeholder=\"Password\">" +
-                    "</div>" +
-                    "<div class = \"checkbox\">" +
-                        "<input id=\"rememberme\" type=\"checkbox\">" +
-                        "<label for=\"rememberme\">Remember Me</label>" +
-                    "</div>" +
-                    "<button class=\"input-box\" id = \"loginButton\">Log In</button>";
+                x.innerHTML = "<div class = \"errorlogin\">" +
+                              "Invalid username / password" +
+                              "</div>" +
+                              "<div>" +
+                                "<input id = \"username-input\" type = \"text\"  placeholder=\"Username\">" +
+                              "</div>" +
+                              "<div>" +
+                                "<input id = \"password-input\" type = \"password\" placeholder=\"Password\">" +
+                              "</div>" +
+                              "<div class = \"checkbox\">" +
+                                "<input id=\"rememberme\" type=\"checkbox\">" +
+                                "<label for=\"rememberme\">Remember Me</label>" +
+                              "</div>" +
+                              "<button class=\"input-box\" id = \"loginButton\">Log In</button>";
                     
             }
         });
@@ -350,16 +314,16 @@
             x.style.display = 'block';
 
             x.innerHTML = "<div>" +
-            "<input id = \"username-input\" type = \"text\"  placeholder=\"Username\">" +
-            "</div>" +
-            "<div>" +
-            "<input id = \"password-input\" type = \"password\" placeholder=\"Password\">" +
-            "</div>" +
-            "<div class = \"checkbox\">" +
-                "<input id=\"rememberme\" type=\"checkbox\">" +
-                "<label for=\"rememberme\">Remember Me</label>" +
-            "</div>" +
-            "<button class=\"input-box\" id = \"loginButton\">Log In</button>";
+                          "<input id = \"username-input\" type = \"text\"  placeholder=\"Username\">" +
+                          "</div>" +
+                          "<div>" +
+                          "<input id = \"password-input\" type = \"password\" placeholder=\"Password\">" +
+                          "</div>" +
+                          "<div class = \"checkbox\">" +
+                            "<input id=\"rememberme\" type=\"checkbox\">" +
+                            "<label for=\"rememberme\">Remember Me</label>" +
+                          "</div>" +
+                          "<button class=\"input-box\" id = \"loginButton\">Log In</button>";
         });
 
         $("#signup").click(function(event){
@@ -397,23 +361,24 @@
                                 " multiple name=\"file\" id=\"file\" /></div>" +
                                 "<button id=\"uploadButton\">Submit</button></form>";
 
-                                // update db (save images)
+
+        });
+
+
+        $("#uploadButton").click(function(event){
+
+            // update db (save images)
+            console.log("update db (save images)");
 
         });
 
         $("#profile").click(function(event){
-            window.location.href = "profile.html";
+            window.location.href = "profile.html#" + loggedInUser;
         });
 
         $(document).on('click', '#username', function(){
             var userId = $(this).attr('username');
-//            if (typeof(Storage) !== "undefined") {           // Code for localStorage/sessionStorage.
-//                sessionStorage.setItem("userId", userId);
-//                window.location.href = "profile.html#" + sessionStorage.getItem("userId");
-//            } else {                                         // Sorry! No Web Storage support..
-//                document.cookies = "username = " + test + ";path =/;";
-                window.location.href = "profile.html#" + /*getCookie("username")*/userId;
-//            }
+                window.location.href = "profile.html#" + userId;
         });
 
         $("#checkBoxPane").click(function(event){
@@ -426,7 +391,8 @@
                 
                 feedScrollTop       =  document.body.scrollTop;
                 document.getElementById('a1').innerHTML = "Shared Photos";
-                $('body, html').animate({ scrollLeft: $(this).width }, 700);
+//                $('body, html').animate({ scrollLeft: $(this).width }, 700);
+
                 feed.style.display = "none";
                 sharedFeed.style.display = "block";
                 document.body.scrollTop  = sharedFeedScrollTop;
@@ -438,7 +404,8 @@
 
                 sharedFeedScrollTop = document.body.scrollTop;
                 document.getElementById('a1').innerHTML = "Public Photos";
-                $('body, html').animate({ scrollLeft: 0 }, 700);
+//                $('body, html').animate({ scrollLeft: 0 }, 700);
+
                 sharedFeed.style.display = "none";
                 feed.style.display = "block";
                 document.body.scrollTop  = feedScrollTop;
@@ -462,7 +429,7 @@
             setTimeout(function() {
                 scroll = div.scrollTop();
             }, 200);
-            console.log(Math.round($(this).scrollTop()) + " " + height +" " + window.innerHeight);
+//            console.log(Math.round($(this).scrollTop()) + " " + height +" " + window.innerHeight);
     //        console.log(div.scrollHeight);
             if (Math.round($(this).scrollTop()) == height - window.innerHeight
                 /*document.getElementsByClassName("close")[0].style.display == "none"*/) { //scrollTop is 0 based
@@ -470,10 +437,10 @@
                 for(var i = 0; i < 3; i++){     // 3 strings * 5 photos each
                     if(document.getElementById("checkBoxPane").checked){
                         var stringDiv = loadPhotos();
-                        $(".feed").append(stringDiv);
+                        $(".sharedFeed").append(stringDiv);
                     } else {                                    // update db (shared feed call))
                         var stringDiv = loadPhotos();
-                        $(".sharedFeed").append(stringDiv);
+                        $(".feed").append(stringDiv);
                     }
                 }
             }

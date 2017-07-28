@@ -43,7 +43,7 @@ body{
     /*     font-family: Young;*/
     font-size: 1em;
     white-space: nowrap;
-/*    overflow-x: hidden;*/
+    overflow-x: hidden;
 }
 
 .noscroll {
