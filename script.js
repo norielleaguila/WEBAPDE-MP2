@@ -96,6 +96,8 @@
         var photo = document.createElement("div");
         var caption = document.createElement("div");
         
+        var tag = document.createElement("div");
+        
         var navbar = document.getElementById('navbar');
 
         //add classes
@@ -104,13 +106,20 @@
         $(metal).addClass("metal");
         $(polaroid).addClass("polaroid");
         $(thumbnail).addClass("thumbnail");
+        
 
         $(modal).addClass("modal");
         $(close).addClass("close");
         $(photo).addClass("photo");
         $(caption).addClass("caption");
+        $(tag).addClass("tag-overlay");
+        
+        tag.setAttribute('id', "tag");
 
         $(close).text("x");
+        
+        $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>");
+        
         $(caption).append("Title: " + data.title +
                         "<br>Album: " + '<a id="album" albumId="' +
                         album.id + '" userId = "' + user.username +
@@ -120,6 +129,7 @@
                         '"">' + user.username + '</a>');
         //assemble
         $(photo).prepend('<img id="theImg" src="' + data.url + '.png" />');
+        $(photo).append(tag);
         $(modal).append(close);
         $(modal).append(photo);
         $(modal).append(caption);
@@ -135,7 +145,6 @@
 
         $(polaroid).click(function(){
             modal.style.display = "flex";
-            
         });
         
         polaroid.addEventListener('click', function() {
@@ -145,6 +154,14 @@
         $(close).click(function(){
             modal.style.display = "none";
             document.body.classList.toggle('noscroll');
+        });
+        
+        photo.addEventListener('mouseover', function(){
+            tag.style.display = "block";
+        });
+        
+        photo.addEventListener('mouseout', function(){
+            tag.style.display = "none";
         });
     }
 
