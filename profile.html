@@ -132,8 +132,11 @@
         </style>
 
     <script>
-            $(document).on('click', 'slider-container', function(event){
-                var x = $(document).getElementById('slider');
+
+            $(document).ready(function(){
+                $("#checkBoxPane").click(function(){
+                    var x = document.getElementById('checkBoxPane');
+                });
             });
         </script>
 
@@ -151,7 +154,7 @@
 
 <!-- Rounded.slider-container -->
 <label class="slider-container">
-    <input type="checkbox">
+    <input type="checkbox" id = "checkBoxPane">
     <span class="slider"></span>
 </label>
 <!-- Pull out user photo that reveals username and short description  -->
