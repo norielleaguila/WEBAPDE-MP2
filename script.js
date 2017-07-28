@@ -435,7 +435,7 @@
                 /*document.getElementsByClassName("close")[0].style.display == "none"*/) { //scrollTop is 0 based
 //                console.log("Load more!");
                 for(var i = 0; i < 3; i++){     // 3 strings * 5 photos each
-                    if(document.getElementById("checkBoxPane").checked){
+                    if(document.getElementById("checkBoxPane") != null && document.getElementById("checkBoxPane").checked){
                         var stringDiv = loadPhotos();
                         $(".sharedFeed").append(stringDiv);
                     } else {                                    // update db (shared feed call))
