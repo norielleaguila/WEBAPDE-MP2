@@ -266,7 +266,7 @@
 
                 if(false/* update remember me checked*/)
                     document.cookie = "username" + "=" + username + ";" + expires + ";path=/";
-                document.cookie     = "logeedInUser" + "=" + username + ";path=/";
+                document.cookie     = "loggedInUser" + "=" + username + ";path=/";
 
                 window.location.href = "profile.html";
             }
