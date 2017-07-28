@@ -247,10 +247,27 @@
             var password = document.getElementById('password-input').value;
             var name = document.getElementById('name-input').value;
 
-            if(username !== null && password !== null && name !== null){
+            if(username !== null && password !== null && name !== null && username !== "" && password !== "" && name !== ""){
                 // Update database
                 console.log(name + ": " + username + " " + password + " ");
                 x.style.display = 'none';
+            }
+            else{
+                x.innerHTML = 
+                    "<div class = \"errorlogin\">" +
+                        "Please fill in all fields" +
+                    "</div>" +
+                    "<div>" +
+                        "<input id = \"username-input\" type = \"text\"  placeholder=\"Username\">" +
+                    "</div>" +
+                    "<div>" +
+                        "<input id = \"password-input\" type = \"password\" placeholder=\"Password\">" +
+                    "</div>" +
+                    "<div>" +
+                        "<input id = \"name-input\" type = \"text\" placeholder=\"Name\">" +
+                    "</div>" +
+                    "<button class = \"input-box\" id = \"signUpButton\">Sign Up</button>";
+                    
             }
         });
 
@@ -275,6 +292,24 @@
                 document.cookie     = "loggedInUser" + "=" + username + ";path=/";
 
                 window.location.href = "profile.html";
+            }
+            else{
+                x.innerHTML = 
+                    "<div class = \"errorlogin\">" +
+                        "Invalid username / password" +
+                    "</div>" +
+                    "<div>" +
+                        "<input id = \"username-input\" type = \"text\"  placeholder=\"Username\">" +
+                    "</div>" +
+                    "<div>" +
+                        "<input id = \"password-input\" type = \"password\" placeholder=\"Password\">" +
+                    "</div>" +
+                    "<div class = \"checkbox\">" +
+                        "<input id=\"rememberme\" type=\"checkbox\">" +
+                        "<label for=\"rememberme\">Remember Me</label>" +
+                    "</div>" +
+                    "<button class=\"input-box\" id = \"loginButton\">Log In</button>";
+                    
             }
         });
 

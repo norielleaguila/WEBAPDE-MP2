@@ -65,6 +65,14 @@ a{
     text-decoration: none;
 }
 
+button:focus{
+    outline: none;
+}
+
+button:active{
+    background-color: darkgrey;
+}
+
 #title{
     margin: 0 auto;
     font-family: Children of the Starlight;
@@ -332,4 +340,24 @@ input:focus{
 #rememberme{
     padding-top: 5px;
     color: darkslategray;
+}
+
+.errorlogin{
+    direction: ltr;
+    align-self: center;
+    width: 180px;
+    height: 20px;
+    padding: 10px;
+    margin-top:10px;
+    margin-bottom:10px;
+    background-color: whitesmoke;
+    color: red;
+    font-size: 12px;
+    text-align: center;
+    animation: zoom;
+    animation-delay: 0s;
+    animation-duration: 0.3s;
+    animation-direction: normal;
+    transform-origin: center;
+    transition: all 0.3s ease-in;
 }
