@@ -46,10 +46,7 @@ body{
 }
 
 .noscroll {
-/*
-  overflow: hidden;
-*/
-    position: absolute; overflow-y:scroll
+  overflow: scale;
 }
 
 #navbar{
