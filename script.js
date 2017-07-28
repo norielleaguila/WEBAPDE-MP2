@@ -368,7 +368,7 @@
             x.style.display = 'block';
 
             x.innerHTML = " <form action=\"\" method=\"post\" enctype=\"multipart/form-data\"" +
-                                " name=\"uploadForm\" id=\"uploadForm\"><div>upload file<input type=\"file\"" +
+                                " name=\"uploadForm\" id=\"uploadForm\"><div class = \"upload\">Upload file<input type=\"file\"" +
                                 " multiple name=\"file\" id=\"file\" /></div>" +
                                 "<button id=\"uploadButton\">Submit</button></form>";
 

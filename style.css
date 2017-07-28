@@ -316,7 +316,7 @@ input:focus{
     outline: none;
 }
 
-.input-box{
+button{
     margin: 10px;
     border-style: solid;
     border-width: thin;
@@ -325,6 +325,7 @@ input:focus{
     padding: 5px;
     width: 100px;
     background-color: rgb(230, 236, 240);
+    color: grey;
 }
 
 .checkbox{
@@ -357,4 +358,18 @@ input:focus{
     animation-direction: normal;
     transform-origin: center;
     transition: all 0.3s ease-in;
+}
+
+.upload{
+    padding: 10px;
+    direction:ltr;
+    color: grey;
+    font-size: 15px;
+}
+
+#file{
+    border-style: none;
+    margin: 0 auto;
+    margin-left: 10px;
+    padding: 5px;
 }
