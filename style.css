@@ -189,7 +189,19 @@ a{
     z-index: 0;
     text-align: center;
     margin-bottom: 320px;
+    animation: slide;
+    transition: all 0.3s ease-in;
+    transform-origin: right;
+    animation-name: slide;
+    animation-delay: 0;
+    animation-duration: 1s;
+    animation-direction: normal;
     box-shadow: 2px 2px 5px rgba(57, 57, 57, 0.53);
+}
+
+@keyframes slide{
+    from{transform: translateX(3000px)}
+    to {transform: translateX(0px)}
 }
 
 .pin{
