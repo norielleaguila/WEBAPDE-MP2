@@ -22,11 +22,14 @@
         //add classes
         $(stringDiv).addClass("string");
 
-
+        var url = "";
+        if(document.URL.indexOf("#") == 0)
+            url = root + '/photos/';
+        else url = root + '/photos/'; // update db (user's pictures) document.URL ("#")
         for(i = 1; i <= 5 && max && i < max; i++){
-            (function(i, loadA, stringDiv) {
+            (function(i, loadA, stringDiv, url) {
                 $.ajax({
-                    url: root + '/photos/',
+                    url: url,
                     method: 'GET',
                     error: function()
                     {
@@ -38,7 +41,7 @@
                         generateAlbumInfo(data[max - loadA - i], stringDiv);
                     }
                 });
-            })(i, loadA, stringDiv);
+            })(i, loadA, stringDiv, url);
         }
         loadA += 5;
         return stringDiv;
@@ -113,7 +116,8 @@
                         album.id + '" userId = "' + user.username +
                        '">' + album.title + '</a>' +
                        "<br>By: " + '<a id = "username" userId = "' +
-                        user.id + '">' + user.username + '</a>');
+                        user.id + '" username = "' + user.username  +
+                        '"">' + user.username + '</a>');
         //assemble
         $(photo).prepend('<img id="theImg" src="' + data.url + '.png" />');
         $(modal).append(close);
@@ -160,6 +164,22 @@
                           "</div>";
     }
 
+    function getCookie(toCheck) {
+        var name = toCheck + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
     $(document).ready(function(){
 
         for(var i = 0; i < 3; i++){     // 3 strings * 5 photos each
@@ -167,7 +187,7 @@
             $(".feed").append(stringDiv);
         }
 
-        if(window.location.toString().indexOf("profile") != -1/*Check if user is logged in cookies(??) idk*/)
+        if(getCookie("loggedInUser") != "")
             changeNavBar();
 
     //    loadPosts();
@@ -233,12 +253,21 @@
             var password = document.getElementById('password-input').value;
 
             if(username !== null && password !== null){
-                // Update (Check from the database) && cookies jsp
+                // Update (Check from the database)
                 console.log(username + " " + password + " ");
                 x.style.display = 'none';
 
-                localStorage.setItem("username", username);
-                localStorage.setItem("password", password);
+                var d = new Date();
+                var nDaysExpiry = 21;   // 3 weeks
+
+                d.setTime(d.getTime() + (nDaysExpiry*24*60*60*1000));
+
+                var expires = "expires="+ d.toUTCString();
+
+                if(false/* update remember me checked*/)
+                    document.cookie = "username" + "=" + username + ";" + expires + ";path=/";
+                document.cookie     = "logeedInUser" + "=" + username + ";path=/";
+
                 window.location.href = "profile.html";
             }
         });
@@ -263,20 +292,22 @@
             x.style.display = 'block';
 
             x.innerHTML = "<div>" +
-                                      "<input id = \"username-input\" type = \"text\"  placeholder=\"Username\">" +
-                                      "</div>" +
-                                      "<div>" +
-                                      "<input id = \"password-input\" type = \"password\" placeholder=\"Password\">" +
-                                      "</div>" +
-                                      "<div>" +
-                                      "<input id = \"name-input\" type = \"text\" placeholder=\"Name\">" +
-                                      "</div>" +
-                                      "<button class = \"input-box\" id = \"signUpButton\">Sign Up</button>";
+                          "<input id = \"username-input\" type = \"text\"  placeholder=\"Username\">" +
+                          "</div>" +
+                          "<div>" +
+                          "<input id = \"password-input\" type = \"password\" placeholder=\"Password\">" +
+                          "</div>" +
+                          "<div>" +
+                          "<input id = \"name-input\" type = \"text\" placeholder=\"Name\">" +
+                          "</div>" +
+                          "<button class = \"input-box\" id = \"signUpButton\">Sign Up</button>";
         });
 
         $("#logout").click(function(event){
             window.location.href = "index.html";
-            // update jsp (cookies)
+
+            document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "loggedInUser=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         });
 
         $("#upload").click(function(event){
@@ -295,6 +326,17 @@
 
         $("#profile").click(function(event){
             window.location.href = "profile.html";
+        });
+
+        $(document).on('click', '#username', function(){
+            var userId = $(this).attr('username');
+//            if (typeof(Storage) !== "undefined") {           // Code for localStorage/sessionStorage.
+//                sessionStorage.setItem("userId", userId);
+//                window.location.href = "profile.html#" + sessionStorage.getItem("userId");
+//            } else {                                         // Sorry! No Web Storage support..
+//                document.cookies = "username = " + test + ";path =/;";
+                window.location.href = "profile.html#" + /*getCookie("username")*/userId;
+//            }
         });
 
         $(window).click(function(){
