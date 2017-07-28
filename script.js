@@ -391,13 +391,23 @@
 //            }
         });
         
-        $(document).on('click', '#slider', function(){
-            if(document.getElementById('a1').innerHTML == "Public Photos")
-                document.getElementById('a1').innerHTML = "Shared Photos";
-            else
-                document.getElementById('a1').innerHTML = "Public Photos";
-        });
+        $("#checkBoxPane").click(function(){
+            var x = document.getElementById('checkBoxPane');
 
+            evt.preventDefault();  $("#posts").fadeIn(700);
+            $("#photos").fadeIn(1000);
+
+            $("body").delay(200).animate({
+                scrollLeft: ($('#photos').offset())
+            }, );
+
+            if(document.getElementById('a1').innerHTML == "Public Photos"){
+                document.getElementById('a1').innerHTML = "Shared Photos";
+            } else{
+                document.getElementById('a1').innerHTML = "Public Photos";
+            }
+        });
+        
         $(window).click(function(){
             var x = document.getElementById('clickedNavBarLinks');
             x.style.display = 'none';
