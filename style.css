@@ -46,7 +46,7 @@ body{
 }
 
 .noscroll {
-  overflow: scale;
+  overflow:hidden;
 }
 
 #navbar{
