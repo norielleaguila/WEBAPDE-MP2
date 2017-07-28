@@ -260,7 +260,7 @@
             var username = document.getElementById('username-input').value;
             var password = document.getElementById('password-input').value;
 
-            if(username !== null && password !== null){
+            if(username !== null && password !== null && username != "" && password != ""){
                 // Update (Check from the database)
                 console.log(username + " " + password + " ");
                 x.style.display = 'none';
