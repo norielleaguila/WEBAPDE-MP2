@@ -249,7 +249,7 @@
 
             if(username !== null && password !== null && name !== null && username !== "" && password !== "" && name !== ""){
                 // Update database
-                console.log(name + ": " + username + " " + password + " ");
+//                console.log(name + ": " + username + " " + password + " ");
                 x.style.display = 'none';
             }
             else{
@@ -383,6 +383,13 @@
                 window.location.href = "profile.html#" + /*getCookie("username")*/userId;
 //            }
         });
+        
+        $(document).on('click', '#slider', function(){
+            if(document.getElementById('a1').innerHTML == "Public Photos")
+                document.getElementById('a1').innerHTML = "Shared Photos";
+            else
+                document.getElementById('a1').innerHTML = "Public Photos";
+        });
 
         $(window).click(function(){
             var x = document.getElementById('clickedNavBarLinks');
@@ -396,18 +403,15 @@
             setTimeout(function() {
                 scroll = div.scrollTop();
             }, 200);
-            console.log(Math.round($(this).scrollTop()) + " " + $(".feed")[0].scrollHeight +" " + window.innerHeight);
+//            console.log(Math.round($(this).scrollTop()) + " " + $(".feed")[0].scrollHeight +" " + window.innerHeight);
     //        console.log(div.scrollHeight);
             if (Math.round($(this).scrollTop()) == $(".feed")[0].scrollHeight - window.innerHeight
                 /*document.getElementsByClassName("close")[0].style.display == "none"*/) { //scrollTop is 0 based
-                console.log("Load more!");
+//                console.log("Load more!");
                 for(var i = 0; i < 3; i++){     // 3 strings * 5 photos each
                     var stringDiv = loadPhotos();
                     $(".feed").append(stringDiv);
                 }
             }
         });
-
-
-
     });

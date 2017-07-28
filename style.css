@@ -42,7 +42,6 @@ body{
     font-family:Roboto Light;
     /*     font-family: Young;*/
     font-size: 1em;
-/*    overflow: auto;*/
 }
 
 .noscroll {
@@ -50,14 +49,12 @@ body{
 }
 
 #navbar{
-/*                background: linear-gradient(#005377, rgba(230, 236, 240, 0));*/
     background-image: url('test.png');
     background-repeat:repeat-x;
     position: fixed;
     width: 100%;
     height: 100px;
     z-index:100;
-/*    padding: 10px;*/
     text-align: center;
 }
 
