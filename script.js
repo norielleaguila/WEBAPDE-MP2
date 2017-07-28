@@ -278,12 +278,16 @@
             x.style.display = 'block';
 
             x.innerHTML = "<div>" +
-                          "<input id = \"username-input\" type = \"text\"  placeholder=\"Username\">" +
-                          "</div>" +
-                          "<div>" +
-                          "<input id = \"password-input\" type = \"password\" placeholder=\"Password\">" +
-                          "</div>" +
-                          "<button class=\"input-box\" id = \"loginButton\">Log In</button>";
+            "<input id = \"username-input\" type = \"text\"  placeholder=\"Username\">" +
+            "</div>" +
+            "<div>" +
+            "<input id = \"password-input\" type = \"password\" placeholder=\"Password\">" +
+            "</div>" +
+            "<div class = \"checkbox\">" +
+                "<input id=\"rememberme\" type=\"checkbox\">" +
+                "<label for=\"rememberme\">Remember Me</label>" +
+            "</div>" +
+            "<button class=\"input-box\" id = \"loginButton\">Log In</button>";
         });
 
         $("#signup").click(function(event){

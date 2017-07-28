@@ -255,6 +255,7 @@ a{
     width: 100%; /* max width */
     opacity: 1;  /* make it transparent */
 }
+
 @keyframes zoom {
     from{transform: scale(0)}
     to {transform: scale(1)}
@@ -277,6 +278,10 @@ a{
     animation-delay: 0;
     animation-duration: 0.5s;
     animation-direction: normal;
+}
+
+.feed{
+    padding-top: 200px;   
 }
 
 input{
@@ -305,3 +310,14 @@ input:focus{
     background-color: rgb(230, 236, 240);
 }
 
+.checkbox{
+    direction: ltr;
+    color: black;
+    text-align: center;
+    font-size: 14px;
+}
+
+#rememberme{
+    padding-top: 5px;
+    color: darkslategray;
+}
