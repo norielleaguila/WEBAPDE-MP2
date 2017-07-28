@@ -1,7 +1,7 @@
 
     var loaded = 0;
     var loadA = 0;
-    var root = 'https://jsonplaceholder.typicode.com';
+    var root = 'http://jsonplaceholder.typicode.com';
     var max = function () {
         var tmp = null;
         $.ajax({
@@ -181,6 +181,14 @@
     }
 
     $(document).ready(function(){
+        var d = new Date();
+        var nDaysExpiry = 21;   // 3 weeks
+        d.setTime(d.getTime() + (nDaysExpiry*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+
+        if(document.getElementById("rememberme") != null && document.getElementById("rememberme").checked && getCookie("loggedInUser") != "")
+            document.cookie = "username" + "=" + username + ";" + expires + ";path=/";
+
 
         for(var i = 0; i < 3; i++){     // 3 strings * 5 photos each
             var stringDiv = loadPhotos();
@@ -259,12 +267,10 @@
 
                 var d = new Date();
                 var nDaysExpiry = 21;   // 3 weeks
-
                 d.setTime(d.getTime() + (nDaysExpiry*24*60*60*1000));
-
                 var expires = "expires="+ d.toUTCString();
 
-                if(false/* update remember me checked*/)
+                if(document.getElementById("rememberme").checked)
                     document.cookie = "username" + "=" + username + ";" + expires + ";path=/";
                 document.cookie     = "loggedInUser" + "=" + username + ";path=/";
 
