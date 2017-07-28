@@ -201,6 +201,14 @@
             $(".feed").append(stringDiv);
         }
 
+        for(var i = 0; i < 3; i++){     // update db shared feed call
+            var stringDiv = loadPhotos();
+            $(".sharedFeed").append(stringDiv);
+        }
+
+        var sharedFeedScrollTop = 0;
+        var feedScrollTop       = 0;
+
         if(getCookie("loggedInUser") != "")
             changeNavBar();
 
@@ -390,21 +398,33 @@
                 window.location.href = "profile.html#" + /*getCookie("username")*/userId;
 //            }
         });
-        
-        $("#checkBoxPane").click(function(){
-            var x = document.getElementById('checkBoxPane');
 
-//            evt.preventDefault();  $("#posts").fadeIn(700);
-//            $("#photos").fadeIn(1000);
-//
-//            $("body").delay(200).animate({
-//                scrollLeft: ($('#photos').offset())
-//            }, );
+        $("#checkBoxPane").click(function(event){
 
-            if(document.getElementById('a1').innerHTML == "Public Photos"){
+            if(document.getElementById("checkBoxPane").checked){
+
+                var feed = document.getElementById('feed');
+                var sharedFeed = document.getElementById('sharedFeed');
+                
+                
+                feedScrollTop       =  document.body.scrollTop;
                 document.getElementById('a1').innerHTML = "Shared Photos";
+                $('body, html').animate({ scrollLeft: $(this).width }, 700);
+                feed.style.display = "none";
+                sharedFeed.style.display = "block";
+                document.body.scrollTop  = sharedFeedScrollTop;
             } else{
+
+
+                var feed = document.getElementById('feed');
+                var sharedFeed = document.getElementById('sharedFeed');
+
+                sharedFeedScrollTop = document.body.scrollTop;
                 document.getElementById('a1').innerHTML = "Public Photos";
+                $('body, html').animate({ scrollLeft: 0 }, 700);
+                sharedFeed.style.display = "none";
+                feed.style.display = "block";
+                document.body.scrollTop  = feedScrollTop;
             }
         });
 
@@ -415,19 +435,29 @@
 
 
         $(window).scroll(function() {
+            var body = document.body,
+                html = document.documentElement;
+
+            var height = Math.max( body.scrollHeight, body.offsetHeight,
+                                   html.clientHeight, html.scrollHeight, html.offsetHeight );
             var div = $(this);
             var scroll = 0;
             setTimeout(function() {
                 scroll = div.scrollTop();
             }, 200);
-//            console.log(Math.round($(this).scrollTop()) + " " + $(".feed")[0].scrollHeight +" " + window.innerHeight);
+            console.log(Math.round($(this).scrollTop()) + " " + height +" " + window.innerHeight);
     //        console.log(div.scrollHeight);
-            if (Math.round($(this).scrollTop()) == $(".feed")[0].scrollHeight - window.innerHeight
+            if (Math.round($(this).scrollTop()) == height - window.innerHeight
                 /*document.getElementsByClassName("close")[0].style.display == "none"*/) { //scrollTop is 0 based
 //                console.log("Load more!");
                 for(var i = 0; i < 3; i++){     // 3 strings * 5 photos each
-                    var stringDiv = loadPhotos();
-                    $(".feed").append(stringDiv);
+                    if(document.getElementById("checkBoxPane").checked){
+                        var stringDiv = loadPhotos();
+                        $(".feed").append(stringDiv);
+                    } else {                                    // update db (shared feed call))
+                        var stringDiv = loadPhotos();
+                        $(".sharedFeed").append(stringDiv);
+                    }
                 }
             }
         });
