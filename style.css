@@ -361,15 +361,27 @@ button{
 }
 
 .upload{
+    border-radius: 5px;
+    border-style: solid;
+    border-width: thin;
+    border-color: lightgrey;
+    width: 250px;
     padding: 10px;
     direction:ltr;
     color: grey;
     font-size: 15px;
+    text-align: center;
+    overflow: hidden;
 }
 
 #file{
     border-style: none;
-    margin: 0 auto;
-    margin-left: 10px;
+    margin: 10 auto;
     padding: 5px;
+}
+
+#uploadForm{
+    padding: 10px;
+    padding-bottom: 0px;
+    margin: 0px;
 }
