@@ -118,7 +118,8 @@
 
         $(close).text("x");
         
-        $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>");
+        $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
+                "<p class = \"tagged\">Tagged:</p>");
         
         $(caption).append("Title: " + data.title +
                         "<br>Album: " + '<a id="album" albumId="' +
@@ -164,14 +165,13 @@
             tag.style.display = "none";
         });
         
-        tag.addEventListener('mouseover', function(){
-           tag.style.width = "auto";
-            tag.innerHTML = "<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
-                "<p class = \"tagged\">Tagged: Harvey</p>";
+        $(tag).click(function(){
+            document.getElementById('edittags').style.display = "block";
         });
         
-        tag.addEventListener('mouseout', function(){
-            tag.innerHTML = "<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>";
+        document.getElementById('exit').addEventListener('click', function(){
+            document.getElementById('edittags').style.display = "none";
+//            alert('hello');
         });
     }
 

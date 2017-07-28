@@ -398,24 +398,89 @@ button{
     bottom: 0px;
     right: 0px;
     background-color: rgba(0, 0, 0, 0.27);
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
     color: white;
-    width: 25px;
+    width: 90%;
     height: 25px;
     padding: 5%;
-    text-align: right;
+    text-align: left;
     display: none;
     font-size: 30px;
     max-width: 600px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 .tagged{
-    margin: 0;
-    padding-left: 20px;
+    margin: 0 10px;
+    padding: 0;
+    color: white;
     display: inline-block;
-    cursor: default;
     font-size: 18px;
 }
 
-.tagged:hover{
-    width: auto;
+#edittags{
+    position: fixed;
+    z-index: 110;
+    margin: 0 auto;
+    background-color: white;
+    width: 20%;
+    height: auto;
+    top: 200px;
+    left: 40%;
+    padding: 20px;
+    border-radius: 5px;
+    display: none;
+    text-align: right;
+    animation: zoom;
+    animation-delay: 0s;
+    animation-duration: 0.3s;
+    animation-direction: normal;
+    transform-origin: center;
+    transition: all 0.5s ease-in;
+    box-shadow: 2px 2px 15px rgba(57, 57, 57, 0.53);
+}
+
+#taggedusers{
+    padding: 10px;
+    font-size: 15px;
+    direction: ltr;
+    text-align: left;
+}
+
+#taguser{
+    width: 95%;
+    background-color: #e6e6e6;
+}
+
+#taguser:focus{
+    outline: none;
+    background-color: white;
+}
+
+#username{
+    color: #005377;
+    font-weight: bold;
+}
+
+#username:hover{
+    color: grey;
+    font-weight: bold;
+}
+
+.exit{
+    margin: 0;
+    padding: 0;
+    padding-bottom: 5px;
+    text-align: right;
+    direction: rtl;
+    width: 100%;
+}
+
+#exit{
+    margin: 0;
+    margin-top: -5px;
+    cursor: pointer;
+    width: 15px;
 }

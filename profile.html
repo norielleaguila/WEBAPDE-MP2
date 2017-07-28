@@ -52,11 +52,6 @@
                 box-shadow: 2px 2px 15px rgba(57, 57, 57, 0.53);
             }
 
-            #username{
-                color: #005377;
-                font-weight: bold;
-            }
-
             #description{
 
             }
@@ -158,23 +153,34 @@
 -->
 
 
-<!-- Rounded.slider-container -->
-<label class="slider-container">
-    <input type="checkbox" id = "checkBoxPane">
-    <span class="slider" id="slider"></span>
-</label>
-<!-- Pull out user photo that reveals username and short description  -->
+    <!-- Rounded.slider-container -->   
+    <label class="slider-container">
+        <input type="checkbox" id = "checkBoxPane">
+        <span class="slider" id="slider"></span>
+    </label>
+    <!-- Pull out user photo that reveals username and short description  -->
 
-<div id = "sidebar">
+    <div id = "sidebar">
 
-    <div id = "info">
-        <a id = "username">username</a>
-        <p id = "description">description goes here</p>
+        <div id = "info">
+            <a id = "username">username</a>
+            <p id = "description">description goes here</p>
+        </div>
+
+        <div id = "pulltab"></div>
+
     </div>
-
-    <div id = "pulltab"></div>
-
-</div>
+    
+    <div id = "edittags">
+        <div class= "exit"><p id="exit">x</p></div>
+        <input type = "text" id="taguser" placeholder="Enter username">
+        <div class = "divider"></div>
+        <div id ="taggedusers">
+            <a id="username" href="">Harvey</a>
+            <br>
+            <a id="username" href="">Nella</a>
+        </div>
+    </div>
 
 
     <div class = "searchbar">
