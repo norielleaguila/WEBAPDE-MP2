@@ -412,6 +412,23 @@ button{
     cursor: pointer;
 }
 
+.editable{
+    background: rgba(55, 55, 55, 0.5);
+}
+
+#captionTitle{
+    font-weight: bold;
+    font-size  : 25px;
+}
+
+#captionDescription{
+    font-style: italic;
+}
+
+#captionTags{
+    display: inline;
+}
+
 .tagged{
     margin: 0 10px;
     padding: 0;

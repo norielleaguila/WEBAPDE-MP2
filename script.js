@@ -121,11 +121,11 @@
         $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
                 "<p class = \"tagged\">Tagged:</p>");
         
-        $(caption).append("Title: " + data.title +
-                        "<br>Album: " + '<a id="album" albumId="' +
-                        album.id + '" userId = "' + user.username +
-                       '">' + album.title + '</a>' +
-                       "<br>By: " + '<a id = "username" userId = "' +
+        $(caption).append('<p id = "captionTitle">' + data.title +
+                          '</p><p id = "captionDescription">' +
+                           album.title + '</p>' +
+                         'Tags:<p id = "captionTags">' + /*update db tags*/ "#something" +
+                         "</p><br><br>By: " + '<a id = "username" userId = "' +
                         user.id + '" username = "' + user.username  +
                         '"">' + user.username + '</a>');
         //assemble
@@ -155,6 +155,12 @@
         $(close).click(function(){
             modal.style.display = "none";
             document.body.classList.toggle('noscroll');
+
+            $('#captionTitle').prop('contenteditable', !$('#captionTitle').is('.editable'));
+            $('#captionDescription').prop('contenteditable', !$('#captionDescription').is('.editable'));
+            $('#captionTags').prop('contenteditable', !$('#captionTags').is('.editable'));
+
+            $('.caption').toggleClass('editable');
         });
         
         photo.addEventListener('mouseover', function(){
@@ -165,10 +171,19 @@
             tag.style.display = "none";
         });
         
-        $(tag).click(function(){
+        $(tag).click(function(caption){
             document.getElementById('edittags').style.display = "block";
+
+            var isEditable = $('.caption').is('.editable');
+            $('.caption').prop('contenteditable', !isEditable).toggleClass('editable');
+
+//            $('#captionTitle').prop('contenteditable', !($('#captionTitle').is('.editable')));
+//            $('#captionDescription').prop('contenteditable', !$('#captionDescription').is('.editable'));
+//            $('#captionTags').prop('contenteditable', !$('#captionTags').is('.editable'));
+
+            $('.caption').toggleClass('editable');
         });
-        
+
         document.getElementById('exit').addEventListener('click', function(){
             document.getElementById('edittags').style.display = "none";
 //            alert('hello');
