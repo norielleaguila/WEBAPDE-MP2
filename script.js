@@ -268,11 +268,16 @@
             if ($(".captionTags:focus") && (e.keyCode === 13 || e.keyCode == 32)) {
 
 
-                if(ct.innerHTML.charAt(0) != "#")
-                    ct.innerHTML = " #" + ct.innerHTML;
 
-                ct.innerHTML = ct.innerHTML.replace("<br>", " #");
-                ct.innerHTML = ct.innerHTML.replace("##", "#");
+                ct.innerHTML = ct.innerHTML.replace(/&nbsp; &nbsp;/g, '');
+                ct.innerHTML = ct.innerHTML.replace(/ /g, " #");
+                ct.innerHTML = ct.innerHTML.replace(/ <br> /g, "");
+                ct.innerHTML = ct.innerHTML.replace(/<br><br>/g, "");
+                ct.innerHTML = ct.innerHTML.replace(/<br>/g, " #");
+                ct.innerHTML = ct.innerHTML.replace(/##/g, "#");
+
+
+                ct.innerHTML = ct.innerHTML.replace(/# #/g, "#");
             }
 
             if (modal.style.display != "none" && e.keyCode === 27)
