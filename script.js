@@ -231,15 +231,18 @@
         });
 
         $('.edit').click(function(){
+        alert(($('.captionTitle').is('.editable')));
 //            $('.captionTitle').prop('contenteditable'      , !($('.captionTitle').is('.editable'))).toggleClass('editable');
             if(!($('.captionTitle').is('.editable'))){
                 $('.captionTitle').prop('contenteditable'      , true).toggleClass('editable');
                 $('.captionDescription').prop('contenteditable', true).toggleClass('editable');
                 $('.captionTags').prop('contenteditable'       , true).toggleClass('editable');
+                $(this).css('color', "#008bc7");
             }else{
                 $('.captionTitle').prop('contenteditable'      , false).toggleClass('editable');
                 $('.captionDescription').prop('contenteditable', false).toggleClass('editable');
                 $('.captionTags').prop('contenteditable'       , false).toggleClass('editable');
+                $(this).css('color', "grey");
             }
         });
 

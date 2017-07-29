@@ -519,12 +519,13 @@ button{
     color: grey;
     font-size: 25px;
     margin-right: 10px;
+    cursor: pointer;
+    transition: color 1s ease;
 }
 
-.edit:hover{
+/*.edit:hover{
     color: #008bc7;
-    cursor: pointer;
-}
+}*/
 
 .puser{
     margin-top: -10px;
