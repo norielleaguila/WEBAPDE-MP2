@@ -31,10 +31,10 @@
       <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="249" column="80" lean-forward="true" selection-start-line="249" selection-start-column="80" selection-end-line="249" selection-end-column="80" />
+            <state relative-caret-position="972">
+              <caret line="240" column="33" lean-forward="true" selection-start-line="240" selection-start-column="33" selection-end-line="240" selection-end-column="33" />
               <folding>
-                <element signature="e#0#21865#0" expanded="false" />
+                <element signature="e#0#22149#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -442,7 +442,7 @@
         <state relative-caret-position="3672">
           <caret line="136" column="11" lean-forward="false" selection-start-line="136" selection-start-column="11" selection-end-line="136" selection-end-column="11" />
           <folding>
-            <element signature="e#0#21865#0" expanded="false" />
+            <element signature="e#0#22149#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -489,10 +489,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="249" column="80" lean-forward="true" selection-start-line="249" selection-start-column="80" selection-end-line="249" selection-end-column="80" />
+        <state relative-caret-position="972">
+          <caret line="240" column="33" lean-forward="true" selection-start-line="240" selection-start-column="33" selection-end-line="240" selection-end-column="33" />
           <folding>
-            <element signature="e#0#21865#0" expanded="false" />
+            <element signature="e#0#22149#0" expanded="false" />
           </folding>
         </state>
       </provider>

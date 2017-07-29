@@ -211,9 +211,9 @@
             modal.style.display = "none";
             document.body.classList.toggle('noscroll');
 
-            $('.captionTitle').prop('contenteditable'      , !($('.captionTitle').is('.editable'))).toggleClass('editable');
-            $('.captionDescription').prop('contenteditable', !$('.captionDescription').is('.editable')).toggleClass('editable');
-            $('.captionTags').prop('contenteditable'       , !$('.captionTags').is('.editable')).toggleClass('editable');
+            $('.captionTitle').prop('contenteditable'      , false).toggleClass('editable');
+            $('.captionDescription').prop('contenteditable', false).toggleClass('editable');
+            $('.captionTags').prop('contenteditable'       , false).toggleClass('editable');
         });
 
         photo.addEventListener('mouseover', function(){
@@ -228,15 +228,19 @@
         $(tag).click(function(event){
             event.stopPropagation();
             editTags.style.display = "block";
-
-            $('.captionTitle').prop('contenteditable'      , !($('.captionTitle').is('.editable'))).toggleClass('editable');
-            $('.captionDescription').prop('contenteditable', !$('.captionDescription').is('.editable')).toggleClass('editable');
-            $('.captionTags').prop('contenteditable'       , !$('.captionTags').is('.editable')).toggleClass('editable');
-
         });
 
         $('.edit').click(function(){
-            console.log('aaaaaa');
+//            $('.captionTitle').prop('contenteditable'      , !($('.captionTitle').is('.editable'))).toggleClass('editable');
+            if(!($('.captionTitle').is('.editable'))){
+                $('.captionTitle').prop('contenteditable'      , true).toggleClass('editable');
+                $('.captionDescription').prop('contenteditable', true).toggleClass('editable');
+                $('.captionTags').prop('contenteditable'       , true).toggleClass('editable');
+            }else{
+                $('.captionTitle').prop('contenteditable'      , false).toggleClass('editable');
+                $('.captionDescription').prop('contenteditable', false).toggleClass('editable');
+                $('.captionTags').prop('contenteditable'       , false).toggleClass('editable');
+            }
         });
 
         $('.exit').click(function(event){
