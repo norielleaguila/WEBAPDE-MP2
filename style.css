@@ -416,16 +416,16 @@ button{
     background: rgba(55, 55, 55, 0.5);
 }
 
-#captionTitle{
+.captionTitle{
     font-weight: bold;
     font-size  : 25px;
 }
 
-#captionDescription{
+.captionDescription{
     font-style: italic;
 }
 
-#captionTags{
+.captionTags{
     display: inline;
 }
 

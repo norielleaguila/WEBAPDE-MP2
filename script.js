@@ -121,13 +121,13 @@
         $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
                 "<p class = \"tagged\">Tagged:</p>");
         
-        $(caption).append('<p id = "captionTitle">' + data.title +
-                          '</p><p id = "captionDescription">' +
+        $(caption).append('<p class = "captionTitle">' + data.title +
+                          '</p><p class = "captionDescription">' +
                            album.title + '</p>' +
-                         'Tags:<p id = "captionTags">' + /*update db tags*/ "#something" +
-                         "</p><br><br>By: " + '<a id = "username" userId = "' +
-                        user.id + '" username = "' + user.username  +
-                        '"">' + user.username + '</a>');
+                          '<p class = "captionTags">' + /* update show db tags*/ "#something" +
+                          "</p><br><br>By: " + '<a id = "username" userId = "' +
+                           user.id + '" username = "' + user.username  +
+                          '">' + user.username + '</a>');
         //assemble
         $(photo).prepend('<img id="theImg" src="' + data.url + '.png" />');
         $(photo).append(tag);
@@ -156,11 +156,9 @@
             modal.style.display = "none";
             document.body.classList.toggle('noscroll');
 
-            $('#captionTitle').prop('contenteditable', !$('#captionTitle').is('.editable'));
-            $('#captionDescription').prop('contenteditable', !$('#captionDescription').is('.editable'));
-            $('#captionTags').prop('contenteditable', !$('#captionTags').is('.editable'));
-
-            $('.caption').toggleClass('editable');
+            $('.captionTitle').prop('contenteditable'      , !($('.captionTitle').is('.editable'))).toggleClass('editable');
+            $('.captionDescription').prop('contenteditable', !$('.captionDescription').is('.editable')).toggleClass('editable');
+            $('.captionTags').prop('contenteditable'       , !$('.captionTags').is('.editable')).toggleClass('editable');
         });
         
         photo.addEventListener('mouseover', function(){
@@ -171,20 +169,16 @@
             tag.style.display = "none";
         });
         
-        $(tag).click(function(caption){
+        $(tag).click(function(){
             document.getElementById('edittags').style.display = "block";
 
-            var isEditable = $('.caption').is('.editable');
-            $('.caption').prop('contenteditable', !isEditable).toggleClass('editable');
+            $('.captionTitle').prop('contenteditable'      , !($('.captionTitle').is('.editable'))).toggleClass('editable');
+            $('.captionDescription').prop('contenteditable', !$('.captionDescription').is('.editable')).toggleClass('editable');
+            $('.captionTags').prop('contenteditable'       , !$('.captionTags').is('.editable')).toggleClass('editable');
 
-//            $('#captionTitle').prop('contenteditable', !($('#captionTitle').is('.editable')));
-//            $('#captionDescription').prop('contenteditable', !$('#captionDescription').is('.editable'));
-//            $('#captionTags').prop('contenteditable', !$('#captionTags').is('.editable'));
-
-            $('.caption').toggleClass('editable');
         });
 
-        document.getElementById('exit').addEventListener('click', function(){
+        $('#exit').click(function(){
             document.getElementById('edittags').style.display = "none";
 //            alert('hello');
         });
