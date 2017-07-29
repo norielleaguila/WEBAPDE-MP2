@@ -269,7 +269,7 @@
 
 
                 if(ct.innerHTML.charAt(0) != "#")
-                    ct.innerHTML = "#" + ct.innerHTML;
+                    ct.innerHTML = " #" + ct.innerHTML;
 
                 ct.innerHTML = ct.innerHTML.replace("<br>", "#");
                 ct.innerHTML = ct.innerHTML.replace(" ", "#");
