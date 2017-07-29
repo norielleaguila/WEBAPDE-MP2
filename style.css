@@ -480,18 +480,6 @@ button{
     background-color: white;
 }
 
-.username{
-    color: #005377;
->>>>>>> 8c5de9022de98055d8655a4efbf22b86649afebb
-    font-weight: bold;
-}
-
-.username:hover{
-    color: grey;
-    font-weight: bold;
-    cursor: pointer;
-}
-
 .exit{
     color: darkslateblue;
     margin: 0;
@@ -540,4 +528,15 @@ button{
 
 .puser{
     margin-top: -10px;
+}
+
+#username{
+    color: #008bc7;
+    font-weight: bold;
+}
+
+#username:hover{
+    color: grey;
+    font-weight: bold;
+    cursor: pointer;
 }
