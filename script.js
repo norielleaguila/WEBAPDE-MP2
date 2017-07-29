@@ -230,8 +230,9 @@
             editTags.style.display = "block";
         });
 
+
+        $('.edit').unbind('click');
         $('.edit').click(function(){
-        alert(($('.captionTitle').is('.editable')));
 //            $('.captionTitle').prop('contenteditable'      , !($('.captionTitle').is('.editable'))).toggleClass('editable');
             if(!($('.captionTitle').is('.editable'))){
                 $('.captionTitle').prop('contenteditable'      , true).toggleClass('editable');
@@ -252,7 +253,7 @@
 //            alert('hello');
         });
 
-
+//        document.onkeyup = null;
         $(document).keyup(function (e) {
             if ($(".captionTags:focus") && (e.keyCode === 13 || e.keyCode == 32)) {
                console.log("AA");
