@@ -158,23 +158,33 @@
         $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
                 "<p class = \"tagged\">Tagged:</p>");
         
-        $(caption).append('<div class="edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>' +
-                          '<p class = "captionTitle">' +
-                          data.title +
-                          '</p><p class="puser">By: ' +
-                          '<a class="captionUsername" userId = "' +
-                           user.id +
-                          '" username = "' +
-                          user.username  +
-                          '" id="username">' +
-                          user.username +
-                          '</a></p>' +
-                          '<p class = "captionDescription">' +
-                           album.title +
-                          '</p>' +
-                          '<ul class = "captionTags">' +
-                          "<li>#something</li>" +
-                          '<ul>');
+        var edit = document.createElement("div");
+        $(edit).addClass("edit");
+        $(edit).append('<i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i>');
+        
+        var title = document.createElement("p");
+        $(title).addClass('captionTitle');
+        $(title).text(data.title);
+        
+        var puser = document.createElement("p");
+        $(puser).addClass('puser');
+        $(puser).append('By: <a class="captionUsername" userId = "' + user.id +
+                        '" username = "' + user.username  + '" id="username">' +
+                        user.username + '</a>');
+        
+        var desc = document.createElement("p");
+        $(desc).addClass('captionDescription');
+        $(desc).text(album.title);
+        
+        var ct = document.createElement("p");
+        $(ct).addClass('captionTags');
+        $(ct).append("#something hello");
+        
+        $(caption).append(edit);
+        $(caption).append(title);
+        $(caption).append(puser);
+        $(caption).append(desc);
+        $(caption).append(ct);
 
         //assemble
         $(photo).prepend('<img id="theImg" src="' + data.url + '.png" />');
@@ -256,12 +266,20 @@
 //        document.onkeyup = null;
         $(document).keyup(function (e) {
             if ($(".captionTags:focus") && (e.keyCode === 13 || e.keyCode == 32)) {
-               console.log("AA");
+                var x = ct.innerHTML;
+                var y = x.replace(" ", " #");
+                console.log(y);
+                ct.innerHTML = y;
             }
 
             if (modal.style.display != "none" && e.keyCode === 27)
                 modal.style.display = "none";
          });
+        
+        
+        
+        
+        
 
     }
 
