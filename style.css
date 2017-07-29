@@ -97,7 +97,7 @@ button:active{
     height: 100%; /* Full height */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .close {
@@ -147,7 +147,7 @@ button:active{
     display: inline-block;
     text-align: center;
     align-items: center;
-    
+
 }
 
 #searchbox{
@@ -480,18 +480,6 @@ button{
     background-color: white;
 }
 
-.username{
-    color: #005377;
->>>>>>> 8c5de9022de98055d8655a4efbf22b86649afebb
-    font-weight: bold;
-}
-
-.username:hover{
-    color: grey;
-    font-weight: bold;
-    cursor: pointer;
-}
-
 .exit{
     color: darkslateblue;
     margin: 0;
@@ -540,4 +528,15 @@ button{
 
 .puser{
     margin-top: -10px;
+}
+
+#username{
+    color: #008bc7;
+    font-weight: bold;
+}
+
+#username:hover{
+    color: grey;
+    font-weight: bold;
+    cursor: pointer;
 }
