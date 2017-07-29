@@ -136,7 +136,13 @@
                              '<br>' +
                              '<a class ="username" href="">Nella</a>' +
                              '<br>' +
-                          '<a class ="username" href="">Nella</a>');
+                             '<a class ="username" href="">Nella</a>' +
+                             '<br>' +
+                             '<a class ="username" href="">Nella</a>' +
+                             '<br>' +
+                             '<a class ="username" href="">Nella</a>' +
+                             '<br>' +
+                             '<a class ="username" href="">Nella</a>');
 
         $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
                 "<p class = \"tagged\">Tagged:</p>");
