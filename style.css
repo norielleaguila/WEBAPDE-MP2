@@ -466,7 +466,8 @@ button{
     font-size: 15px;
     direction: ltr;
     text-align: left;
-    max-height: 80px;
+    height: 80px;
+    overflow-y: scroll;
 }
 
 .taguser{
