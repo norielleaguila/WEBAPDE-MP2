@@ -251,7 +251,6 @@
             if ($(".captionTags:focus") && (e.keyCode === 13 || e.keyCode == 32)) {
 
 
-
                 ct.innerHTML = ct.innerHTML.replace(/&nbsp; &nbsp;/g, '');
                 ct.innerHTML = ct.innerHTML.replace(/ /g, " #");
                 ct.innerHTML = ct.innerHTML.replace(/ <br> /g, "");
@@ -478,7 +477,7 @@
                                 " name=\"uploadForm\" id=\"uploadForm\"><div class = \"upload\"><p>Upload file</p><input type=\"file\"" +
                                 " multiple name=\"file\" id=\"file\" accept=\"image/*\" " +
                                 "onchange=\"javascript:updateList()\"/>" +
-                                "<input id=\"utitle\" type=\"text\" placeholder=\"Title\">" +
+                                "<input id=\"utitle\" type=\"text\" placeholder=\"Title\"/>" +
                                 "<p>hello</p>" +
                                 "</div><button id=\"uploadButton\">Submit</button></form>";
 

@@ -387,6 +387,7 @@ button{
     border-style: none;
     margin: 10 auto;
     padding: 5px;
+    display: block;
 }
 
 #uploadForm{
