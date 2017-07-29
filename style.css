@@ -540,3 +540,8 @@ button{
     font-weight: bold;
     cursor: pointer;
 }
+
+#fileList{
+    text-align: justify;
+    padding-left: 10;
+}

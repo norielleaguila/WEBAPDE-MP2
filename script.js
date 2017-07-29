@@ -441,9 +441,9 @@
                                 " name=\"uploadForm\" id=\"uploadForm\"><div class = \"upload\">Upload file<input type=\"file\"" +
                                 " multiple name=\"file\" id=\"file\" accept=\"image/*\" " +
                                 "onchange=\"javascript:updateList()\" />" +
-                                "<br/>Selected files:" +
-                                "<div id=\"fileList\"></div></div>" +
-                                "<button id=\"uploadButton\">Submit</button></form>";
+                                /*"<br/>Selected files:" +
+                                "<div id=\"fileList\"></div>" +*/
+                                "</div><button id=\"uploadButton\">Submit</button></form>";
 
 
         });

@@ -31,10 +31,10 @@
       <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="601">
-              <caret line="143" column="22" lean-forward="false" selection-start-line="143" selection-start-column="10" selection-end-line="143" selection-end-column="22" />
+            <state relative-caret-position="650">
+              <caret line="445" column="39" lean-forward="false" selection-start-line="445" selection-start-column="39" selection-end-line="445" selection-end-column="39" />
               <folding>
-                <element signature="e#0#21143#0" expanded="false" />
+                <element signature="e#0#21147#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -43,8 +43,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="523" column="1" lean-forward="false" selection-start-line="523" selection-start-column="1" selection-end-line="523" selection-end-column="1" />
+            <state relative-caret-position="871">
+              <caret line="544" column="24" lean-forward="false" selection-start-line="544" selection-start-column="24" selection-end-line="544" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -54,7 +54,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>body</find>
       <find>feed</find>
       <find>uploadButto</find>
       <find>profil</find>
@@ -77,13 +76,14 @@
       <find>clickedN</find>
       <find>stopP</find>
       <find>tag</find>
-      <find>exitEditTags</find>
       <find>username</find>
       <find>taggedu</find>
       <find>uploadButton</find>
-      <find>upload</find>
       <find>#edit</find>
       <find>edit&quot;</find>
+      <find>exitEditTags</find>
+      <find>upload</find>
+      <find>center</find>
     </findStrings>
     <replaceStrings>
       <replace>hoverDiv</replace>
@@ -91,8 +91,8 @@
       <replace>polaroid</replace>
       <replace>thumbnail</replace>
       <replace>.slider-container</replace>
-      <replace>.edit</replace>
       <replace>.</replace>
+      <replace>.edit</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -442,7 +442,7 @@
         <state relative-caret-position="3672">
           <caret line="136" column="11" lean-forward="false" selection-start-line="136" selection-start-column="11" selection-end-line="136" selection-end-column="11" />
           <folding>
-            <element signature="e#0#21143#0" expanded="false" />
+            <element signature="e#0#21147#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -481,18 +481,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="523" column="1" lean-forward="false" selection-start-line="523" selection-start-column="1" selection-end-line="523" selection-end-column="1" />
+        <state relative-caret-position="871">
+          <caret line="544" column="24" lean-forward="false" selection-start-line="544" selection-start-column="24" selection-end-line="544" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="601">
-          <caret line="143" column="22" lean-forward="false" selection-start-line="143" selection-start-column="10" selection-end-line="143" selection-end-column="22" />
+        <state relative-caret-position="650">
+          <caret line="445" column="39" lean-forward="false" selection-start-line="445" selection-start-column="39" selection-end-line="445" selection-end-column="39" />
           <folding>
-            <element signature="e#0#21143#0" expanded="false" />
+            <element signature="e#0#21147#0" expanded="false" />
           </folding>
         </state>
       </provider>
