@@ -240,23 +240,6 @@
             editTags.style.display = "block";
         });
 
-
-        $('.edit').unbind('click');
-        $('.edit').click(function(){
-//            $('.captionTitle').prop('contenteditable'      , !($('.captionTitle').is('.editable'))).toggleClass('editable');
-            if(!($('.captionTitle').is('.editable'))){
-                $('.captionTitle').prop('contenteditable'      , true).toggleClass('editable');
-                $('.captionDescription').prop('contenteditable', true).toggleClass('editable');
-                $('.captionTags').prop('contenteditable'       , true).toggleClass('editable');
-                $(this).css('color', "#008bc7");
-            }else{
-                $('.captionTitle').prop('contenteditable'      , false).toggleClass('editable');
-                $('.captionDescription').prop('contenteditable', false).toggleClass('editable');
-                $('.captionTags').prop('contenteditable'       , false).toggleClass('editable');
-                $(this).css('color', "grey");
-            }
-        });
-
         $('.exit').click(function(event){
             event.stopPropagation();
             editTags.style.display = "none";
@@ -275,14 +258,29 @@
                 ct.innerHTML = ct.innerHTML.replace(/<br><br>/g, "");
                 ct.innerHTML = ct.innerHTML.replace(/<br>/g, " #");
                 ct.innerHTML = ct.innerHTML.replace(/##/g, "#");
-
-
-                ct.innerHTML = ct.innerHTML.replace(/# #/g, "#");
+                ct.innerHTML = ct.innerHTML.replace(/#&nbsp;#/g, "#");
             }
 
             if (modal.style.display != "none" && e.keyCode === 27)
                 modal.style.display = "none";
          });
+        
+        $('.edit').unbind('click');
+        $('.edit').click(function(){
+//            $('.captionTitle').prop('contenteditable'      , !($('.captionTitle').is('.editable'))).toggleClass('editable');
+            if(!($('.captionTitle').is('.editable'))){
+                $('.captionTitle').prop('contenteditable'      , true).toggleClass('editable');
+                $('.captionDescription').prop('contenteditable', true).toggleClass('editable');
+                $('.captionTags').prop('contenteditable'       , true).toggleClass('editable');
+                $(this).css('color', "#008bc7");
+            }else{
+                $('.captionTitle').prop('contenteditable'      , false).toggleClass('editable');
+                $('.captionDescription').prop('contenteditable', false).toggleClass('editable');
+                $('.captionTags').prop('contenteditable'       , false).toggleClass('editable');
+                $(this).css('color', "grey");
+                alert(ct.innerHTML);
+            }
+        });
     }
 
     function changeNavBar() {
