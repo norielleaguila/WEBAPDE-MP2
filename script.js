@@ -433,7 +433,7 @@
 
             x.innerHTML = " <form action=\"\" method=\"post\" enctype=\"multipart/form-data\"" +
                                 " name=\"uploadForm\" id=\"uploadForm\"><div class = \"upload\">Upload file<input type=\"file\"" +
-                                " multiple name=\"file\" id=\"file\" /></div>" +
+                                " multiple name=\"file\" id=\"file\" accept=\"image/*\" /></div>" +
                                 "<button id=\"uploadButton\">Submit</button></form>";
 
 
@@ -443,7 +443,7 @@
         $("#uploadButton").click(function(event){
 
             // update db (save images)
-            console.log("update db (save images)");
+            alert("update db (save images)");
 
         });
 
