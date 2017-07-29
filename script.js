@@ -266,21 +266,19 @@
 //        document.onkeyup = null;
         $(document).keyup(function (e) {
             if ($(".captionTags:focus") && (e.keyCode === 13 || e.keyCode == 32)) {
-                var x = ct.innerHTML;
-                var y = x.replace(" ", " #");
-                console.log(y);
-                ct.innerHTML = y;
+
+
+                if(ct.innerHTML.charAt(0) != "#")
+                    ct.innerHTML = "#" + ct.innerHTML;
+
+                ct.innerHTML = ct.innerHTML.replace("<br>", "#");
+                ct.innerHTML = ct.innerHTML.replace(" ", "#");
+                ct.innerHTML = ct.innerHTML.replace("##", "#");
             }
 
             if (modal.style.display != "none" && e.keyCode === 27)
                 modal.style.display = "none";
          });
-        
-        
-        
-        
-        
-
     }
 
     function changeNavBar() {
