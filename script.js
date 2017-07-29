@@ -15,7 +15,7 @@
         return tmp;
     }();
 
-    updateList = function() {
+/*    updateList = function() {                                 // uncomment list of files (upload function)
       var input = document.getElementById('file');
       var output = document.getElementById('fileList');
 
@@ -24,7 +24,7 @@
         output.innerHTML += '<li>' + input.files.item(i).name + '</li>';
       }
       output.innerHTML += '</ul>';
-    }
+    }*/
 
     function loadPhotos(){
 
@@ -172,9 +172,9 @@
                           '<p class = "captionDescription">' +
                            album.title +
                           '</p>' +
-                          '<p class = "captionTags">' +
-                          "#something" +
-                          '</p>');
+                          '<ul class = "captionTags">' +
+                          "<li>#something</li>" +
+                          '<ul>');
 
         //assemble
         $(photo).prepend('<img id="theImg" src="' + data.url + '.png" />');
@@ -244,6 +244,17 @@
             editTags.style.display = "none";
 //            alert('hello');
         });
+
+
+        $(document).keyup(function (e) {
+            if ($(".captionTags:focus") && (e.keyCode === 13 || e.keyCode == 32)) {
+               console.log("AA");
+            }
+
+            if (modal.style.display != "none" && e.keyCode === 27)
+                modal.style.display = "none";
+         });
+
     }
 
     function changeNavBar() {
@@ -525,4 +536,15 @@
                 }
             }
         });
+
+//        $(document).keyup(function (e) {
+//            if ($(".edit:focus") && (e.keyCode === 13 || e.keyCode == 32)) {
+//               alert('ya!');
+//            }
+//
+//            if ($(".modal").display != "none" && e.keyCode === 27) {
+//                $(".modal").display = "none";
+//            }
+//         });
+
     });
