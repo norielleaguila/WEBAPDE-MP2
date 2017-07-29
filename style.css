@@ -82,7 +82,7 @@ button:active{
 }
 
 #title:hover{
-    color: darkslategray;
+    color: black;
     cursor: pointer;
 }
 
@@ -183,7 +183,7 @@ button:active{
 }
 
 .acc:hover{
-    color:darkslategrey;
+    color:black;
     cursor: pointer;
 }
 
@@ -477,13 +477,14 @@ button{
 }
 
 #username{
-    color: #005377;
+    color: #008bc7;
     font-weight: bold;
 }
 
 #username:hover{
     color: grey;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .exit{
@@ -500,4 +501,37 @@ button{
     margin-top: -5px;
     cursor: pointer;
     width: 15px;
+}
+
+.caption{
+    text-align: left;
+}
+
+.captionUsername{
+    display: inline-block;
+}
+
+.captionTitle{
+    margin-left: 0px;
+    display: inline-block;
+}
+
+.puser, .captionDescription, .captionTags{
+    margin-left: 40px;
+}
+
+#edit{
+    display: inline-block;
+    color: grey;
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+#edit:hover{
+    color: #008bc7;
+    cursor: pointer;
+}
+
+.puser{
+    margin-top: -10px;
 }
