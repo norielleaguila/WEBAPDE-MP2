@@ -158,21 +158,21 @@
         $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
                 "<p class = \"tagged\">Tagged:</p>");
         
-        $(caption).append('<i class="fa fa-pencil-square-o" aria-hidden="true" id="edit"></i> ' +
-                          '<p class = "captionTitle">' + 
+        $(caption).append('<div id="edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>' +
+                          '<p class = "captionTitle">' +
                           data.title +
-                          '</p><p class="puser">By: ' + 
+                          '</p><p class="puser">By: ' +
                           '<a class="captionUsername" userId = "' +
-                           user.id + 
-                          '" username = "' + 
+                           user.id +
+                          '" username = "' +
                           user.username  +
-                          '" id="username">' + 
-                          user.username + 
-                          '</a></p>' + 
+                          '" id="username">' +
+                          user.username +
+                          '</a></p>' +
                           '<p class = "captionDescription">' +
-                           album.title + 
+                           album.title +
                           '</p>' +
-                          '<p class = "captionTags">' + 
+                          '<p class = "captionTags">' +
                           "#something" +
                           '</p>');
 
@@ -202,7 +202,7 @@
         $(polaroid).click(function(){
             modal.style.display = "flex";
         });
-        
+
         polaroid.addEventListener('click', function() {
             document.body.classList.toggle('noscroll');
         })
@@ -219,12 +219,12 @@
         photo.addEventListener('mouseover', function(){
             tag.style.display = "block";
         });
-        
+
         photo.addEventListener('mouseout', function(){
             if(editTags.style.display != "block")
                 tag.style.display = "none";
         });
-        
+
         $(tag).click(function(event){
             event.stopPropagation();
             editTags.style.display = "block";
@@ -238,10 +238,9 @@
         $('#exit').click(function(){
             document.getElementById('edittags').style.display = "none";
         });
-        
-        document.getElementById('edit').addEventListener('click', function(){
-            $('#edit').style.color = "#008bc7";
-            alert('hello');
+
+        $('#edit').click(function(){
+            console.log('hell');
         });
 
         $('.exit').click(function(event){
