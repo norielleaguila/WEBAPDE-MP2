@@ -28,13 +28,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="script.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="785">
-              <caret line="383" column="50" lean-forward="false" selection-start-line="383" selection-start-column="50" selection-end-line="383" selection-end-column="50" />
+            <state relative-caret-position="-1348">
+              <caret line="461" column="3" lean-forward="false" selection-start-line="461" selection-start-column="3" selection-end-line="461" selection-end-column="3" />
               <folding>
-                <element signature="e#0#23401#0" expanded="false" />
+                <element signature="e#0#23415#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -50,7 +50,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/style.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="353">
@@ -64,8 +64,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>edittags</find>
-      <find>.exit</find>
       <find>editta</find>
       <find>edittag</find>
       <find>/*    width: 20%;*/ta</find>
@@ -93,7 +91,9 @@
       <find>file</find>
       <find>.edit</find>
       <find>\.edit</find>
+      <find>name-inp</find>
       <find>clickedNav</find>
+      <find>clicked</find>
     </findStrings>
     <replaceStrings>
       <replace>hoverDiv</replace>
@@ -102,8 +102,8 @@
       <replace>thumbnail</replace>
       <replace>.slider-container</replace>
       <replace>.</replace>
-      <replace>.edit</replace>
       <replace>ct</replace>
+      <replace>.edit</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -453,7 +453,7 @@
         <state relative-caret-position="3672">
           <caret line="136" column="11" lean-forward="false" selection-start-line="136" selection-start-column="11" selection-end-line="136" selection-end-column="11" />
           <folding>
-            <element signature="e#0#23401#0" expanded="false" />
+            <element signature="e#0#23415#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -490,21 +490,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="785">
-          <caret line="383" column="50" lean-forward="false" selection-start-line="383" selection-start-column="50" selection-end-line="383" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#23401#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="353">
           <caret line="506" column="16" lean-forward="false" selection-start-line="506" selection-start-column="16" selection-end-line="506" selection-end-column="16" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1348">
+          <caret line="461" column="3" lean-forward="false" selection-start-line="461" selection-start-column="3" selection-end-line="461" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#23415#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
