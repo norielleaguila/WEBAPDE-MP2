@@ -82,7 +82,7 @@ button:active{
 }
 
 #title:hover{
-    color: darkslategray;
+    color: black;
     cursor: pointer;
 }
 
@@ -183,7 +183,7 @@ button:active{
 }
 
 .acc:hover{
-    color:darkslategrey;
+    color:black;
     cursor: pointer;
 }
 
@@ -480,14 +480,20 @@ button{
     background-color: white;
 }
 
+<<<<<<< HEAD
+#username{
+    color: #008bc7;
+=======
 .username{
     color: #005377;
+>>>>>>> 8c5de9022de98055d8655a4efbf22b86649afebb
     font-weight: bold;
 }
 
 .username:hover{
     color: grey;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .exit{
@@ -506,4 +512,41 @@ button{
     margin: 0;
     margin-top: -5px;
     width: 15px;
+<<<<<<< HEAD
+}
+
+.caption{
+    text-align: left;
+}
+
+.captionUsername{
+    display: inline-block;
+}
+
+.captionTitle{
+    margin-left: 0px;
+    display: inline-block;
+}
+
+.puser, .captionDescription, .captionTags{
+    margin-left: 40px;
+}
+
+#edit{
+    display: inline-block;
+    color: grey;
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+#edit:hover{
+    color: #008bc7;
+    cursor: pointer;
+}
+
+.puser{
+    margin-top: -10px;
+}
+=======
 }*/
+>>>>>>> 8c5de9022de98055d8655a4efbf22b86649afebb
