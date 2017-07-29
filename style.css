@@ -514,14 +514,14 @@ button{
     margin-left: 40px;
 }
 
-#edit{
+.edit{
     display: inline-block;
     color: grey;
     font-size: 25px;
     margin-right: 10px;
 }
 
-#edit:hover{
+.edit:hover{
     color: #008bc7;
     cursor: pointer;
 }

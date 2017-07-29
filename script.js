@@ -158,7 +158,7 @@
         $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
                 "<p class = \"tagged\">Tagged:</p>");
         
-        $(caption).append('<div id="edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>' +
+        $(caption).append('<div class="edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>' +
                           '<p class = "captionTitle">' +
                           data.title +
                           '</p><p class="puser">By: ' +
@@ -235,12 +235,8 @@
 
         });
 
-        $('#exit').click(function(){
-            document.getElementById('edittags').style.display = "none";
-        });
-
-        $('#edit').click(function(){
-            console.log('hell');
+        $('.edit').click(function(){
+            console.log('aaaaaa');
         });
 
         $('.exit').click(function(event){
