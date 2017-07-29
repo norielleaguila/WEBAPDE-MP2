@@ -15,6 +15,17 @@
         return tmp;
     }();
 
+    updateList = function() {
+      var input = document.getElementById('file');
+      var output = document.getElementById('fileList');
+
+      output.innerHTML = '<ul>';
+      for (var i = 0; i < input.files.length; ++i) {
+        output.innerHTML += '<li>' + input.files.item(i).name + '</li>';
+      }
+      output.innerHTML += '</ul>';
+    }
+
     function loadPhotos(){
 
         var stringDiv = document.createElement("div");
@@ -147,7 +158,7 @@
         $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
                 "<p class = \"tagged\">Tagged:</p>");
         
-        $(caption).append('<i class="fa fa-pencil-square-o" aria-hidden="true" id="edit"></i> ' + 
+        $(caption).append('<i class="fa fa-pencil-square-o" aria-hidden="true" id="edit"></i> ' +
                           '<p class = "captionTitle">' + 
                           data.title +
                           '</p><p class="puser">By: ' + 
@@ -204,7 +215,7 @@
             $('.captionDescription').prop('contenteditable', !$('.captionDescription').is('.editable')).toggleClass('editable');
             $('.captionTags').prop('contenteditable'       , !$('.captionTags').is('.editable')).toggleClass('editable');
         });
-        
+
         photo.addEventListener('mouseover', function(){
             tag.style.display = "block";
         });
@@ -232,7 +243,7 @@
             $('#edit').style.color = "#008bc7";
             alert('hello');
         });
-        
+
         $('.exit').click(function(event){
             event.stopPropagation();
             editTags.style.display = "none";
@@ -433,7 +444,10 @@
 
             x.innerHTML = " <form action=\"\" method=\"post\" enctype=\"multipart/form-data\"" +
                                 " name=\"uploadForm\" id=\"uploadForm\"><div class = \"upload\">Upload file<input type=\"file\"" +
-                                " multiple name=\"file\" id=\"file\" accept=\"image/*\" /></div>" +
+                                " multiple name=\"file\" id=\"file\" accept=\"image/*\" " +
+                                "onchange=\"javascript:updateList()\" />" +
+                                "<br/>Selected files:" +
+                                "<div id=\"fileList\"></div></div>" +
                                 "<button id=\"uploadButton\">Submit</button></form>";
 
 
