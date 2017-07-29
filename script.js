@@ -381,7 +381,7 @@
                         "<input id = \"password-input\" type = \"password\" placeholder=\"Password\">" +
                     "</div>" +
                     "<div>" +
-                        "<input id = \"name-input\" type = \"text\" placeholder=\"Name\">" +
+                        "<input id = \"description-input\" type = \"text\" placeholder=\"Description\">" +
                     "</div>" +
                     "<button class = \"input-box\" id = \"signUpButton\">Sign Up</button>";
                     
