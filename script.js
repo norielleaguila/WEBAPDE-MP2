@@ -91,14 +91,19 @@
         var polaroid     = document.createElement("div");
         var thumbnail    = document.createElement("div");
 
-        var modal = document.createElement("div");
-        var close = document.createElement("span");
-        var photo = document.createElement("div");
-        var caption = document.createElement("div");
+        var modal        = document.createElement("div");
+        var close        = document.createElement("span");
+        var photo        = document.createElement("div");
+        var caption      = document.createElement("div");
         
-        var tag = document.createElement("div");
-        
-        var navbar = document.getElementById('navbar');
+        var tag          = document.createElement("div");
+        var editTags     = document.createElement("div");
+        var divider      = document.createElement("div");
+        var exitEditTags = document.createElement("span");
+        var inputTagUser = document.createElement("input");
+        var taggedUsers = document.createElement("div");
+
+        var navbar       = document.getElementById('navbar');
 
         //add classes
         $(pin).addClass("pin");
@@ -106,18 +111,44 @@
         $(metal).addClass("metal");
         $(polaroid).addClass("polaroid");
         $(thumbnail).addClass("thumbnail");
-        
+
 
         $(modal).addClass("modal");
         $(close).addClass("close");
         $(photo).addClass("photo");
         $(caption).addClass("caption");
+
         $(tag).addClass("tag-overlay");
-        
+        $(divider).addClass("divider");
+        $(editTags).addClass('edittags');
+        $(exitEditTags).addClass("exit");
+        $(taggedUsers).addClass('taggedusers');
+        $(inputTagUser).addClass('taguser');
+
         tag.setAttribute('id', "tag");
+        inputTagUser.setAttribute('type', 'text');
+        inputTagUser.setAttribute('placeholder', 'Enter username');
 
         $(close).text("x");
-        
+        $(exitEditTags).text("x");
+
+        $(taggedUsers).append('<a class ="username" href="">Harvey</a>' +       // update show db tagged users
+                             '<br>' +
+                             '<a class ="username" href="">Nella</a>' +
+                             '<br>' +
+                          '<a class ="username" href="">Nella</a>');
+
+//        <div id = "edittags">
+//            <div class= "exit"><p id="exit">x</p></div>
+//            <input type = "text" id="taguser" placeholder="Enter username">
+//            <div class = "divider"></div>
+//            <div id ="taggedusers">
+//                <a class ="username" href="">Harvey</a>
+//                <br>
+//                <a class ="username" href="">Nella</a>
+//            </div>
+//        </div>
+//
         $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
                 "<p class = \"tagged\">Tagged:</p>");
         
@@ -128,6 +159,7 @@
                           "</p><br><br>By: " + '<a id = "username" userId = "' +
                            user.id + '" username = "' + user.username  +
                           '">' + user.username + '</a>');
+
         //assemble
         $(photo).prepend('<img id="theImg" src="' + data.url + '.png" />');
         $(photo).append(tag);
@@ -143,6 +175,13 @@
         $(stringDiv).append(modal);
         $(stringDiv).append(pin);
         $(stringDiv).append(polaroid);
+
+
+        $(editTags).append(inputTagUser);
+        $(editTags).append(exitEditTags);
+        $(editTags).append(divider);
+        $(editTags).append(taggedUsers);
+        $(tag).append(editTags);
 
         $(polaroid).click(function(){
             modal.style.display = "flex";
@@ -166,11 +205,13 @@
         });
         
         photo.addEventListener('mouseout', function(){
-            tag.style.display = "none";
+            if(editTags.style.display != "block")
+                tag.style.display = "none";
         });
         
-        $(tag).click(function(){
-            document.getElementById('edittags').style.display = "block";
+        $(tag).click(function(event){
+            event.stopPropagation();
+            editTags.style.display = "block";
 
             $('.captionTitle').prop('contenteditable'      , !($('.captionTitle').is('.editable'))).toggleClass('editable');
             $('.captionDescription').prop('contenteditable', !$('.captionDescription').is('.editable')).toggleClass('editable');
@@ -178,8 +219,9 @@
 
         });
 
-        $('#exit').click(function(){
-            document.getElementById('edittags').style.display = "none";
+        $('.exit').click(function(event){
+            event.stopPropagation();
+            editTags.style.display = "none";
 //            alert('hello');
         });
     }
