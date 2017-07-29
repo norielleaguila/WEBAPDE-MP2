@@ -378,7 +378,9 @@ button{
     color: grey;
     font-size: 15px;
     text-align: center;
-    overflow: hidden;
+    overflow-x: hidden;
+    display: block;
+    height: 500px;
 }
 
 #file{
@@ -523,10 +525,6 @@ button{
     transition: color 1s ease;
 }
 
-/*.edit:hover{
-    color: #008bc7;
-}*/
-
 .puser{
     margin-top: -10px;
 }
@@ -545,4 +543,11 @@ button{
 #fileList{
     text-align: justify;
     padding-left: 10;
+}
+
+#utitle{
+    width: 100px;
+    background-color: red;
+    height: 50px;
+    color: black;
 }

@@ -475,11 +475,11 @@
             x.style.display = 'block';
 
             x.innerHTML = " <form action=\"\" method=\"post\" enctype=\"multipart/form-data\"" +
-                                " name=\"uploadForm\" id=\"uploadForm\"><div class = \"upload\">Upload file<input type=\"file\"" +
+                                " name=\"uploadForm\" id=\"uploadForm\"><div class = \"upload\"><p>Upload file</p><input type=\"file\"" +
                                 " multiple name=\"file\" id=\"file\" accept=\"image/*\" " +
-                                "onchange=\"javascript:updateList()\" />" +
-                                /*"<br/>Selected files:" +
-                                "<div id=\"fileList\"></div>" +*/
+                                "onchange=\"javascript:updateList()\"/>" +
+                                "<input id=\"utitle\" type=\"text\" placeholder=\"Title\">" +
+                                "<p>hello</p>" +
                                 "</div><button id=\"uploadButton\">Submit</button></form>";
 
 
