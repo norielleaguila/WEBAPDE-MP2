@@ -479,10 +479,6 @@ button{
     background-color: white;
 }
 
-<<<<<<< HEAD
-#username{
-    color: #008bc7;
-=======
 .username{
     color: #005377;
 >>>>>>> 8c5de9022de98055d8655a4efbf22b86649afebb
@@ -500,18 +496,16 @@ button{
     margin: 0;
     padding: 0;
     padding-right: 10px;
-/*    padding-bottom: 5px;*/
     text-align: right;
     direction: rtl;
     width: 100%;
     cursor: pointer;
 }
 
-/*#exit{
+#exit{
     margin: 0;
     margin-top: -5px;
     width: 15px;
-<<<<<<< HEAD
 }
 
 .caption{
@@ -546,6 +540,3 @@ button{
 .puser{
     margin-top: -10px;
 }
-=======
-}*/
->>>>>>> 8c5de9022de98055d8655a4efbf22b86649afebb

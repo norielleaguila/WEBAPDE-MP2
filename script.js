@@ -138,17 +138,6 @@
                              '<br>' +
                           '<a class ="username" href="">Nella</a>');
 
-//        <div id = "edittags">
-//            <div class= "exit"><p id="exit">x</p></div>
-//            <input type = "text" id="taguser" placeholder="Enter username">
-//            <div class = "divider"></div>
-//            <div id ="taggedusers">
-//                <a class ="username" href="">Harvey</a>
-//                <br>
-//                <a class ="username" href="">Nella</a>
-//            </div>
-//        </div>
-//
         $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
                 "<p class = \"tagged\">Tagged:</p>");
         
@@ -159,6 +148,7 @@
                            album.title + '</p>' +
                           '<p class = "captionTags">' + /* update show db tags*/ "#something" +
                           '</p>');
+
         //assemble
         $(photo).prepend('<img id="theImg" src="' + data.url + '.png" />');
         $(photo).append(tag);
@@ -223,8 +213,10 @@
         });
         
         $('#edit').click(function(){
-//            $('#edit').style.color = "#008bc7";
+            $('#edit').style.color = "#008bc7";
             alert('hello');
+        });
+        
         $('.exit').click(function(event){
             event.stopPropagation();
             editTags.style.display = "none";
