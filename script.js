@@ -489,14 +489,24 @@
                                 "<p class=\"t2\">Shared With:</p><div class=\"ususers\" id=\"ususers\"></div>" +
                                 "</div><button id=\"uploadButton\">Submit</button></form>";
             
-            
-            
+//            $('#upload').keyup(function(e){
+//                if (e.keyCode === 13) { 
+//                    e.preventDefault();
+//                }
+//            });
+                    
             $(document).keyup(function (e){
-                if ($(".ushare:focus") && (e.keyCode === 13 || e.keyCode == 32)){
+                if (document.getElementById('uprivacy').checked && (e.keyCode === 13 || e.keyCode == 32)){
+                    if (e.keyCode === 13) { 
+                        e.preventDefault();
+                    }
+                    
                     document.getElementById('ususers').innerHTML = 
-                        "<p id=\"username\">" + document.getElementById('ushare').value + "</p>" +
+                        "<div id=\"username\">" + document.getElementById('ushare').value + "</div>" +
+                        "<div id=\"uexit\">x</div><br>" +
                         document.getElementById('ususers').innerHTML;
                     document.getElementById('ushare').value = "";
+                    
                 }
             });
             

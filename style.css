@@ -586,3 +586,20 @@ textarea:focus{
     height: auto;
     overflow: auto;
 }
+
+div#username{
+    display: inline-block;
+    width: 80%;
+}
+
+#uexit{
+    display: inline-block;
+    width: auto;
+    height: auto;
+    color: black;
+}
+
+#uexit:hover{
+    color: red;
+    cursor: pointer;
+}
