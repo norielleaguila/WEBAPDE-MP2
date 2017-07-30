@@ -26,6 +26,16 @@ var max = function () {
   output.innerHTML += '</ul>';
 }*/
 
+function deleteUser(taggedUser, event){
+    event.stopPropagation();
+    // update Delete user from the db if possible
+
+    alert(taggedUser.innerHTML);
+    alert(document.getElementById('ususers').innerHTML);
+
+    document.getElementById('ususers').innerHTML = document.getElementById('ususers').innerHTML.replace(taggedUser.innerHTML, '');
+}
+
 function loadPhotos(){
 
     var stringDiv = document.createElement("div");
@@ -263,15 +273,15 @@ function postPhoto(data, album, user, stringDiv){
         
     });
 
-    $('.exit').click(function(event){
-        event.stopPropagation();
-        editTags.style.display = "none";
-//            alert('hello');
-    });
+//    $('.exit').click(function(event){
+//        event.stopPropagation();
+//        editTags.style.display = "none";
+////            alert('hello');
+//    });
 
 //        document.onkeyup = null;
     $(document).keyup(function (e) {
-        if ($(".captionTags:focus") && (e.keyCode === 13 || e.keyCode == 32)) {
+        if ($(".captionTags:focus") && (e.keyCode == 32)) {
 
 
             ct.innerHTML = ct.innerHTML.replace(/&nbsp; &nbsp;/g, '');
@@ -285,6 +295,8 @@ function postPhoto(data, album, user, stringDiv){
 
         if (modal.style.display != "none" && e.keyCode === 27)
             modal.style.display = "none";
+
+        return false;
      });
 
     $('.edit').unbind('click');
@@ -517,25 +529,28 @@ $(document).ready(function(){
                             "<p class=\"t2\">Shared With:</p><div class=\"ususers\" id=\"ususers\"></div>" +
                             "</div><button id=\"uploadButton\">Submit</button></form>";
 
-//            $('#upload').keyup(function(e){
-//                if (e.keyCode === 13) { 
-//                    e.preventDefault();
-//                }
-//            });
-
         $(document).keyup(function (e){
-            if (document.getElementById('uprivacy').checked && (e.keyCode === 13 || e.keyCode == 32)){
-                if (e.keyCode === 13) { 
-                    e.preventDefault();
-                }
+            if ($(".ushare:focus") && (e.keyCode == 32) && document.getElementById('ushare').value.replace(/ /g,'').length != 0){
 
-                document.getElementById('ususers').innerHTML = 
-                    "<div id=\"username\">" + document.getElementById('ushare').value + "</div>" +
-                    "<div class=\"uexit\">x</div><br>" +
-                    document.getElementById('ususers').innerHTML;
+                var taggedUser = document.createElement("div");
+                var copyDiv = "<div id=\"username\">" + document.getElementById('ushare').value + "</div>" +
+                              "<div class=\"uexit\" onclick=\"return deleteUser(\'{%=taggedUser%}\', event)\">x</div><br>" +
+                               document.getElementById('ususers').innerHTML;
+
+                //add classes
+                taggedUser.setAttribute('id', "username");
+
+
+                taggedUser.innerHTML = "<div id=\"username\">" + document.getElementById('ushare').value + "</div>" +
+                                       "<div class=\"uexit\" onclick=\"return deleteUser(this.parentElement, event)\">x</div><br>" +
+                                        document.getElementById('ususers').innerHTML;
+
+                                        // update check muna if there's a user in the db before adding(?)
+                document.getElementById('ususers').append(taggedUser);
                 document.getElementById('ushare').value = "";
-
             }
+
+
         });
 
         document.getElementById('uprivacy').addEventListener('click', function(){
@@ -550,7 +565,7 @@ $(document).ready(function(){
     });
 
     $(document).keyup(function (e){
-        if ($(".utags:focus") && (e.keyCode === 13 || e.keyCode == 32)){
+        if ($(".utags:focus") && (e.keyCode == 32)){
             document.getElementById('utags').value = "#" + document.getElementById('utags').value;
             document.getElementById('utags').value = document.getElementById('utags').value.replace(/ /g, " #");
             document.getElementById('utags').value = document.getElementById('utags').value.replace(/##/g, "#");
@@ -636,16 +651,60 @@ $(document).ready(function(){
         }
     });
     
-    
-    
+    $(document).keypress(               // prevents form from being submitted when enter is pressed
+        function(event){
+         if (event.which == '13') {
+            event.preventDefault();
 
-//        $(document).keyup(function (e) {
-//            if ($(".edit:focus") && (e.keyCode === 13 || e.keyCode == 32)) {
-//               alert('ya!');
-//            }
-//
-//            if ($(".modal").display != "none" && e.keyCode === 27) {
-//                $(".modal").display = "none";
-//            }
-//         });
+            if ($(".captionTags:focus")) {
+                var ct = document.activeElement;
+//                alert(document.activeElement.innerHTML);
+//                alert(ct.text);
+//                alert(ct.value);
+//                ct.innerHTML = ct.innerHTML.replace(/&nbsp; &nbsp;/g, '');
+//                ct.innerHTML = ct.innerHTML.replace(/ /g, " #");
+//                ct.innerHTML = ct.innerHTML.replace(/ <br> /g, "");
+//                ct.innerHTML = ct.innerHTML.replace(/<br><br>/g, "");
+//                ct.innerHTML = ct.innerHTML.replace(/<br>/g, " #");
+//                ct.innerHTML = ct.innerHTML.replace(/##/g, "#");
+//                ct.innerHTML = ct.innerHTML.replace(/#&nbsp;#/g, "#");
+
+
+                if(ct.value.charAt(0) != "#" && ct.value.length != '0')
+                    ct.value = "#" + ct.value + " #";
+
+                if(ct.value.charAt(ct.value.length - 1) != " " && ct.value.charAt(ct.value.length - 1) != "#" && ct.value.length != 0)
+                    ct.value = ct.value + " #";
+            } else if ($(".ushare:focus")){
+
+                var taggedUser = document.createElement("div");
+
+                var copyDiv = "<div id=\"username\">" + document.getElementById('ushare').value + "</div>" +
+                              "<div class=\"uexit\" onclick=\"return deleteUser(\'{%=taggedUser%}\', event)\">x</div><br>" +
+                               document.getElementById('ususers').innerHTML;
+
+                //add classes
+                taggedUser.setAttribute('id', "username");
+
+
+                taggedUser.innerHTML = "<div id=\"username\">" + document.getElementById('ushare').value + "</div>" +
+                                       "<div class=\"uexit\" onclick=\"return deleteUser(this.parentElement, event)\">x</div><br>" +
+                                        document.getElementById('ususers').innerHTML;
+
+                                        // update check muna if there's a user in the db before adding(?)
+                document.getElementById('ususers').append(taggedUser);
+                document.getElementById('ushare').value = "";
+            } else if ($(".utags:focus")){
+                document.getElementById('utags').value = "#" + document.getElementById('utags').value;
+                document.getElementById('utags').value = document.getElementById('utags').value.replace(/ /g, " #");
+                document.getElementById('utags').value = document.getElementById('utags').value.replace(/##/g, "#");
+                document.getElementById('utags').value = document.getElementById('utags').value.replace(/#&nbsp;&nbsp;#/g, "#");
+                document.getElementById('utags').value = document.getElementById('utags').value.replace(/# #/g, "#");
+            }
+
+          }
+
+
+    });
+
 });
