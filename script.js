@@ -481,14 +481,27 @@
                                 " name=\"uploadForm\" id=\"uploadForm\"><div class = \"upload\"><p>Upload file</p><input type=\"file\"" +
                                 " multiple name=\"file\" id=\"file\" accept=\"image/*\" " +
                                 "onchange=\"javascript:updateList()\"/>" +
-                                "<input id=\"utitle\" type=\"text\" placeholder=\"Title\"/>" +
-                                "<p>hello</p>" +
+                                "<input class=\"uinput\" id=\"utitle\" type=\"text\" placeholder=\"Title\"/>" +
+                                "<input class=\"uinput\" id=\"udesc\" type=\"text\" placeholder=\"Description\"/>" +
+                                "<input class=\"uinput utags\" id=\"utags\" type=\"text\" placeholder=\"Tags\"/>" +
                                 "</div><button id=\"uploadButton\">Submit</button></form>";
-
-
         });
 
+        $(document).keyup(function (e) {
+            if ($(".utags:focus") && (e.keyCode === 13 || e.keyCode == 32)) {
 
+
+                ct.innerHTML = ct.innerHTML.replace(/&nbsp; &nbsp;/g, '');
+                ct.innerHTML = ct.innerHTML.replace(/ /g, " #");
+                ct.innerHTML = ct.innerHTML.replace(/ <br> /g, "");
+                ct.innerHTML = ct.innerHTML.replace(/<br><br>/g, "");
+                ct.innerHTML = ct.innerHTML.replace(/<br>/g, " #");
+                ct.innerHTML = ct.innerHTML.replace(/##/g, "#");
+                ct.innerHTML = ct.innerHTML.replace(/#&nbsp;#/g, "#");
+                
+            }
+        });
+            
         $("#uploadButton").click(function(event){
 
             // update db (save images)

@@ -546,9 +546,15 @@ button{
     padding-left: 10;
 }
 
-#utitle{
-    width: 100px;
-    background-color: red;
-    height: 50px;
-    color: black;
+.uinput{
+    display: block;
+    width: 95%;
+}
+
+#udesc{
+    max-width: 95%;
+    text-align: left;
+    word-wrap: break-word;
+    max-height: 200px;
+/*    text-overflow: clip;*/
 }
