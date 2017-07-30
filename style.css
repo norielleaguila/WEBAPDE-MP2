@@ -380,7 +380,7 @@ button{
     text-align: center;
     overflow-x: hidden;
     display: block;
-    height: 500px;
+    height: auto;
 }
 
 #file{
@@ -553,8 +553,36 @@ button{
 
 #udesc{
     max-width: 95%;
+    height:100px;
     text-align: left;
     word-wrap: break-word;
     max-height: 200px;
-/*    text-overflow: clip;*/
+    border-radius: 10px;
+    direction: ltr;
+    border-style: solid;
+    border-width: thin;
+    border-color: lightgrey;
+    padding: 5px;
+    padding-left: 20px;
+    margin: 5px;
+}
+
+textarea:focus{
+    outline: none;
+}
+
+.ushare{
+    display: block;
+    width: 95%;
+}
+
+.t2{
+    font-size: 12px;
+}
+
+.ususers{
+    font-size: 12px;
+    max-height: 100px;
+    height: auto;
+    overflow: auto;
 }

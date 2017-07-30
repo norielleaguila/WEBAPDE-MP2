@@ -479,29 +479,48 @@
 
             x.innerHTML = " <form action=\"\" method=\"post\" enctype=\"multipart/form-data\"" +
                                 " name=\"uploadForm\" id=\"uploadForm\"><div class = \"upload\"><p>Upload file</p><input type=\"file\"" +
-                                " multiple name=\"file\" id=\"file\" accept=\"image/*\" " +
+                                " name=\"file\" id=\"file\" accept=\"image/*\" " +
                                 "onchange=\"javascript:updateList()\"/>" +
                                 "<input class=\"uinput\" id=\"utitle\" type=\"text\" placeholder=\"Title\"/>" +
-                                "<input class=\"uinput\" id=\"udesc\" type=\"text\" placeholder=\"Description\"/>" +
+                                "<textarea class=\"uinput\" id=\"udesc\" type=\"text\" placeholder=\"Description\"></textarea>" +
                                 "<input class=\"uinput utags\" id=\"utags\" type=\"text\" placeholder=\"Tags\"/>" +
+                                "<input id=\"uprivacy\" type=\"checkbox\" />" + "Private" +
+                                "<input class=\"ushare\" id=\"ushare\" type=\"text\" placeholder=\"Enter username\"/ disabled>" +
+                                "<p class=\"t2\">Shared With:</p><div class=\"ususers\" id=\"ususers\"></div>" +
                                 "</div><button id=\"uploadButton\">Submit</button></form>";
+            
+            
+            
+            $(document).keyup(function (e){
+                if ($(".ushare:focus") && (e.keyCode === 13 || e.keyCode == 32)){
+                    document.getElementById('ususers').innerHTML = 
+                        "<p id=\"username\">" + document.getElementById('ushare').value + "</p>" +
+                        document.getElementById('ususers').innerHTML;
+                    document.getElementById('ushare').value = "";
+                }
+            });
+            
+            document.getElementById('uprivacy').addEventListener('click', function(){
+                if(document.getElementById('uprivacy').checked)
+                    $(".ushare").prop('disabled', false);
+                else{
+                    $(".ushare").prop('disabled', true);
+                    document.getElementById('ususers').innerHTML = "";
+                } 
+            });
+            
         });
-
-        $(document).keyup(function (e) {
-            if ($(".utags:focus") && (e.keyCode === 13 || e.keyCode == 32)) {
-
-
-                ct.innerHTML = ct.innerHTML.replace(/&nbsp; &nbsp;/g, '');
-                ct.innerHTML = ct.innerHTML.replace(/ /g, " #");
-                ct.innerHTML = ct.innerHTML.replace(/ <br> /g, "");
-                ct.innerHTML = ct.innerHTML.replace(/<br><br>/g, "");
-                ct.innerHTML = ct.innerHTML.replace(/<br>/g, " #");
-                ct.innerHTML = ct.innerHTML.replace(/##/g, "#");
-                ct.innerHTML = ct.innerHTML.replace(/#&nbsp;#/g, "#");
-                
+        
+        $(document).keyup(function (e){
+            if ($(".utags:focus") && (e.keyCode === 13 || e.keyCode == 32)){
+                document.getElementById('utags').value = "#" + document.getElementById('utags').value;
+                document.getElementById('utags').value = document.getElementById('utags').value.replace(/ /g, " #");
+                document.getElementById('utags').value = document.getElementById('utags').value.replace(/##/g, "#");
+                document.getElementById('utags').value = document.getElementById('utags').value.replace(/#&nbsp;&nbsp;#/g, "#");
+                document.getElementById('utags').value = document.getElementById('utags').value.replace(/# #/g, "#");
             }
         });
-            
+        
         $("#uploadButton").click(function(event){
 
             // update db (save images)
