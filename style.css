@@ -603,3 +603,8 @@ div#username{
     color: red;
     cursor: pointer;
 }
+
+.uusername{
+    display: inline-block;
+    width: 90%;
+}

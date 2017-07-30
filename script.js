@@ -143,17 +143,18 @@
         $(close).text("x");
         $(exitEditTags).text("x");
 
-        $(taggedUsers).append('<a class ="username" href="">Harvey</a>' +       // update show db tagged users
-                             '<br>' +
-                             '<a class ="username" href="">Nella</a>' +
-                             '<br>' +
-                             '<a class ="username" href="">Nella</a>' +
-                             '<br>' +
-                             '<a class ="username" href="">Nella</a>' +
-                             '<br>' +
-                             '<a class ="username" href="">Nella</a>' +
-                             '<br>' +
-                             '<a class ="username" href="">Nella</a>');
+        $(taggedUsers).append('<div class="uusername"><a id ="username" href="">Harvey</a></div>' +       // update show db tagged users
+                             "<div id=\"uexit\">x</div><br>" +
+                             '<div class="uusername"><a id ="username" href="">Nella</a></div>' +
+                             "<div id=\"uexit\">x</div><br>" +
+                             '<div class="uusername"><a id ="username" href="">Nella</a></div>' +
+                             "<div id=\"uexit\">x</div><br>" +
+                             '<div class="uusername"><a id ="username" href="">Nella</a></div>' +
+                             "<div id=\"uexit\">x</div><br>" +
+                             '<div class="uusername"><a id ="username" href="">Nella</a></div>' +
+                             "<div id=\"uexit\">x</div><br>" +
+                             '<div class="uusername"><a id ="username" href="">Nella</a></div>' + 
+                             "<div id=\"uexit\">x</div><br>" );
 
         $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
                 "<p class = \"tagged\">Tagged:</p>");
@@ -178,7 +179,7 @@
         
         var ct = document.createElement("p");
         $(ct).addClass('captionTags');
-        $(ct).append("#something hello");
+        $(ct).append("#something");
         
         $(caption).append(edit);
         $(caption).append(title);
