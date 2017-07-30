@@ -144,17 +144,17 @@
         $(exitEditTags).text("x");
 
         $(taggedUsers).append('<div class="uusername"><a id ="username" href="">Harvey</a></div>' +       // update show db tagged users
-                             "<div id=\"uexit\">x</div><br>" +
+                             "<div class=\"uexit\">x</div><br>" +
                              '<div class="uusername"><a id ="username" href="">Nella</a></div>' +
-                             "<div id=\"uexit\">x</div><br>" +
+                             "<div class=\"uexit\">x</div><br>" +
                              '<div class="uusername"><a id ="username" href="">Nella</a></div>' +
-                             "<div id=\"uexit\">x</div><br>" +
+                             "<div class=\"uexit\">x</div><br>" +
                              '<div class="uusername"><a id ="username" href="">Nella</a></div>' +
-                             "<div id=\"uexit\">x</div><br>" +
+                             "<div class=\"uexit\">x</div><br>" +
                              '<div class="uusername"><a id ="username" href="">Nella</a></div>' +
-                             "<div id=\"uexit\">x</div><br>" +
+                             "<div class=\"uexit\">x</div><br>" +
                              '<div class="uusername"><a id ="username" href="">Nella</a></div>' + 
-                             "<div id=\"uexit\">x</div><br>" );
+                             "<div class=\"uexit\">x</div><br>" );
 
         $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
                 "<p class = \"tagged\">Tagged:</p>");
@@ -504,7 +504,7 @@
                     
                     document.getElementById('ususers').innerHTML = 
                         "<div id=\"username\">" + document.getElementById('ushare').value + "</div>" +
-                        "<div id=\"uexit\">x</div><br>" +
+                        "<div class=\"uexit\">x</div><br>" +
                         document.getElementById('ususers').innerHTML;
                     document.getElementById('ushare').value = "";
                     

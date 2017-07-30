@@ -592,14 +592,14 @@ div#username{
     width: 80%;
 }
 
-#uexit{
+.uexit{
     display: inline-block;
     width: auto;
     height: auto;
     color: black;
 }
 
-#uexit:hover{
+.uexit:hover{
     color: red;
     cursor: pointer;
 }
