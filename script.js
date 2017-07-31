@@ -59,7 +59,10 @@ function loadPhotos(){
                 },
                 success: function(data)
                 {
-                    generateAlbumInfo(data[max - loadA - i], stringDiv);
+                    generateAlbumInfo(data[document.getElementById("checkBoxPane") != null &&
+                                           document.getElementById("checkBoxPane").checked ? (i + loadA):
+                                                                                             (max - loadA - i)],
+                                      stringDiv);
                 }
             });
         })(i, loadA, stringDiv, url);
@@ -261,9 +264,12 @@ function postPhoto(data, album, user, stringDiv){
         $('.captionTitle').prop('contenteditable'      , false);
         $('.captionDescription').prop('contenteditable', false);
         $('.captionTags').prop('contenteditable'       , false);
-        $('.captionTitle').classList.remove('editable');
-        $('.captionDescription').classList.remove('editable');
-        $('.captionTags').classList.remove('editable');
+        if($('.captionTitle').hasClass('editable')){
+            $('.captionTitle').removeClass('editable');
+            $('.captionDescription').removeClass('editable');
+            $('.captionTags').removeClass('editable');
+            $('.edit').css('color', "grey");
+        }
     });
 
     photo.addEventListener('mouseover', function(){
@@ -317,8 +323,20 @@ function postPhoto(data, album, user, stringDiv){
             ct.innerHTML = ct.innerHTML.replace(/#&nbsp;#/g, "#");
         }
 
-        if (modal.style.display != "none" && e.keyCode === 27)
+        if (modal.style.display != "none" && e.keyCode === 27){
             modal.style.display = "none";
+
+            $('.captionTitle').prop('contenteditable'      , false);
+            $('.captionDescription').prop('contenteditable', false);
+            $('.captionTags').prop('contenteditable'       , false);
+
+            if($('.captionTitle').hasClass('editable')){
+                $('.captionTitle').removeClass('editable');
+                $('.captionDescription').removeClass('editable');
+                $('.captionTags').removeClass('editable');
+                $('.edit').css('color', "grey");
+            }
+        }
 
         return false;
      });
