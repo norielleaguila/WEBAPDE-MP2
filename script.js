@@ -664,12 +664,13 @@ $(document).ready(function(){
     $(document).keypress(               // prevents form from being submitted when enter is pressed
         function(event){
          if (event.which == '13') {
-            
-//             alert()
 
-            if ($("#ushare:focus")){
+            event.preventDefault();
+            var activeElement = document.activeElement;
+            
+            if (activeElement.className == "ushare"){
                 event.preventDefault();
-                alert('prevented');
+//                alert('prevented');
                 var taggedUser = document.createElement("div");
 
                 var copyDiv = "<div id=\"username\">" + document.getElementById('ushare').value + "</div>" +
@@ -687,14 +688,14 @@ $(document).ready(function(){
                                         // update check muna if there's a user in the db before adding(?)
                 document.getElementById('ususers').append(taggedUser);
                 document.getElementById('ushare').value = "";
-            } else if ($(".utags:focus")){
-                alert('hello');
+            } else if (activeElement.id == "utags"){
+//                alert('hello');
                 document.getElementById('utags').value = "#" + document.getElementById('utags').value;
                 document.getElementById('utags').value = document.getElementById('utags').value.replace(/ /g, " #");
                 document.getElementById('utags').value = document.getElementById('utags').value.replace(/##/g, "#");
                 document.getElementById('utags').value = document.getElementById('utags').value.replace(/#&nbsp;&nbsp;#/g, "#");
                 document.getElementById('utags').value = document.getElementById('utags').value.replace(/# #/g, "#");
-            } else if ($(".captionTags:focus")) {
+            } else if (activeElement.className == "captionTags") {
                 var ct = document.activeElement;
 //                alert(document.activeElement.innerHTML);
 //                alert(ct.text);
