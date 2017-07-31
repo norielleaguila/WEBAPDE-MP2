@@ -262,9 +262,10 @@ function postPhoto(data, album, user, stringDiv){
         $('.captionDescription').prop('contenteditable', false);
         $('.captionTags').prop('contenteditable'       , false);
         if($('.captionTitle').hasClass('editable')){
-            $('.captionTitle').classList.remove('editable');
-            $('.captionDescription').classList.remove('editable');
-            $('.captionTags').classList.remove('editable');
+            $('.captionTitle').removeClass('editable');
+            $('.captionDescription').removeClass('editable');
+            $('.captionTags').removeClass('editable');
+            $('.edit').css('color', "grey");
         }
     });
 
