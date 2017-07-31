@@ -672,10 +672,8 @@ $(document).ready(function(){
     $(document).keypress(               // prevents form from being submitted when enter is pressed
         function(event){
          if (event.which == '13') {
-
-            event.preventDefault();
             var activeElement = document.activeElement;
-            
+            event.preventDefault();
             if (activeElement.className == "ushare"){
                 event.preventDefault();
 //                alert('prevented');
