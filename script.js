@@ -173,9 +173,16 @@ function postPhoto(data, album, user, stringDiv){
 //                         "<div class=\"uexit\">x</div><br>" +
 //                         '<div class="uusername"><a id ="username" href="">Nella</a></div>' + 
 //                         "<div class=\"uexit\">x</div><br>" );
-    
-    $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
+    var loggedInUser   =  getCookie("loggedInUser").substring(getCookie("loggedInUser").indexOf("="),
+                                                                  getCookie("loggedInUser").length);
+    if(loggedInUser != "" && loggedInUser.toUpperCase() == user.username.toUpperCase()){
+        $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
             "<p class = \"tagged\">Tagged:</p>");
+    }
+    else{
+        $(tag).append('<i class="fa fa-globe" aria-hidden="true"></i>' +
+            '<p class="public">Public</p>');
+    }
 
     var edit = document.createElement("div");
     $(edit).addClass("edit");
@@ -638,7 +645,7 @@ $(document).ready(function(){
             var sharedFeed = document.getElementById('sharedFeed');
 
             sharedFeedScrollTop = document.body.scrollTop;
-            document.getElementById('a1').innerHTML = "Public Photos";
+            document.getElementById('a1').innerHTML = "Your Photos";
 //                $('body, html').animate({ scrollLeft: 0 }, 700);
 
             sharedFeed.style.display = "none";

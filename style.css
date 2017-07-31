@@ -620,3 +620,11 @@ div#username{
     display: inline-block;
     width: 90%;
 }
+
+.public{
+    margin: 0 10px;
+    padding: 0;
+    color: white;
+    display: inline-block;
+    font-size: 18px;
+}
