@@ -190,8 +190,6 @@ function postPhoto(data, album, user, stringDiv){
     var loggedInUser   =  getCookie("loggedInUser").substring(getCookie("loggedInUser").indexOf("="),
                                                                   getCookie("loggedInUser").length);
     
-    
-    
 //    if(loggedInUser != "" && loggedInUser.toUpperCase() == user.username.toUpperCase()){
 //        $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
 //            "<p class = \"tagged\">Tagged:</p>");
@@ -210,28 +208,31 @@ function postPhoto(data, album, user, stringDiv){
             '<p class="public">Public</p>');
         $(ct).append("#something");
     }
-    
+
     if(data.id == 4999){
         $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
-            "<p class = \"tagged\">Tagged: Bret, Antonette</p>");
+            (loggedInUser.length == 0 ? '<p class="public">Public</p>' :
+                                  "<p class = \"tagged\">Tagged: Bret, Antonette</p>"));
         $(ct).append("#wow #yay");
     }
     
     if(data.id == 4998){
         $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
-            "<p class = \"tagged\">Tagged: Antonette</p>");
+            (loggedInUser.length == 0 ? '<p class="public">Public</p>' :
+                                 "<p class = \"tagged\">Tagged: Antonette</p>"));
         $(ct).append("#wow");
     }
     
     if(data.id == 4997){
         $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
-            "<p class = \"tagged\">Tagged: Bret</p>");
+            (loggedInUser.length == 0 ? '<p class="public">Public</p>' :
+                                 "<p class = \"tagged\">Tagged: Bret</p>"));
         $(ct).append("#wow #yay");
     }
     
     if(user.id == 1){
         $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
-            "<p class = \"tagged\">Tagged: Moriah.Stanton</p>");
+                      "<p class = \"tagged\">Tagged: Moriah.Stanton</p>");
         $(ct).append("#obosen");
     }
 
@@ -832,288 +833,40 @@ $(document).ready(function(){
                     feed.removeChild(feed.firstChild);
                 }
 
+
+
                 var stringDiv = document.createElement("div");
 
                 //add classes
                 $(stringDiv).addClass("string");
 
-
-                    var tagged = 0;
-                    loaded+=1;
-                    //create elements
-                    var pin          = document.createElement("div");
-                    var groove       = document.createElement("div");
-                    var metal        = document.createElement("div");
-                    var polaroid     = document.createElement("div");
-                    var thumbnail    = document.createElement("div");
-
-                    var modal        = document.createElement("div");
-                    var close        = document.createElement("span");
-                    var photo        = document.createElement("div");
-                    var caption      = document.createElement("div");
-
-                    var tag          = document.createElement("div");
-                    var editTags     = document.createElement("div");
-                    var divider      = document.createElement("div");
-                    var exitEditTags = document.createElement("span");
-                    var inputTagUser = document.createElement("input");
-                    var taggedUsers = document.createElement("div");
-
-                    var ct = document.createElement("p");
-
-                    var navbar       = document.getElementById('navbar');
-
-                    //add classes
-                    $(pin).addClass("pin");
-                    $(groove).addClass("groove");
-                    $(metal).addClass("metal");
-                    $(polaroid).addClass("polaroid");
-                    $(thumbnail).addClass("thumbnail");
-
-
-                    $(modal).addClass("modal");
-                    $(close).addClass("close");
-                    $(photo).addClass("photo");
-                    $(caption).addClass("caption");
-
-                    $(tag).addClass("tag-overlay");
-                    $(divider).addClass("divider");
-                    $(editTags).addClass('edittags');
-                    $(exitEditTags).addClass("exit");
-                    $(taggedUsers).addClass('taggedusers');
-                    $(inputTagUser).addClass('taguser');
-                    $(ct).addClass('captionTags');
-
-                    var edit = document.createElement("div");
-                    $(edit).addClass("edit");
-
-                    tag.setAttribute('id', "tag");
-                    inputTagUser.setAttribute('type', 'text');
-                    inputTagUser.setAttribute('placeholder', 'Enter username');
-
-
-                    var title = document.createElement("p");
-                    $(title).addClass('captionTitle');
-                    $(title).text("WOW DOGE");
-
-                    var puser = document.createElement("p");
-                    $(puser).addClass('puser');
-                    $(puser).append('By: <a class="captionUsername" userId = "' + '1' +
-                                    '" username = "' + 'Moriah.Stanton'  + '" id="username">' +
-                                    'Moriah.Stanton' + '</a>');
-
-                    var desc = document.createElement("p");
-                    $(desc).addClass('captionDescription');
-                    $(desc).text('No words...');
-
-                    $(close).text("x");
-                    $(exitEditTags).text("x");
-                    $(taggedUsers).append('<div class="uusername"><a class="username" id ="username' + sharedTo + '" href="">Bret</a></div>' +  // update show db tagged users
-                                         '<div class="uexit" id="uexit' + sharedTo + '">x</div><br>');
-                    sharedTo+=1;
-                    tagged+=1;
-                    $(taggedUsers).append('<div class="uusername"><a class="username" id ="username' + sharedTo + '" href="">Antonette</a></div>' +  // update show db tagged users
-                                         '<div class="uexit" id="uexit' + sharedTo + '">x</div><br>');
-                    sharedTo+=1;
-                    tagged+=1;
-
-                    var loggedInUser   =  getCookie("loggedInUser").substring(getCookie("loggedInUser").indexOf("="),
-                                                                                  getCookie("loggedInUser").length);
-
-
-
-                //    if(loggedInUser != "" && loggedInUser.toUpperCase() == user.username.toUpperCase()){
-                //        $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" +
-                //            "<p class = \"tagged\">Tagged:</p>");
-                //    }
-                //    else{
-                //        $(tag).append('<i class="fa fa-globe" aria-hidden="true"></i>' +
-                //            '<p class="public">Public</p>');
-                //    }
-
-                //    if(loggedInUser != "" && loggedInUser.toUpperCase() == user.username.toUpperCase())
-                //        $(edit).append('<i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i>');
-
-                    //hardcoding
-//                    if(data.id < 4997 || data.id == max){
-                        $(tag).append('<i class="fa fa-globe" aria-hidden="true"></i>' +
-                            '<p class="public">Public</p>');
-                        $(ct).append("#wow");
-//                    }
-
-//                    if(data.id == 4999){
-//                        $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" +
-//                            "<p class = \"tagged\">Tagged: Bret, Antonette</p>");
-//                        $(ct).append("#wow #yay");
-//                    }
-//
-//                    if(data.id == 4998){
-//                        $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" +
-//                            "<p class = \"tagged\">Tagged: Antonette</p>");
-//                        $(ct).append("#wow");
-//                    }
-//
-//                    if(data.id == 4997){
-//                        $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" +
-//                            "<p class = \"tagged\">Tagged: Bret</p>");
-//                        $(ct).append("#wow #yay");
-//                    }
-
-
-                    $(caption).append(edit);
-                    $(caption).append(title);
-                    $(caption).append(puser);
-                    $(caption).append(desc);
-                    $(caption).append(ct);
-
-//                    google.load('doge wow', '1');
-//                    var search;
-//
-//                    var keyword = 'wow';
-//
-//                    search = new google.search.ImageSearch();
-//                    search.setSearchCompleteCallback(this, searchComplete, null);
-//                    search.execute(keyword);
-
-//                    document.body.style.backgroundImage = "url('" + search.results[0]['url'] + "')";
-
-                    //assemble
-                    $(photo).prepend('<img id="theImg" src="' + 'https://upload.wikimedia.org/wikipedia/en/5/5f/Original_Doge_meme.jpg' + '" />');
-                    $(photo).append(tag);
-                    $(modal).append(close);
-                    $(modal).append(photo);
-                    $(modal).append(caption);
-
-                    $(thumbnail).prepend('<img id="theImg" src="' + 'https://upload.wikimedia.org/wikipedia/en/5/5f/Original_Doge_meme.jpg' + '" />');
-                    $(pin).append(groove);
-                    $(groove).append(metal);
-                    $(polaroid).append(thumbnail);
-
-                    $(stringDiv).append(modal);
-                    $(stringDiv).append(pin);
-                    $(stringDiv).append(polaroid);
-
-                    $(editTags).append(inputTagUser);
-                    $(editTags).append(exitEditTags);
-                    $(editTags).append(divider);
-                    $(editTags).append(taggedUsers);
-                    $(tag).append(editTags);
-
-                    $(polaroid).click(function(){
-                        modal.style.display = "flex";
-                    });
-
-                    polaroid.addEventListener('click', function() {
-                        document.body.classList.toggle('noscroll');
-                    })
-
-                    $(close).click(function(){
-                        modal.style.display = "none";
-                        document.body.classList.toggle('noscroll');
-                        $('.captionTitle').prop('contenteditable'      , false);
-                        $('.captionDescription').prop('contenteditable', false);
-                        $('.captionTags').prop('contenteditable'       , false);
-                        if($('.captionTitle').hasClass('editable')){
-                            $('.captionTitle').removeClass('editable');
-                            $('.captionDescription').removeClass('editable');
-                            $('.captionTags').removeClass('editable');
-                            $('.edit').css('color', "grey");
-                        }
-                    });
-
-                    photo.addEventListener('mouseover', function(){
-                        tag.style.display = "block";
-                    });
-
-                    photo.addEventListener('mouseout', function(){
-                        if(editTags.style.display != "block")
-                            tag.style.display = "none";
-                    });
-
-                    $(tag).click(function(event){
-                        event.stopPropagation();
-                        editTags.style.display = "block";
-
-                        //removing tagged people
-                        var temp = 0;
-                        for(var i = 0; i < tagged; i++){
-                            temp = i;
-                            var x = document.getElementById("uexit" + i);
-                            x.addEventListener('click', function(i){
-                                console.log(x.getAttribute('id'));
-                                // always removes the last user only
-                //                $('#username' + (tagged - i)).remove();
-                //                $("#uexit" + (tagged - i)).remove();
-                            });
-                        }
-
-                    });
-
-                    $('.exit').click(function(event){
-                        event.stopPropagation();
-                        editTags.style.display = "none";
-                    });
-
-                    $(document).keyup(function (e) {
-                        var activeElement = document.activeElement;
-
-                        if ($(ct).is(':focus') && (e.keyCode == 32)) {
-
-                            if(ct.innerHTML.charAt(0) != '#'){
-                                ct.innerHTML = "#" + ct.innerHTML;
+                var url = "";
+                if(document.URL.indexOf("#") == 0)
+                    url = root + '/photos/';
+                else url = root + '/photos/'; // update db (user's pictures) document.URL ("#")
+                for(i = 0; i < 3 ; i++){
+                    (function(i, loadA, stringDiv, url) {
+                        $.ajax({
+                            url: url,
+                            method: 'GET',
+                            error: function()
+                            {
+                                //file does not exists
+                                console.log("File does not exist");
+                            },
+                            success: function(data)
+                            {
+                                generateAlbumInfo(data[i + 4996],
+                                                  stringDiv);
                             }
-                //
-                            ct.innerHTML = ct.innerHTML.replace(/&nbsp; &nbsp;/g, '');
-                            ct.innerHTML = ct.innerHTML.replace(/ /g, " #");
-                            ct.innerHTML = ct.innerHTML.replace(/ <br> /g, "");
-                            ct.innerHTML = ct.innerHTML.replace(/<br><br>/g, "");
-                            ct.innerHTML = ct.innerHTML.replace(/<br>/g, " #");
-                            ct.innerHTML = ct.innerHTML.replace(/##/g, "#");
-                            ct.innerHTML = ct.innerHTML.replace(/#&nbsp;#/g, "#");
-                        }
+                        });
+                    })(i, loadA, stringDiv, url);
+                }
 
-                        if (modal.style.display != "none" && e.keyCode === 27){
-                            modal.style.display = "none";
 
-                            $('.captionTitle').prop('contenteditable'      , false);
-                            $('.captionDescription').prop('contenteditable', false);
-                            $('.captionTags').prop('contenteditable'       , false);
-
-                            if($('.captionTitle').hasClass('editable')){
-                                $('.captionTitle').removeClass('editable');
-                                $('.captionDescription').removeClass('editable');
-                                $('.captionTags').removeClass('editable');
-                                $('.edit').css('color', "grey");
-                            }
-                        }
-
-                        return false;
-                     });
-
-                    $('.edit').unbind('click');
-                    $('.edit').click(function(){
-                //            $('.captionTitle').prop('contenteditable'      , !($('.captionTitle').is('.editable'))).toggleClass('editable');
-
-                        var loggedInUser   =  getCookie("loggedInUser").substring(getCookie("loggedInUser").indexOf("="),
-                                                                                  getCookie("loggedInUser").length);
-                        if(loggedInUser != "" && loggedInUser.toUpperCase() == user.username.toUpperCase()){    // case insensitive
-                            if(!($('.captionTitle').is('.editable'))){
-                                $('.captionTitle').prop('contenteditable'      , true).toggleClass('editable');
-                                $('.captionDescription').prop('contenteditable', true).toggleClass('editable');
-                                $('.captionTags').prop('contenteditable'       , true).toggleClass('editable');
-                                $(this).css('color', "#008bc7");
-                            }else{
-                                $('.captionTitle').prop('contenteditable'      , false).toggleClass('editable');
-                                $('.captionDescription').prop('contenteditable', false).toggleClass('editable');
-                                $('.captionTags').prop('contenteditable'       , false).toggleClass('editable');
-                                $(this).css('color', "grey");
-                            }
-                        }
-                    });
-
+                $(".feed").append(stringDiv);
 
 //                for(var i = 0; i < 3; i++)
-                    stringDiv.append(photo);
 
                 feed.append(stringDiv);
             }
