@@ -293,7 +293,7 @@ function postPhoto(data, album, user, stringDiv){
 //        }
         var activeElement = document.activeElement;
 
-        if (activeElement.className == "captionTags" && (e.keyCode == 32)) {
+        if ($(ct).is(':focus') && (e.keyCode == 32)) {
             ct.innerHTML = ct.innerHTML.replace(/&nbsp; &nbsp;/g, '');
             ct.innerHTML = ct.innerHTML.replace(/ /g, " #");
             ct.innerHTML = ct.innerHTML.replace(/ <br> /g, "");
