@@ -336,11 +336,13 @@ function postPhoto(data, album, user, stringDiv){
 }
 
 function changeNavBar() {
+    var loggedInUser   =  getCookie("loggedInUser").substring(getCookie("loggedInUser").indexOf("="),
+                                                              getCookie("loggedInUser").length);
     var navBar = document.getElementById('navbar');
         navBar.innerHTML = "<div id = \"navbar\">" +
                       "<a href = \"index.html\" id = \"title\"> twine </a>" +
                       "<div class=\"links\" id = \"navBarLinks\">" +
-                      "<a class = \"acc\" id = \"profile\">Profile</a>" +       //Profile or username na niya? update db
+                      "<a class = \"acc\" id = \"profile\">" + loggedInUser + "</a>" +
                       "|" +
                       "<a class = \"acc\" id = \"upload\">Upload</a>" +
                       "|" +
