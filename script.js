@@ -59,7 +59,7 @@ function loadPhotos(){
                 },
                 success: function(data)
                 {
-                    generateAlbumInfo(data[max - loadA - i], stringDiv);
+                    generateAlbumInfo(data[max - loadA - i ], stringDiv);
                 }
             });
         })(i, loadA, stringDiv, url);
@@ -261,9 +261,11 @@ function postPhoto(data, album, user, stringDiv){
         $('.captionTitle').prop('contenteditable'      , false);
         $('.captionDescription').prop('contenteditable', false);
         $('.captionTags').prop('contenteditable'       , false);
-        $('.captionTitle').classList.remove('editable');
-        $('.captionDescription').classList.remove('editable');
-        $('.captionTags').classList.remove('editable');
+        if($('.captionTitle').hasClass('editable')){
+            $('.captionTitle').classList.remove('editable');
+            $('.captionDescription').classList.remove('editable');
+            $('.captionTags').classList.remove('editable');
+        }
     });
 
     photo.addEventListener('mouseover', function(){
