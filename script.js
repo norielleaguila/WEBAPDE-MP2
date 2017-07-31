@@ -315,7 +315,7 @@ function postPhoto(data, album, user, stringDiv){
 
         var loggedInUser   =  getCookie("loggedInUser").substring(getCookie("loggedInUser").indexOf("="),
                                                                   getCookie("loggedInUser").length);
-//        if(loggedInUser != "" && loggedInUser.toUpperCase() == user.username.toUpperCase()){    // case insensitive
+        if(loggedInUser != "" && loggedInUser.toUpperCase() == user.username.toUpperCase()){    // case insensitive
             if(!($('.captionTitle').is('.editable'))){
                 $('.captionTitle').prop('contenteditable'      , true).toggleClass('editable');
                 $('.captionDescription').prop('contenteditable', true).toggleClass('editable');
@@ -327,7 +327,7 @@ function postPhoto(data, album, user, stringDiv){
                 $('.captionTags').prop('contenteditable'       , false).toggleClass('editable');
                 $(this).css('color', "grey");
             }
-//        }
+        }
     });
     
     
@@ -664,11 +664,12 @@ $(document).ready(function(){
     $(document).keypress(               // prevents form from being submitted when enter is pressed
         function(event){
          if (event.which == '13') {
-            event.preventDefault();
+            
 //             alert()
 
-            if ($(".ushare:focus")){
-
+            if ($("#ushare:focus")){
+                event.preventDefault();
+                alert('prevented');
                 var taggedUser = document.createElement("div");
 
                 var copyDiv = "<div id=\"username\">" + document.getElementById('ushare').value + "</div>" +
