@@ -297,6 +297,11 @@ function postPhoto(data, album, user, stringDiv){
         var activeElement = document.activeElement;
 
         if ($(ct).is(':focus') && (e.keyCode == 32)) {
+            
+            if(ct.innerHTML.charAt(0) != '#'){
+                ct.innerHTML = "#" + ct.innerHTML;
+            }
+//                    
             ct.innerHTML = ct.innerHTML.replace(/&nbsp; &nbsp;/g, '');
             ct.innerHTML = ct.innerHTML.replace(/ /g, " #");
             ct.innerHTML = ct.innerHTML.replace(/ <br> /g, "");
