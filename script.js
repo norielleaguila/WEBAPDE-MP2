@@ -540,17 +540,30 @@ $(document).ready(function(){
         var x = document.getElementById('clickedNavBarLinks');
         x.style.display = 'block';
 
-        x.innerHTML = " <form action=\"\" method=\"post\" enctype=\"multipart/form-data\"" +
-                            " name=\"uploadForm\" id=\"uploadForm\"><div class = \"upload\"><p>Upload file</p><input type=\"file\"" +
-                            " name=\"file\" id=\"file\" accept=\"image/*\" " +
-                            "onchange=\"javascript:updateList()\"/>" +
-                            "<input class=\"uinput\" id=\"utitle\" type=\"text\" placeholder=\"Title\"/>" +
-                            "<textarea class=\"uinput\" id=\"udesc\" type=\"text\" placeholder=\"Description\"></textarea>" +
-                            "<input class=\"uinput utags\" id=\"utags\" type=\"text\" placeholder=\"Tags\"/>" +
-                            "<input id=\"uprivacy\" type=\"checkbox\" />" + "Private" +
-                            "<input class=\"ushare\" id=\"ushare\" type=\"text\" placeholder=\"Enter username\"/ disabled>" +
-                            "<p class=\"t2\">Shared With:</p><div class=\"ususers\" id=\"ususers\"></div>" +
-                            "</div><button id=\"uploadButton\">Submit</button></form>";
+        //dont delete this is the original more correct version
+//        x.innerHTML = " <form action=\"\" method=\"post\" enctype=\"multipart/form-data\"" +
+//                            " name=\"uploadForm\" id=\"uploadForm\"><div class = \"upload\"><p>Upload file</p><input type=\"file\"" +
+//                            " name=\"file\" id=\"file\" accept=\"image/*\" " +
+//                            "onchange=\"javascript:updateList()\"/>" +
+//                            "<input class=\"uinput\" id=\"utitle\" type=\"text\" placeholder=\"Title\"/>" +
+//                            "<textarea class=\"uinput\" id=\"udesc\" type=\"text\" placeholder=\"Description\"></textarea>" +
+//                            "<input class=\"uinput utags\" id=\"utags\" type=\"text\" placeholder=\"Tags\"/>" +
+//                            "<input id=\"uprivacy\" type=\"checkbox\" />" + "Private" +
+//                            "<input class=\"ushare\" id=\"ushare\" type=\"text\" placeholder=\"Enter username\"/ disabled>" +
+//                            "<p class=\"t2\">Shared With:</p><div class=\"ususers\" id=\"ususers\"></div>" +
+//                            "</div><button id=\"uploadButton\">Submit</button></form>";
+        
+        //for hardcoding?
+        x.innerHTML = " <div class = \"upload\"><p>Upload file</p><input type=\"file\"" +
+                        " name=\"file\" id=\"file\" accept=\"image/*\" " +
+                        "onchange=\"javascript:updateList()\"/>" +
+                        "<input class=\"uinput\" id=\"utitle\" type=\"text\" placeholder=\"Title\"/>" +
+                        "<textarea class=\"uinput\" id=\"udesc\" type=\"text\" placeholder=\"Description\"></textarea>" +
+                        "<input class=\"uinput utags\" id=\"utags\" type=\"text\" placeholder=\"Tags\"/>" +
+                        "<input id=\"uprivacy\" type=\"checkbox\" />" + "Private" +
+                        "<input class=\"ushare\" id=\"ushare\" type=\"text\" placeholder=\"Enter username\"/ disabled>" +
+                        "<p class=\"t2\">Shared With:</p><div class=\"ususers\" id=\"ususers\"></div>" +
+                        "</div><button id=\"uploadButton\">Submit</button>";
 
         $(document).keyup(function (e){
             var activeElement = document.activeElement;
@@ -577,6 +590,60 @@ $(document).ready(function(){
 
 
         });
+        
+        $("#uploadButton").click(function(event){
+            // update db (save images)
+            event.stopPropagation();
+            if(document.getElementById('file').value == ""){
+                x.style.display = "block";
+                x.innerHTML = " <div class = \"upload\"><p>Upload file</p>" +
+                                "<div class = \"errorupload\">" +
+                                "You did not select an image" +
+                                "</div>" +
+                                "<input type=\"file\"" +
+                                " name=\"file\" id=\"file\" accept=\"image/*\" " +
+                                "onchange=\"javascript:updateList()\"/>" +
+                                "<input class=\"uinput\" id=\"utitle\" type=\"text\" placeholder=\"Title\"/>" +
+                                "<textarea class=\"uinput\" id=\"udesc\" type=\"text\" placeholder=\"Description\"></textarea>" +
+                                "<input class=\"uinput utags\" id=\"utags\" type=\"text\" placeholder=\"Tags\"/>" +
+                                "<input id=\"uprivacy\" type=\"checkbox\" />" + "Private" +
+                                "<input class=\"ushare\" id=\"ushare\" type=\"text\" placeholder=\"Enter username\"/ disabled>" +
+                                "<p class=\"t2\">Shared With:</p><div class=\"ususers\" id=\"ususers\"></div>" +
+                                "</div><button id=\"uploadButton\">Submit</button>";
+            } else if(document.getElementById('utitle').value == ""){
+                x.style.display = "block";
+                 x.innerHTML = " <div class = \"upload\"><p>Upload file</p>" +
+                                "<div class = \"errorupload\">" +
+                                "Title cannot be empty" +
+                                "</div>" +
+                                "<input type=\"file\"" +
+                        " name=\"file\" id=\"file\" accept=\"image/*\" " +
+                        "onchange=\"javascript:updateList()\"/>" +
+                        "<input class=\"uinput\" id=\"utitle\" type=\"text\" placeholder=\"Title\"/>" +
+                        "<textarea class=\"uinput\" id=\"udesc\" type=\"text\" placeholder=\"Description\"></textarea>" +
+                        "<input class=\"uinput utags\" id=\"utags\" type=\"text\" placeholder=\"Tags\"/>" +
+                        "<input id=\"uprivacy\" type=\"checkbox\" />" + "Private" +
+                        "<input class=\"ushare\" id=\"ushare\" type=\"text\" placeholder=\"Enter username\"/ disabled>" +
+                        "<p class=\"t2\">Shared With:</p><div class=\"ususers\" id=\"ususers\"></div>" +
+                        "</div><button id=\"uploadButton\">Submit</button>";
+            } else {
+                x.style.display = "block";
+                x.innerHTML =  "<div class = \"upload\"><p>Upload file</p>" +
+                    "<div class = \"successupload\">" +
+                              "Success!" +
+                              "</div>"+
+                                "<input type=\"file\"" +
+                        " name=\"file\" id=\"file\" accept=\"image/*\" " +
+                        "onchange=\"javascript:updateList()\"/>" +
+                        "<input class=\"uinput\" id=\"utitle\" type=\"text\" placeholder=\"Title\"/>" +
+                        "<textarea class=\"uinput\" id=\"udesc\" type=\"text\" placeholder=\"Description\"></textarea>" +
+                        "<input class=\"uinput utags\" id=\"utags\" type=\"text\" placeholder=\"Tags\"/>" +
+                        "<input id=\"uprivacy\" type=\"checkbox\" />" + "Private" +
+                        "<input class=\"ushare\" id=\"ushare\" type=\"text\" placeholder=\"Enter username\"/ disabled>" +
+                        "<p class=\"t2\">Shared With:</p><div class=\"ususers\" id=\"ususers\"></div>" +
+                        "</div><button id=\"uploadButton\">Submit</button>";
+            }
+        });
 
         document.getElementById('uprivacy').addEventListener('click', function(){
             if(document.getElementById('uprivacy').checked)
@@ -601,14 +668,6 @@ $(document).ready(function(){
         });
 
     });
-
-    $("#uploadButton").click(function(event){
-
-        // update db (save images)
-        alert("update db (save images)");
-
-    });
-
     $("#profile").click(function(event){
         window.location.href = "profile.html#" + loggedInUser;
     });

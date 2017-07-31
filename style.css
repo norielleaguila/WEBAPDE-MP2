@@ -46,6 +46,10 @@ body{
     overflow-x: hidden;
 }
 
+textarea{
+    font-family: Arial;
+}
+
 .noscroll {
   overflow:hidden;
 }
@@ -627,4 +631,28 @@ div#username{
     color: white;
     display: inline-block;
     font-size: 18px;
+}
+
+.successupload, .errorupload{
+    direction: ltr;
+    align-self: center;
+    width: calc(100% - 20px);
+    height: 20px;
+    padding: 10px;
+    margin-top:10px;
+    margin-bottom:10px;
+    background-color: whitesmoke;
+    color: red;
+    font-size: 12px;
+    text-align: center;
+    animation: zoom;
+    animation-delay: 0s;
+    animation-duration: 0.3s;
+    animation-direction: normal;
+    transform-origin: center;
+    transition: all 0.3s ease-in;
+}
+
+.successupload{
+    color: limegreen;
 }
