@@ -436,10 +436,7 @@ $(document).ready(function(){
         $(".feed").append(stringDiv);
     }
 
-    for(var i = 0; i < 3; i++){     // update db shared feed call
-        var stringDiv = loadPhotos();
-        $(".sharedFeed").append(stringDiv);
-    }
+
 
     var sharedFeedScrollTop = 0;
     var feedScrollTop       = 0;
@@ -713,9 +710,16 @@ $(document).ready(function(){
 
         if(document.getElementById("checkBoxPane").checked){
 
+
             var feed = document.getElementById('feed');
             var sharedFeed = document.getElementById('sharedFeed');
 
+            if(sharedFeed.children.length == 0){
+                for(var i = 0; i < 3; i++){     // update db shared feed call
+                    var stringDiv = loadPhotos();
+                    $(".sharedFeed").append(stringDiv);
+                }
+            }
 
             feedScrollTop       =  document.body.scrollTop;
             document.getElementById('a1').innerHTML = "Shared With You";
@@ -821,7 +825,21 @@ $(document).ready(function(){
 
                 if(ct.value.charAt(ct.value.length - 1) != " " && ct.value.charAt(ct.value.length - 1) != "#" && ct.value.length != 0)
                     ct.value = ct.value + " #";
+            } else if (activeElement.id == "searchbox"){
+                // Remove all children div
+                var feed = document.getElementById("feed");
+                while (feed.firstChild) {
+                    feed.removeChild(feed.firstChild);
+                }
+
+                var stringDiv = document.createElement("div");
+
+                //add classes
+                $(stringDiv).addClass("string");
+
+
             }
+
 
           }
 
