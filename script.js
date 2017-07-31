@@ -205,7 +205,7 @@ function postPhoto(data, album, user, stringDiv){
 //        $(edit).append('<i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i>');
     
     //hardcoding
-    if(data.id < 4997 || data.id == max){
+    if(data.id < 4997 || data.id == max && user.id != 1){
         $(tag).append('<i class="fa fa-globe" aria-hidden="true"></i>' +
             '<p class="public">Public</p>');
         $(ct).append("#something");
@@ -227,6 +227,12 @@ function postPhoto(data, album, user, stringDiv){
         $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
             "<p class = \"tagged\">Tagged: Bret</p>");
         $(ct).append("#wow #yay");
+    }
+    
+    if(user.id == 1){
+        $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
+            "<p class = \"tagged\">Tagged: Moriah.Stanton</p>");
+        $(ct).append("#obosen");
     }
 
 
