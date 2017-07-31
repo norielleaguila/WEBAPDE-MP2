@@ -239,9 +239,12 @@ function postPhoto(data, album, user, stringDiv){
         modal.style.display = "none";
         document.body.classList.toggle('noscroll');
 
-        $('.captionTitle').prop('contenteditable'      , false).toggleClass('editable');
-        $('.captionDescription').prop('contenteditable', false).toggleClass('editable');
-        $('.captionTags').prop('contenteditable'       , false).toggleClass('editable');
+        $('.captionTitle').prop('contenteditable'      , false);
+        $('.captionDescription').prop('contenteditable', false);
+        $('.captionTags').prop('contenteditable'       , false);
+        $('.captionTitle').classList.remove('editable');
+        $('.captionDescription').classList.remove('editable');
+        $('.captionTags').classList.remove('editable');
     });
 
     photo.addEventListener('mouseover', function(){
