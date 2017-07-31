@@ -291,8 +291,9 @@ function postPhoto(data, album, user, stringDiv){
 //                ct.innerHTML = ct.innerHTML.replace(/#&nbsp;#/g, "#");
 //            }
 //        }
-        
-        if ($(".captionTags:focus") && (e.keyCode == 32)) {
+        var activeElement = document.activeElement;
+
+        if (activeElement.className == "captionTags" && (e.keyCode == 32)) {
             ct.innerHTML = ct.innerHTML.replace(/&nbsp; &nbsp;/g, '');
             ct.innerHTML = ct.innerHTML.replace(/ /g, " #");
             ct.innerHTML = ct.innerHTML.replace(/ <br> /g, "");
@@ -540,7 +541,9 @@ $(document).ready(function(){
                             "</div><button id=\"uploadButton\">Submit</button></form>";
 
         $(document).keyup(function (e){
-            if ($(".ushare:focus") && (e.keyCode == 32) && document.getElementById('ushare').value.replace(/ /g,'').length != 0){
+            var activeElement = document.activeElement;
+            if (activeElement.className == "ushare" && (e.keyCode == 32) &&
+                document.getElementById('ushare').value.replace(/ /g,'').length != 0){
 
                 var taggedUser = document.createElement("div");
                 var copyDiv = "<div id=\"username\">" + document.getElementById('ushare').value + "</div>" +
@@ -573,7 +576,10 @@ $(document).ready(function(){
         });
         
         $(document).keyup(function (e){
-            if ($(".utags:focus") && (e.keyCode == 32)){
+
+            var activeElement = document.activeElement;
+
+            if (activeElement.id == "utags" && (e.keyCode == 32)){
                 document.getElementById('utags').value = "#" + document.getElementById('utags').value;
                 document.getElementById('utags').value = document.getElementById('utags').value.replace(/ /g, " #");
                 document.getElementById('utags').value = document.getElementById('utags').value.replace(/##/g, "#");

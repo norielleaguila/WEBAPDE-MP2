@@ -31,8 +31,8 @@
       <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="673" column="33" lean-forward="false" selection-start-line="673" selection-start-column="33" selection-end-line="673" selection-end-column="33" />
+            <state relative-caret-position="353">
+              <caret line="544" column="46" lean-forward="false" selection-start-line="544" selection-start-column="40" selection-end-line="544" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -62,9 +62,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>edit&quot;</find>
-      <find>exitEditTags</find>
-      <find>.display</find>
       <find>center</find>
       <find>data</find>
       <find>ct.</find>
@@ -92,6 +89,9 @@
       <find>keyup</find>
       <find>ushare</find>
       <find>edit</find>
+      <find>focus</find>
+      <find>== \&quot;\.</find>
+      <find>== \&quot;.</find>
     </findStrings>
     <replaceStrings>
       <replace>hoverDiv</replace>
@@ -502,8 +502,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="673" column="33" lean-forward="false" selection-start-line="673" selection-start-column="33" selection-end-line="673" selection-end-column="33" />
+        <state relative-caret-position="353">
+          <caret line="544" column="46" lean-forward="false" selection-start-line="544" selection-start-column="40" selection-end-line="544" selection-end-column="46" />
           <folding />
         </state>
       </provider>
