@@ -59,7 +59,10 @@ function loadPhotos(){
                 },
                 success: function(data)
                 {
-                    generateAlbumInfo(data[max - loadA - i ], stringDiv);
+                    generateAlbumInfo(data[document.getElementById("checkBoxPane") != null &&
+                                           document.getElementById("checkBoxPane").checked ? (i + loadA):
+                                                                                             (max - loadA - i)],
+                                      stringDiv);
                 }
             });
         })(i, loadA, stringDiv, url);
