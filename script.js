@@ -154,34 +154,47 @@ function postPhoto(data, album, user, stringDiv){
 
     $(close).text("x");
     $(exitEditTags).text("x");
-//    console.log(sharedTo);
-    $(taggedUsers).append('<div class="uusername"><a class="username" id ="username' + sharedTo + '" href="">Harvey</a></div>' +  // update show db tagged users
+    $(taggedUsers).append('<div class="uusername"><a class="username" id ="username' + sharedTo + '" href="">Bret</a></div>' +  // update show db tagged users
                          '<div class="uexit" id="uexit' + sharedTo + '">x</div><br>');
     sharedTo+=1;
     tagged+=1;
-    $(taggedUsers).append('<div class="uusername"><a class="username" id ="username' + sharedTo + '" href="">Harvey1</a></div>' +  // update show db tagged users
+    $(taggedUsers).append('<div class="uusername"><a class="username" id ="username' + sharedTo + '" href="">Antonette</a></div>' +  // update show db tagged users
                          '<div class="uexit" id="uexit' + sharedTo + '">x</div><br>');
     sharedTo+=1;
     tagged+=1;
-//                         '<div class="uusername"><a id ="username" href="">Nella</a></div>' +
-//                         "<div class=\"uexit\">x</div><br>" +
-//                         '<div class="uusername"><a id ="username" href="">Nella</a></div>' +
-//                         "<div class=\"uexit\">x</div><br>" +
-//                         '<div class="uusername"><a id ="username" href="">Nella</a></div>' +
-//                         "<div class=\"uexit\">x</div><br>" +
-//                         '<div class="uusername"><a id ="username" href="">Nella</a></div>' +
-//                         "<div class=\"uexit\">x</div><br>" +
-//                         '<div class="uusername"><a id ="username" href="">Nella</a></div>' + 
-//                         "<div class=\"uexit\">x</div><br>" );
+    
     var loggedInUser   =  getCookie("loggedInUser").substring(getCookie("loggedInUser").indexOf("="),
                                                                   getCookie("loggedInUser").length);
-    if(loggedInUser != "" && loggedInUser.toUpperCase() == user.username.toUpperCase()){
-        $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
-            "<p class = \"tagged\">Tagged:</p>");
-    }
-    else{
+    
+    
+    
+//    if(loggedInUser != "" && loggedInUser.toUpperCase() == user.username.toUpperCase()){
+//        $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
+//            "<p class = \"tagged\">Tagged:</p>");
+//    }
+//    else{
+//        $(tag).append('<i class="fa fa-globe" aria-hidden="true"></i>' +
+//            '<p class="public">Public</p>');
+//    }
+    
+    if(data.id < 4997 || data.id == max){
         $(tag).append('<i class="fa fa-globe" aria-hidden="true"></i>' +
             '<p class="public">Public</p>');
+    }
+    
+    if(data.id == 4999){
+        $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
+            "<p class = \"tagged\">Tagged: Bret, Antonette</p>");
+    }
+    
+    if(data.id == 4998){
+        $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
+            "<p class = \"tagged\">Tagged: Antonette</p>");
+    }
+    
+    if(data.id == 4997){
+        $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
+            "<p class = \"tagged\">Tagged: Bret</p>");
     }
 
     var edit = document.createElement("div");
@@ -245,7 +258,6 @@ function postPhoto(data, album, user, stringDiv){
     $(close).click(function(){
         modal.style.display = "none";
         document.body.classList.toggle('noscroll');
-
         $('.captionTitle').prop('contenteditable'      , false);
         $('.captionDescription').prop('contenteditable', false);
         $('.captionTags').prop('contenteditable'       , false);
@@ -285,22 +297,9 @@ function postPhoto(data, album, user, stringDiv){
     $('.exit').click(function(event){
         event.stopPropagation();
         editTags.style.display = "none";
-//            alert('hello');
     });
 
-//        document.onkeyup = null;
     $(document).keyup(function (e) {
-//        if($(document.activeElement) == $(".captionTags")){
-//            if(e.keyCode == 32){
-//                ct.innerHTML = ct.innerHTML.replace(/&nbsp; &nbsp;/g, '');
-//                ct.innerHTML = ct.innerHTML.replace(/ /g, " #");
-//                ct.innerHTML = ct.innerHTML.replace(/ <br> /g, "");
-//                ct.innerHTML = ct.innerHTML.replace(/<br><br>/g, "");
-//                ct.innerHTML = ct.innerHTML.replace(/<br>/g, " #");
-//                ct.innerHTML = ct.innerHTML.replace(/##/g, "#");
-//                ct.innerHTML = ct.innerHTML.replace(/#&nbsp;#/g, "#");
-//            }
-//        }
         var activeElement = document.activeElement;
 
         if ($(ct).is(':focus') && (e.keyCode == 32)) {
@@ -316,7 +315,6 @@ function postPhoto(data, album, user, stringDiv){
             ct.innerHTML = ct.innerHTML.replace(/<br>/g, " #");
             ct.innerHTML = ct.innerHTML.replace(/##/g, "#");
             ct.innerHTML = ct.innerHTML.replace(/#&nbsp;#/g, "#");
-//            alert('hello');
         }
 
         if (modal.style.display != "none" && e.keyCode === 27)
@@ -345,9 +343,6 @@ function postPhoto(data, album, user, stringDiv){
             }
         }
     });
-    
-    
-    
 }
 
 function changeNavBar() {
@@ -632,7 +627,7 @@ $(document).ready(function(){
 
 
             feedScrollTop       =  document.body.scrollTop;
-            document.getElementById('a1').innerHTML = "Shared Photos";
+            document.getElementById('a1').innerHTML = "Shared With You";
 //                $('body, html').animate({ scrollLeft: $(this).width }, 700);
 
             feed.style.display = "none";
