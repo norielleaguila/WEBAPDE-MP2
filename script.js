@@ -129,6 +129,8 @@ function postPhoto(data, album, user, stringDiv){
     var inputTagUser = document.createElement("input");
     var taggedUsers = document.createElement("div");
 
+    var ct = document.createElement("p");
+
     var navbar       = document.getElementById('navbar');
 
     //add classes
@@ -150,10 +152,29 @@ function postPhoto(data, album, user, stringDiv){
     $(exitEditTags).addClass("exit");
     $(taggedUsers).addClass('taggedusers');
     $(inputTagUser).addClass('taguser');
+    $(ct).addClass('captionTags');
+    
+    var edit = document.createElement("div");
+    $(edit).addClass("edit");
 
     tag.setAttribute('id', "tag");
     inputTagUser.setAttribute('type', 'text');
     inputTagUser.setAttribute('placeholder', 'Enter username');
+    
+    
+    var title = document.createElement("p");
+    $(title).addClass('captionTitle');
+    $(title).text(data.title);
+
+    var puser = document.createElement("p");
+    $(puser).addClass('puser');
+    $(puser).append('By: <a class="captionUsername" userId = "' + user.id +
+                    '" username = "' + user.username  + '" id="username">' +
+                    user.username + '</a>');
+
+    var desc = document.createElement("p");
+    $(desc).addClass('captionDescription');
+    $(desc).text(album.title);
 
     $(close).text("x");
     $(exitEditTags).text("x");
@@ -180,47 +201,34 @@ function postPhoto(data, album, user, stringDiv){
 //            '<p class="public">Public</p>');
 //    }
     
+//    if(loggedInUser != "" && loggedInUser.toUpperCase() == user.username.toUpperCase())
+//        $(edit).append('<i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i>');
+    
+    //hardcoding
     if(data.id < 4997 || data.id == max){
         $(tag).append('<i class="fa fa-globe" aria-hidden="true"></i>' +
             '<p class="public">Public</p>');
+        $(ct).append("#something");
     }
     
     if(data.id == 4999){
         $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
             "<p class = \"tagged\">Tagged: Bret, Antonette</p>");
+        $(ct).append("#wow #yay");
     }
     
     if(data.id == 4998){
         $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
             "<p class = \"tagged\">Tagged: Antonette</p>");
+        $(ct).append("#wow");
     }
     
     if(data.id == 4997){
         $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
             "<p class = \"tagged\">Tagged: Bret</p>");
+        $(ct).append("#wow #yay");
     }
 
-    var edit = document.createElement("div");
-    $(edit).addClass("edit");
-    $(edit).append('<i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i>');
-
-    var title = document.createElement("p");
-    $(title).addClass('captionTitle');
-    $(title).text(data.title);
-
-    var puser = document.createElement("p");
-    $(puser).addClass('puser');
-    $(puser).append('By: <a class="captionUsername" userId = "' + user.id +
-                    '" username = "' + user.username  + '" id="username">' +
-                    user.username + '</a>');
-
-    var desc = document.createElement("p");
-    $(desc).addClass('captionDescription');
-    $(desc).text(album.title);
-
-    var ct = document.createElement("p");
-    $(ct).addClass('captionTags');
-    $(ct).append("#something");
 
     $(caption).append(edit);
     $(caption).append(title);
