@@ -221,7 +221,6 @@ function postPhoto(data, album, user, stringDiv){
     $(stringDiv).append(pin);
     $(stringDiv).append(polaroid);
 
-
     $(editTags).append(inputTagUser);
     $(editTags).append(exitEditTags);
     $(editTags).append(divider);
@@ -273,17 +272,27 @@ function postPhoto(data, album, user, stringDiv){
         
     });
 
-//    $('.exit').click(function(event){
-//        event.stopPropagation();
-//        editTags.style.display = "none";
-////            alert('hello');
-//    });
+    $('.exit').click(function(event){
+        event.stopPropagation();
+        editTags.style.display = "none";
+//            alert('hello');
+    });
 
 //        document.onkeyup = null;
     $(document).keyup(function (e) {
+//        if($(document.activeElement) == $(".captionTags")){
+//            if(e.keyCode == 32){
+//                ct.innerHTML = ct.innerHTML.replace(/&nbsp; &nbsp;/g, '');
+//                ct.innerHTML = ct.innerHTML.replace(/ /g, " #");
+//                ct.innerHTML = ct.innerHTML.replace(/ <br> /g, "");
+//                ct.innerHTML = ct.innerHTML.replace(/<br><br>/g, "");
+//                ct.innerHTML = ct.innerHTML.replace(/<br>/g, " #");
+//                ct.innerHTML = ct.innerHTML.replace(/##/g, "#");
+//                ct.innerHTML = ct.innerHTML.replace(/#&nbsp;#/g, "#");
+//            }
+//        }
+        
         if ($(".captionTags:focus") && (e.keyCode == 32)) {
-
-
             ct.innerHTML = ct.innerHTML.replace(/&nbsp; &nbsp;/g, '');
             ct.innerHTML = ct.innerHTML.replace(/ /g, " #");
             ct.innerHTML = ct.innerHTML.replace(/ <br> /g, "");
@@ -291,6 +300,7 @@ function postPhoto(data, album, user, stringDiv){
             ct.innerHTML = ct.innerHTML.replace(/<br>/g, " #");
             ct.innerHTML = ct.innerHTML.replace(/##/g, "#");
             ct.innerHTML = ct.innerHTML.replace(/#&nbsp;#/g, "#");
+//            alert('hello');
         }
 
         if (modal.style.display != "none" && e.keyCode === 27)
@@ -305,7 +315,7 @@ function postPhoto(data, album, user, stringDiv){
 
         var loggedInUser   =  getCookie("loggedInUser").substring(getCookie("loggedInUser").indexOf("="),
                                                                   getCookie("loggedInUser").length);
-        if(loggedInUser != "" && loggedInUser.toUpperCase() == user.username.toUpperCase()){    // case insensitive
+//        if(loggedInUser != "" && loggedInUser.toUpperCase() == user.username.toUpperCase()){    // case insensitive
             if(!($('.captionTitle').is('.editable'))){
                 $('.captionTitle').prop('contenteditable'      , true).toggleClass('editable');
                 $('.captionDescription').prop('contenteditable', true).toggleClass('editable');
@@ -317,7 +327,7 @@ function postPhoto(data, album, user, stringDiv){
                 $('.captionTags').prop('contenteditable'       , false).toggleClass('editable');
                 $(this).css('color', "grey");
             }
-        }
+//        }
     });
     
     
@@ -561,17 +571,17 @@ $(document).ready(function(){
                 document.getElementById('ususers').innerHTML = "";
             } 
         });
+        
+        $(document).keyup(function (e){
+            if ($(".utags:focus") && (e.keyCode == 32)){
+                document.getElementById('utags').value = "#" + document.getElementById('utags').value;
+                document.getElementById('utags').value = document.getElementById('utags').value.replace(/ /g, " #");
+                document.getElementById('utags').value = document.getElementById('utags').value.replace(/##/g, "#");
+                document.getElementById('utags').value = document.getElementById('utags').value.replace(/#&nbsp;&nbsp;#/g, "#");
+                document.getElementById('utags').value = document.getElementById('utags').value.replace(/# #/g, "#");
+            }
+        });
 
-    });
-
-    $(document).keyup(function (e){
-        if ($(".utags:focus") && (e.keyCode == 32)){
-            document.getElementById('utags').value = "#" + document.getElementById('utags').value;
-            document.getElementById('utags').value = document.getElementById('utags').value.replace(/ /g, " #");
-            document.getElementById('utags').value = document.getElementById('utags').value.replace(/##/g, "#");
-            document.getElementById('utags').value = document.getElementById('utags').value.replace(/#&nbsp;&nbsp;#/g, "#");
-            document.getElementById('utags').value = document.getElementById('utags').value.replace(/# #/g, "#");
-        }
     });
 
     $("#uploadButton").click(function(event){
@@ -655,27 +665,9 @@ $(document).ready(function(){
         function(event){
          if (event.which == '13') {
             event.preventDefault();
+//             alert()
 
-            if ($(".captionTags:focus")) {
-                var ct = document.activeElement;
-//                alert(document.activeElement.innerHTML);
-//                alert(ct.text);
-//                alert(ct.value);
-//                ct.innerHTML = ct.innerHTML.replace(/&nbsp; &nbsp;/g, '');
-//                ct.innerHTML = ct.innerHTML.replace(/ /g, " #");
-//                ct.innerHTML = ct.innerHTML.replace(/ <br> /g, "");
-//                ct.innerHTML = ct.innerHTML.replace(/<br><br>/g, "");
-//                ct.innerHTML = ct.innerHTML.replace(/<br>/g, " #");
-//                ct.innerHTML = ct.innerHTML.replace(/##/g, "#");
-//                ct.innerHTML = ct.innerHTML.replace(/#&nbsp;#/g, "#");
-
-
-                if(ct.value.charAt(0) != "#" && ct.value.length != '0')
-                    ct.value = "#" + ct.value + " #";
-
-                if(ct.value.charAt(ct.value.length - 1) != " " && ct.value.charAt(ct.value.length - 1) != "#" && ct.value.length != 0)
-                    ct.value = ct.value + " #";
-            } else if ($(".ushare:focus")){
+            if ($(".ushare:focus")){
 
                 var taggedUser = document.createElement("div");
 
@@ -695,11 +687,31 @@ $(document).ready(function(){
                 document.getElementById('ususers').append(taggedUser);
                 document.getElementById('ushare').value = "";
             } else if ($(".utags:focus")){
+                alert('hello');
                 document.getElementById('utags').value = "#" + document.getElementById('utags').value;
                 document.getElementById('utags').value = document.getElementById('utags').value.replace(/ /g, " #");
                 document.getElementById('utags').value = document.getElementById('utags').value.replace(/##/g, "#");
                 document.getElementById('utags').value = document.getElementById('utags').value.replace(/#&nbsp;&nbsp;#/g, "#");
                 document.getElementById('utags').value = document.getElementById('utags').value.replace(/# #/g, "#");
+            } else if ($(".captionTags:focus")) {
+                var ct = document.activeElement;
+//                alert(document.activeElement.innerHTML);
+//                alert(ct.text);
+//                alert(ct.value);
+//                ct.innerHTML = ct.innerHTML.replace(/&nbsp; &nbsp;/g, '');
+//                ct.innerHTML = ct.innerHTML.replace(/ /g, " #");
+//                ct.innerHTML = ct.innerHTML.replace(/ <br> /g, "");
+//                ct.innerHTML = ct.innerHTML.replace(/<br><br>/g, "");
+//                ct.innerHTML = ct.innerHTML.replace(/<br>/g, " #");
+//                ct.innerHTML = ct.innerHTML.replace(/##/g, "#");
+//                ct.innerHTML = ct.innerHTML.replace(/#&nbsp;#/g, "#");
+
+
+                if(ct.value.charAt(0) != "#" && ct.value.length != '0')
+                    ct.value = "#" + ct.value + " #";
+
+                if(ct.value.charAt(ct.value.length - 1) != " " && ct.value.charAt(ct.value.length - 1) != "#" && ct.value.length != 0)
+                    ct.value = ct.value + " #";
             }
 
           }
