@@ -624,8 +624,10 @@ $(document).ready(function(){
         $("#uploadButton").click(function(event){
             // update db (save images)
             event.stopPropagation();
+            $(x).fadeOut(2000);
             if(document.getElementById('file').value == ""){
                 x.style.display = "block";
+                
                 x.innerHTML = " <div class = \"upload\"><p>Upload file</p>" +
                                 "<div class = \"errorupload\">" +
                                 "You did not select an image" +
