@@ -86,7 +86,7 @@ button:active{
 }
 
 #title:hover{
-    color: black;
+    color: darkgrey;
     cursor: pointer;
 }
 
