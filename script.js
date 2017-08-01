@@ -30,8 +30,8 @@ function deleteUser(taggedUser, event){
     event.stopPropagation();
     // update Delete user from the db if possible
 
-    alert(taggedUser.innerHTML);
-    alert(document.getElementById('ususers').innerHTML);
+//    alert(taggedUser.innerHTML);
+//    alert(document.getElementById('ususers').innerHTML);
 
     document.getElementById('ususers').innerHTML = document.getElementById('ususers').innerHTML.replace(taggedUser.innerHTML, '');
 }
@@ -583,7 +583,7 @@ $(document).ready(function(){
     });
 
     $("#logout").click(function(event){
-        alert("expiring cookies");
+//        alert("expiring cookies");
         document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         document.cookie = "loggedInUser=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
