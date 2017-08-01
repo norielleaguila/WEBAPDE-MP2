@@ -244,13 +244,13 @@ function postPhoto(data, album, user, stringDiv){
     $(caption).append(ct);
 
     //assemble
-    $(photo).prepend('<img id="theImg" src="' + data.url + '.png" />');
+    $(photo).prepend('<img id="theImg" src="' + "https" + data.url.substring(4, data.url.length) + '.png" />');
     $(photo).append(tag);
     $(modal).append(close);
     $(modal).append(photo);
     $(modal).append(caption);
 
-    $(thumbnail).prepend('<img id="theImg" src="' + data.thumbnailUrl + '.png" />');
+    $(thumbnail).prepend('<img id="theImg" src="' + "https" + data.url.substring(4, data.url.length)  + '.png" />');
     $(pin).append(groove);
     $(groove).append(metal);
     $(polaroid).append(thumbnail);
