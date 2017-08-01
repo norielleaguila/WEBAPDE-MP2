@@ -267,7 +267,7 @@ function postPhoto(data, album, user, stringDiv){
     
     var url = window.location.pathname;
 //    alert(url);
-    if(url.indexOf("/moriah.stanton") != -1 && url.indexOf("/Moriah.Stanton") != -1){
+    if(url.indexOf("moriah.stanton") != -1 && url.indexOf("Moriah.Stanton") != -1){
 //    if(url != "/profile#moriah.stanton" && url != "/profile#Moriah.Stanton" &&  url != "/profile"){
         if((user.id == 1 || data.id == 4996 || data.id == 4992 || data.id == 4991) && loggedInUser != "" && loggedInUser.toUpperCase() == user.username.toUpperCase()){
             $(polaroid).append("<p>Shared With You</p>");
