@@ -264,10 +264,7 @@ function postPhoto(data, album, user, stringDiv){
     $(pin).append(groove);
     $(groove).append(metal);
     $(polaroid).append(thumbnail);
-    
-    var url = window.location.pathname;
-//    alert(url);
-<<<<<<< HEAD
+
     if(
         document.getElementById("checkBoxPane") == null &&
        (user.id == 1 || data.id == 4996 || data.id == 4992 || data.id == 4991) &&
@@ -275,15 +272,6 @@ function postPhoto(data, album, user, stringDiv){
         $(polaroid).append("<p>Shared With You</p>");
     }else{
         $(polaroid).append("<p>Public</p>");
-=======
-    if(url.indexOf("moriah.stanton") != -1 && url.indexOf("Moriah.Stanton") != -1){
-//    if(url != "/profile#moriah.stanton" && url != "/profile#Moriah.Stanton" &&  url != "/profile"){
-        if((user.id == 1 || data.id == 4996 || data.id == 4992 || data.id == 4991) && loggedInUser != "" && loggedInUser.toUpperCase() == user.username.toUpperCase()){
-            $(polaroid).append("<p>Shared With You</p>");
-        }else{
-            $(polaroid).append("<p>Public</p>");
-        }
->>>>>>> d188cace50207a243c3e45380f498a343f951fc0
     }
 
     $(stringDiv).append(modal);
