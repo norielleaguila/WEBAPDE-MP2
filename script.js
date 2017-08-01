@@ -199,8 +199,8 @@ function postPhoto(data, album, user, stringDiv){
 //            '<p class="public">Public</p>');
 //    }
     
-//    if(loggedInUser != "" && loggedInUser.toUpperCase() == user.username.toUpperCase())
-//        $(edit).append('<i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i>');
+      if(loggedInUser != "" && loggedInUser.toUpperCase() == user.username.toUpperCase())
+          $(edit).append('<i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i>');
     
     //hardcoding
     if((data.id < 4997 || data.id == max) && user.id != 1){
