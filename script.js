@@ -265,13 +265,15 @@ function postPhoto(data, album, user, stringDiv){
     $(groove).append(metal);
     $(polaroid).append(thumbnail);
 
-    if(
+    if(data.id > 4997 && data.id < max &&
+       loggedInUser != "" && loggedInUser.toUpperCase() == user.username.toUpperCase()){
+        $(polaroid).append("<p>Private</p>");
+    }else if(
         document.getElementById("checkBoxPane") == null &&
        (user.id == 1 || data.id == 4996 || data.id == 4992 || data.id == 4991) &&
        loggedInUser != "" && loggedInUser.toUpperCase() == user.username.toUpperCase()){
         $(polaroid).append("<p>Shared With You</p>");
     }else if(document.getElementById("checkBoxPane") == null || (document.getElementById("checkBoxPane") != null && !document.getElementById("checkBoxPane").checked)){
-
         $(polaroid).append("<p>Public</p>");
     }
 
