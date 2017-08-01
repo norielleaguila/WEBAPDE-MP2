@@ -448,6 +448,9 @@ $(document).ready(function(){
         document.cookie = "loggedInUser" + "=" + rememberedUser + ";" + expires + ";path=/";
     }/*else alert("NOT FOUND")*/;
 
+    if(loggedInUser == "")
+        $("#checkBoxPane").prop('disabled', true);
+
 //    console.log($("#username1").attr("id"));
     
 
