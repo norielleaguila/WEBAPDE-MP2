@@ -94,6 +94,7 @@ html {
 .taggle_list .taggle:hover {
   background: rgba(0, 139, 199, 0.70);
   transition: all .3s;
+    color:#fff;
 }
 
 .taggle_list .taggle:hover > .close {
@@ -244,7 +245,7 @@ textarea.input {
       right: auto;
       left: 5px; }
       .custom.delicious .taggle .close:hover {
-        color: #888; }
+        color: #fff; }
 
 .custom.stackoverflow {
   border: 1px solid #ccc;
