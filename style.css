@@ -560,11 +560,11 @@ button{
 
 #fileList{
     text-align: justify;
-    padding-left: 10;
+    padding-left: 10px;
 }
 
 .uinput{
-    display: block;
+    display: flex;
     width: 95%;
 }
 

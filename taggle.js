@@ -79,7 +79,7 @@
          * Class added to the container div when focused
          * @type {String}
          */
-        containerFocusClass: 'active',
+        // containerFocusClass: 'active',
 
         /**
          * Should the input be focused when the container is clicked?
@@ -141,7 +141,7 @@
          * Placeholder string to be placed in an empty taggle field
          * @type {String}
          */
-        placeholder: 'Enter tags...',
+        // placeholder: 'Enter tags...',
 
         /**
          * Keycodes that will add a tag
@@ -344,6 +344,7 @@
             this.input = formattedInput;
         }
 
+        this.input.placeholder = "Enter tags...";
         this.inputLi.appendChild(this.input);
         this.list.appendChild(this.inputLi);
         this.container.appendChild(this.list);
