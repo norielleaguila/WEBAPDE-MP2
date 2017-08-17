@@ -369,7 +369,7 @@ function postPhoto(data, album, user, stringDiv){
             if($('.captionTitle').hasClass('editable')){
                 $('.captionTitle').removeClass('editable');
                 $('.captionDescription').removeClass('editable');
-                $('.captionTags').removeClass('editable-tags');
+                $('.captionTags').removeClass('editable');
                 $('.captionTags').css("pointer-events", "none");
                 $('.edit').css('color', "grey");
             }
@@ -388,13 +388,13 @@ function postPhoto(data, album, user, stringDiv){
             if(!($('.captionTitle').is('.editable'))){
                 $('.captionTitle').prop('contenteditable'      , true).toggleClass('editable');
                 $('.captionDescription').prop('contenteditable', true).toggleClass('editable');
-                $('.captionTags').toggleClass('editable-tags');
+                $('.captionTags').toggleClass('editable');
                 $('.captionTags').css("pointer-events", "auto");
                 $(this).css('color', "#008bc7");
             }else{
                 $('.captionTitle').prop('contenteditable'      , false).toggleClass('editable');
                 $('.captionDescription').prop('contenteditable', false).toggleClass('editable');
-                $('.captionTags').toggleClass('editable-tags');
+                $('.captionTags').toggleClass('editable');
                 $('.captionTags').css("pointer-events", "none");
                 $(this).css('color', "grey");
             }

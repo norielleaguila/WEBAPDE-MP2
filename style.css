@@ -420,6 +420,10 @@ button{
     cursor: pointer;
 }
 
+.editable input{
+    background: rgba(55, 55, 55, 0.5);
+    height: auto;
+}
 .editable{
     background: rgba(55, 55, 55, 0.5);
     height: auto;
