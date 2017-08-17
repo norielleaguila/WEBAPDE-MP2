@@ -91,13 +91,6 @@ html {
   margin-left: 10px;}
 
 .taggle_list .taggle:hover {
-/*  padding: 5px;*/
-/*
-  padding-right: 15px;
-    width: auto;
-*/
-/*    padding-top: 0;*/
-    height: 1.1rem;
   background: #ccc;
   transition: all .3s; 
 }
