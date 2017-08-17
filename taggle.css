@@ -72,9 +72,9 @@ html {
 
 .taggle_list .taggle .close {
   font-size: 1.1rem;
-  position: absolute;
-  top: 5px;
-  right: 3px;
+  position: relative;
+  top: 0px;
+  right: -35px;
   text-decoration: none;
   padding-left: 2px;
   padding-top: 3px;
@@ -91,10 +91,12 @@ html {
   padding: 5px;
   padding-right: 15px;
   background: #ccc;
-  transition: all .3s; }
+  transition: all .3s; 
+}
 
 .taggle_list .taggle:hover > .close {
-  display: block; }
+  display: block; 
+}
 
 .taggle_list .taggle .close:hover {
   color: #990033; }
