@@ -422,6 +422,7 @@ button{
 
 .editable{
     background: rgba(55, 55, 55, 0.5);
+    height: auto;
 }
 
 .captionTitle{
