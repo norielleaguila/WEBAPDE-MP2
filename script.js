@@ -220,34 +220,29 @@ function postPhoto(data, album, user, stringDiv){
        && data.id != 4996 && data.id != 4992 && data.id != 4991){
         $(tag).append('<i class="fa fa-globe" aria-hidden="true"></i>' +
             '<p class="public">Public</p>');
-        $(ct).append("#something");
     }
 
     if(data.id == 4999){
         $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" +
             (loggedInUser.length == 0 ? '<p class="public">Public</p>' :
                                   "<p class = \"tagged\">Tagged: Bret, Antonette</p>"));
-        $(ct).append("#wow #yay");
     }
 
     if(data.id == 4998){
         $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" +
             (loggedInUser.length == 0 ? '<p class="public">Public</p>' :
                                  "<p class = \"tagged\">Tagged: Antonette</p>"));
-        $(ct).append("#wow");
     }
 
     if(data.id == 4997){
         $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" +
             (loggedInUser.length == 0 ? '<p class="public">Public</p>' :
                                  "<p class = \"tagged\">Tagged: Bret</p>"));
-        $(ct).append("#wow #yay");
     }
 
     if(user.id == 1 || data.id == 4996 || data.id == 4992 || data.id == 4991){
         $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" +
                       "<p class = \"tagged\">Tagged: Moriah.Stanton</p>");
-        $(ct).append("#obosen");
     }
 
     $(caption).append(edit);
