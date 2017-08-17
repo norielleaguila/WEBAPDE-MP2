@@ -628,7 +628,7 @@ $(document).ready(function(){
                         "<input class=\"ushare\" id=\"ushare\" type=\"text\" placeholder=\"Enter username\"/ disabled>" +
                         "<p class=\"t2\">Shared With:</p><div class=\"ususers\" id=\"ususers\"></div>" +
                         "</div><button id=\"uploadButton\">Submit</button>";
-        new Taggle('utags');
+        
         var temp = new Taggle('utags', {
             allowDuplicates: false
         });

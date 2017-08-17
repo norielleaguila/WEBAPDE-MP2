@@ -74,7 +74,7 @@ html {
   font-size: 1.1rem;
   position: relative;
   top: 0px;
-  right: -35px;
+  right: 5px;
   text-decoration: none;
   padding-left: 2px;
   padding-top: 3px;
@@ -88,14 +88,19 @@ html {
   cursor: pointer; }
 
 .taggle_list .taggle:hover {
-  padding: 5px;
+/*  padding: 5px;*/
+/*
   padding-right: 15px;
+    width: auto;
+*/
+/*    padding-top: 0;*/
+    height: 1.1rem;
   background: #ccc;
   transition: all .3s; 
 }
 
 .taggle_list .taggle:hover > .close {
-  display: block; 
+  display: inline-block; 
 }
 
 .taggle_list .taggle .close:hover {
@@ -118,7 +123,8 @@ html {
   margin-top: -5px;
   background: none;
   width: 100%;
-  max-width: 100%; }
+  max-width: 100%; 
+}
 
 .taggle_sizer {
   padding: 0;
