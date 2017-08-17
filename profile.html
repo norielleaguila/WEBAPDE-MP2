@@ -7,10 +7,15 @@
 
 
     <script src="jquery-3.2.1.min.js"></script>
-    <meta name="viewport" content="width=device-width" />
-
-    <link rel="stylesheet" type = "text/css" href="style.css">
+    <script type="text/javascript" src="taggle.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
+
+
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type = "text/css" href="taggle.css">
+    <link rel="stylesheet" type = "text/css" href="style.css">
+
+
 
     <style>
 
@@ -146,13 +151,7 @@
 </head>
 
 <body>
-<!--
-    1. Login
-    2. Register
 
-    Show all public pictures
-
--->
 
 
     <!-- Rounded.slider-container -->   
@@ -174,7 +173,11 @@
     </div>
 
 
-
+    <!--<div id = "searchbar" class = "searchbar">-->
+        <!--<script>-->
+            <!--new Taggle('searchbar');-->
+        <!--</script>-->
+    <!--</div>-->
     <div class = "searchbar">
         <input type = "search" id = "searchbox" placeholder="Search">
     </div>
@@ -195,6 +198,8 @@
 
     <section class = "feed" id = "feed"></section>
     <section class = "sharedFeed" id = "sharedFeed"></section>
+
+
 </body>
 
 </html>

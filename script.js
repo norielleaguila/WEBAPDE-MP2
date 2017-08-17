@@ -129,7 +129,7 @@ function postPhoto(data, album, user, stringDiv){
     var inputTagUser = document.createElement("input");
     var taggedUsers = document.createElement("div");
 
-    var ct = document.createElement("p");
+    var ct = document.createElement("div");
 
     var navbar       = document.getElementById('navbar');
 
@@ -158,6 +158,8 @@ function postPhoto(data, album, user, stringDiv){
     $(edit).addClass("edit");
 
     tag.setAttribute('id', "tag");
+    ct.setAttribute('id', "captionTags");
+
     inputTagUser.setAttribute('type', 'text');
     inputTagUser.setAttribute('placeholder', 'Enter username');
     
@@ -213,7 +215,7 @@ function postPhoto(data, album, user, stringDiv){
           $(edit).append('<i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i>');
     
     //hardcoding
-    if((data.id < 4997 || data.id == max) && user.id != 1
+/*    if((data.id < 4997 || data.id == max) && user.id != 1
        && data.id != 4996 && data.id != 4992 && data.id != 4991){
         $(tag).append('<i class="fa fa-globe" aria-hidden="true"></i>' +
             '<p class="public">Public</p>');
@@ -221,31 +223,31 @@ function postPhoto(data, album, user, stringDiv){
     }
 
     if(data.id == 4999){
-        $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
+        $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" +
             (loggedInUser.length == 0 ? '<p class="public">Public</p>' :
                                   "<p class = \"tagged\">Tagged: Bret, Antonette</p>"));
         $(ct).append("#wow #yay");
     }
-    
+
     if(data.id == 4998){
-        $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
+        $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" +
             (loggedInUser.length == 0 ? '<p class="public">Public</p>' :
                                  "<p class = \"tagged\">Tagged: Antonette</p>"));
         $(ct).append("#wow");
     }
-    
+
     if(data.id == 4997){
-        $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
+        $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" +
             (loggedInUser.length == 0 ? '<p class="public">Public</p>' :
                                  "<p class = \"tagged\">Tagged: Bret</p>"));
         $(ct).append("#wow #yay");
     }
-    
+
     if(user.id == 1 || data.id == 4996 || data.id == 4992 || data.id == 4991){
-        $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" + 
+        $(tag).append("<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>" +
                       "<p class = \"tagged\">Tagged: Moriah.Stanton</p>");
         $(ct).append("#obosen");
-    }
+    }*/
 
     $(caption).append(edit);
     $(caption).append(title);
@@ -345,20 +347,20 @@ function postPhoto(data, album, user, stringDiv){
     $(document).keyup(function (e) {
         var activeElement = document.activeElement;
 
-        if ($(ct).is(':focus') && (e.keyCode == 32)) {
-            
-            if(ct.innerHTML.charAt(0) != '#'){
-                ct.innerHTML = "#" + ct.innerHTML;
-            }
-//                    
-            ct.innerHTML = ct.innerHTML.replace(/&nbsp; &nbsp;/g, '');
-            ct.innerHTML = ct.innerHTML.replace(/ /g, " #");
-            ct.innerHTML = ct.innerHTML.replace(/ <br> /g, "");
-            ct.innerHTML = ct.innerHTML.replace(/<br><br>/g, "");
-            ct.innerHTML = ct.innerHTML.replace(/<br>/g, " #");
-            ct.innerHTML = ct.innerHTML.replace(/##/g, "#");
-            ct.innerHTML = ct.innerHTML.replace(/#&nbsp;#/g, "#");
-        }
+//         if ($(ct).is(':focus') && (e.keyCode == 32)) {
+//
+//             if(ct.innerHTML.charAt(0) != '#'){
+//                 ct.innerHTML = "#" + ct.innerHTML;
+//             }
+
+//             ct.innerHTML = ct.innerHTML.replace(/&nbsp; &nbsp;/g, '');
+//             ct.innerHTML = ct.innerHTML.replace(/ /g, " #");
+//             ct.innerHTML = ct.innerHTML.replace(/ <br> /g, "");
+//             ct.innerHTML = ct.innerHTML.replace(/<br><br>/g, "");
+//             ct.innerHTML = ct.innerHTML.replace(/<br>/g, " #");
+//             ct.innerHTML = ct.innerHTML.replace(/##/g, "#");
+//             ct.innerHTML = ct.innerHTML.replace(/#&nbsp;#/g, "#");
+//         }
 
         if (modal.style.display != "none" && e.keyCode === 27){
             modal.style.display = "none";
@@ -371,6 +373,7 @@ function postPhoto(data, album, user, stringDiv){
                 $('.captionTitle').removeClass('editable');
                 $('.captionDescription').removeClass('editable');
                 $('.captionTags').removeClass('editable');
+                $('.captionTags').css("pointer-events", "none");
                 $('.edit').css('color', "grey");
             }
         }
@@ -388,16 +391,21 @@ function postPhoto(data, album, user, stringDiv){
             if(!($('.captionTitle').is('.editable'))){
                 $('.captionTitle').prop('contenteditable'      , true).toggleClass('editable');
                 $('.captionDescription').prop('contenteditable', true).toggleClass('editable');
-                $('.captionTags').prop('contenteditable'       , true).toggleClass('editable');
+                $('.captionTags').toggleClass('editable');
+                $('.captionTags').css("pointer-events", "auto");
                 $(this).css('color', "#008bc7");
             }else{
                 $('.captionTitle').prop('contenteditable'      , false).toggleClass('editable');
                 $('.captionDescription').prop('contenteditable', false).toggleClass('editable');
-                $('.captionTags').prop('contenteditable'       , false).toggleClass('editable');
+                $('.captionTags').toggleClass('editable');
+                $('.captionTags').css("pointer-events", "none");
                 $(this).css('color', "grey");
             }
         }
     });
+
+    new Taggle(ct);
+    $(ct).css("pointer-events", "none");
 }
 
 function changeNavBar() {
@@ -614,11 +622,12 @@ $(document).ready(function(){
                         "onchange=\"javascript:updateList()\"/>" +
                         "<input class=\"uinput\" id=\"utitle\" type=\"text\" placeholder=\"Title\"/>" +
                         "<textarea class=\"uinput\" id=\"udesc\" type=\"text\" placeholder=\"Description\"></textarea>" +
-                        "<input class=\"uinput utags\" id=\"utags\" type=\"text\" placeholder=\"Tags\"/>" +
+                        "<div class=\"uinput utags\" id=\"utags\" type=\"text\" placeholder=\"Tags\"> </div>" +
                         "<input id=\"uprivacy\" type=\"checkbox\" />" + "Private" +
                         "<input class=\"ushare\" id=\"ushare\" type=\"text\" placeholder=\"Enter username\"/ disabled>" +
                         "<p class=\"t2\">Shared With:</p><div class=\"ususers\" id=\"ususers\"></div>" +
                         "</div><button id=\"uploadButton\">Submit</button>";
+        new Taggle('utags');
 
         $(document).keyup(function (e){
             var activeElement = document.activeElement;
@@ -645,14 +654,14 @@ $(document).ready(function(){
 
 
         });
-        
+
         $("#uploadButton").click(function(event){
             // update db (save images)
             event.stopPropagation();
             $(x).fadeOut(2000);
             if(document.getElementById('file').value == ""){
                 x.style.display = "block";
-                
+
                 x.innerHTML = " <div class = \"upload\"><p>Upload file</p>" +
                                 "<div class = \"errorupload\">" +
                                 "You did not select an image" +
@@ -662,7 +671,7 @@ $(document).ready(function(){
                                 "onchange=\"javascript:updateList()\"/>" +
                                 "<input class=\"uinput\" id=\"utitle\" type=\"text\" placeholder=\"Title\"/>" +
                                 "<textarea class=\"uinput\" id=\"udesc\" type=\"text\" placeholder=\"Description\"></textarea>" +
-                                "<input class=\"uinput utags\" id=\"utags\" type=\"text\" placeholder=\"Tags\"/>" +
+                        "<div class=\"uinput utags\" id=\"utags\" type=\"text\" placeholder=\"Tags\"> </div>" +
                                 "<input id=\"uprivacy\" type=\"checkbox\" />" + "Private" +
                                 "<input class=\"ushare\" id=\"ushare\" type=\"text\" placeholder=\"Enter username\"/ disabled>" +
                                 "<p class=\"t2\">Shared With:</p><div class=\"ususers\" id=\"ususers\"></div>" +
@@ -678,7 +687,7 @@ $(document).ready(function(){
                         "onchange=\"javascript:updateList()\"/>" +
                         "<input class=\"uinput\" id=\"utitle\" type=\"text\" placeholder=\"Title\"/>" +
                         "<textarea class=\"uinput\" id=\"udesc\" type=\"text\" placeholder=\"Description\"></textarea>" +
-                        "<input class=\"uinput utags\" id=\"utags\" type=\"text\" placeholder=\"Tags\"/>" +
+                        "<div class=\"uinput utags\" id=\"utags\" type=\"text\" placeholder=\"Tags\"> </div>" +
                         "<input id=\"uprivacy\" type=\"checkbox\" />" + "Private" +
                         "<input class=\"ushare\" id=\"ushare\" type=\"text\" placeholder=\"Enter username\"/ disabled>" +
                         "<p class=\"t2\">Shared With:</p><div class=\"ususers\" id=\"ususers\"></div>" +
@@ -694,7 +703,7 @@ $(document).ready(function(){
                         "onchange=\"javascript:updateList()\"/>" +
                         "<input class=\"uinput\" id=\"utitle\" type=\"text\" placeholder=\"Title\"/>" +
                         "<textarea class=\"uinput\" id=\"udesc\" type=\"text\" placeholder=\"Description\"></textarea>" +
-                        "<input class=\"uinput utags\" id=\"utags\" type=\"text\" placeholder=\"Tags\"/>" +
+                        "<div class=\"uinput utags\" id=\"utags\" type=\"text\" placeholder=\"Tags\"> </div>" +
                         "<input id=\"uprivacy\" type=\"checkbox\" />" + "Private" +
                         "<input class=\"ushare\" id=\"ushare\" type=\"text\" placeholder=\"Enter username\"/ disabled>" +
                         "<p class=\"t2\">Shared With:</p><div class=\"ususers\" id=\"ususers\"></div>" +
@@ -710,19 +719,19 @@ $(document).ready(function(){
                 document.getElementById('ususers').innerHTML = "";
             } 
         });
-        
-        $(document).keyup(function (e){
 
-            var activeElement = document.activeElement;
-
-            if (activeElement.id == "utags" && (e.keyCode == 32)){
-                document.getElementById('utags').value = "#" + document.getElementById('utags').value;
-                document.getElementById('utags').value = document.getElementById('utags').value.replace(/ /g, " #");
-                document.getElementById('utags').value = document.getElementById('utags').value.replace(/##/g, "#");
-                document.getElementById('utags').value = document.getElementById('utags').value.replace(/#&nbsp;&nbsp;#/g, "#");
-                document.getElementById('utags').value = document.getElementById('utags').value.replace(/# #/g, "#");
-            }
-        });
+        // $(document).keyup(function (e){
+        //
+        //     var activeElement = document.activeElement;
+        //
+        //     if (activeElement.id == "utags" && (e.keyCode == 32)){
+        //         document.getElementById('utags').value = "#" + document.getElementById('utags').value;
+        //         document.getElementById('utags').value = document.getElementById('utags').value.replace(/ /g, " #");
+        //         document.getElementById('utags').value = document.getElementById('utags').value.replace(/##/g, "#");
+        //         document.getElementById('utags').value = document.getElementById('utags').value.replace(/#&nbsp;&nbsp;#/g, "#");
+        //         document.getElementById('utags').value = document.getElementById('utags').value.replace(/# #/g, "#");
+        //     }
+        // });
 
     });
     $("#profile").click(function(event){
@@ -804,102 +813,103 @@ $(document).ready(function(){
     
     $(document).keypress(               // prevents form from being submitted when enter is pressed
         function(event){
-         if (event.which == '13') {
+
             var activeElement = document.activeElement;
-            event.preventDefault();
-            if (activeElement.className == "ushare"){
+            if (event.which == '13' && !(activeElement.id == "utags") && !(activeElement.id == "captionTags")) {
                 event.preventDefault();
-//                alert('prevented');
-                var taggedUser = document.createElement("div");
+                if (activeElement.className == "ushare"){
+                    event.preventDefault();
+    //                alert('prevented');
+                    var taggedUser = document.createElement("div");
 
-                var copyDiv = "<div id=\"username\">" + document.getElementById('ushare').value + "</div>" +
-                              "<div class=\"uexit\" onclick=\"return deleteUser(\'{%=taggedUser%}\', event)\">x</div><br>" +
-                               document.getElementById('ususers').innerHTML;
+                    var copyDiv = "<div id=\"username\">" + document.getElementById('ushare').value + "</div>" +
+                                  "<div class=\"uexit\" onclick=\"return deleteUser(\'{%=taggedUser%}\', event)\">x</div><br>" +
+                                   document.getElementById('ususers').innerHTML;
 
-                //add classes
-                taggedUser.setAttribute('id', "username");
-
-
-                taggedUser.innerHTML = "<div id=\"username\">" + document.getElementById('ushare').value + "</div>" +
-                                       "<div class=\"uexit\" onclick=\"return deleteUser(this.parentElement, event)\">x</div><br>" +
-                                        document.getElementById('ususers').innerHTML;
-
-                                        // update check muna if there's a user in the db before adding(?)
-                document.getElementById('ususers').append(taggedUser);
-                document.getElementById('ushare').value = "";
-            } else if (activeElement.id == "utags"){
-//                alert('hello');
-                document.getElementById('utags').value = "#" + document.getElementById('utags').value;
-                document.getElementById('utags').value = document.getElementById('utags').value.replace(/ /g, " #");
-                document.getElementById('utags').value = document.getElementById('utags').value.replace(/##/g, "#");
-                document.getElementById('utags').value = document.getElementById('utags').value.replace(/#&nbsp;&nbsp;#/g, "#");
-                document.getElementById('utags').value = document.getElementById('utags').value.replace(/# #/g, "#");
-            } else if (activeElement.className == "captionTags") {
-                var ct = document.activeElement;
-//                alert(document.activeElement.innerHTML);
-//                alert(ct.text);
-//                alert(ct.value);
-//                ct.innerHTML = ct.innerHTML.replace(/&nbsp; &nbsp;/g, '');
-//                ct.innerHTML = ct.innerHTML.replace(/ /g, " #");
-//                ct.innerHTML = ct.innerHTML.replace(/ <br> /g, "");
-//                ct.innerHTML = ct.innerHTML.replace(/<br><br>/g, "");
-//                ct.innerHTML = ct.innerHTML.replace(/<br>/g, " #");
-//                ct.innerHTML = ct.innerHTML.replace(/##/g, "#");
-//                ct.innerHTML = ct.innerHTML.replace(/#&nbsp;#/g, "#");
+                    //add classes
+                    taggedUser.setAttribute('id', "username");
 
 
-                if(ct.value.charAt(0) != "#" && ct.value.length != '0')
-                    ct.value = "#" + ct.value + " #";
+                    taggedUser.innerHTML = "<div id=\"username\">" + document.getElementById('ushare').value + "</div>" +
+                                           "<div class=\"uexit\" onclick=\"return deleteUser(this.parentElement, event)\">x</div><br>" +
+                                            document.getElementById('ususers').innerHTML;
 
-                if(ct.value.charAt(ct.value.length - 1) != " " && ct.value.charAt(ct.value.length - 1) != "#" && ct.value.length != 0)
-                    ct.value = ct.value + " #";
-            } else if (activeElement.id == "searchbox"){
-                // Remove all children div
-                var feed = document.getElementById("feed");
-                while (feed.firstChild) {
-                    feed.removeChild(feed.firstChild);
+                                            // update check muna if there's a user in the db before adding(?)
+                    document.getElementById('ususers').append(taggedUser);
+                    document.getElementById('ushare').value = "";
+    //             } else if (activeElement.id == "utags"){
+    //                 alert('hello');
+    //                 document.getElementById('utags').value = "#" + document.getElementById('utags').value;
+    //                 document.getElementById('utags').value = document.getElementById('utags').value.replace(/ /g, " #");
+    //                 document.getElementById('utags').value = document.getElementById('utags').value.replace(/##/g, "#");
+    //                 document.getElementById('utags').value = document.getElementById('utags').value.replace(/#&nbsp;&nbsp;#/g, "#");
+    //                 document.getElementById('utags').value = document.getElementById('utags').value.replace(/# #/g, "#");
+                } else if (activeElement.className == "captionTags") {
+                    var ct = document.activeElement;
+    //                alert(document.activeElement.innerHTML);
+    //                alert(ct.text);
+    //                alert(ct.value);
+    //                ct.innerHTML = ct.innerHTML.replace(/&nbsp; &nbsp;/g, '');
+    //                ct.innerHTML = ct.innerHTML.replace(/ /g, " #");
+    //                ct.innerHTML = ct.innerHTML.replace(/ <br> /g, "");
+    //                ct.innerHTML = ct.innerHTML.replace(/<br><br>/g, "");
+    //                ct.innerHTML = ct.innerHTML.replace(/<br>/g, " #");
+    //                ct.innerHTML = ct.innerHTML.replace(/##/g, "#");
+    //                ct.innerHTML = ct.innerHTML.replace(/#&nbsp;#/g, "#");
+
+
+                    if(ct.value.charAt(0) != "#" && ct.value.length != '0')
+                        ct.value = "#" + ct.value + " #";
+
+                    if(ct.value.charAt(ct.value.length - 1) != " " && ct.value.charAt(ct.value.length - 1) != "#" && ct.value.length != 0)
+                        ct.value = ct.value + " #";
+                } else if (activeElement.id == "searchbox"){
+                    // Remove all children div
+                    var feed = document.getElementById("feed");
+                    while (feed.firstChild) {
+                        feed.removeChild(feed.firstChild);
+                    }
+
+
+
+                    var stringDiv = document.createElement("div");
+
+                    //add classes
+                    $(stringDiv).addClass("string");
+
+                    var url = "";
+                    if(document.URL.indexOf("#") == 0)
+                        url = root + '/photos/';
+                    else url = root + '/photos/'; // update db (user's pictures) document.URL ("#")
+                    for(i = 0; i < 3 ; i++){
+                        (function(i, loadA, stringDiv, url) {
+                            $.ajax({
+                                url: url,
+                                method: 'GET',
+                                error: function()
+                                {
+                                    //file does not exists
+                                    console.log("File does not exist");
+                                },
+                                success: function(data)
+                                {
+                                    generateAlbumInfo(data[i + 4996],
+                                                      stringDiv);
+                                }
+                            });
+                        })(i, loadA, stringDiv, url);
+                    }
+
+
+                    $(".feed").append(stringDiv);
+
+    //                for(var i = 0; i < 3; i++)
+
+                    feed.append(stringDiv);
                 }
 
 
-
-                var stringDiv = document.createElement("div");
-
-                //add classes
-                $(stringDiv).addClass("string");
-
-                var url = "";
-                if(document.URL.indexOf("#") == 0)
-                    url = root + '/photos/';
-                else url = root + '/photos/'; // update db (user's pictures) document.URL ("#")
-                for(i = 0; i < 3 ; i++){
-                    (function(i, loadA, stringDiv, url) {
-                        $.ajax({
-                            url: url,
-                            method: 'GET',
-                            error: function()
-                            {
-                                //file does not exists
-                                console.log("File does not exist");
-                            },
-                            success: function(data)
-                            {
-                                generateAlbumInfo(data[i + 4996],
-                                                  stringDiv);
-                            }
-                        });
-                    })(i, loadA, stringDiv, url);
-                }
-
-
-                $(".feed").append(stringDiv);
-
-//                for(var i = 0; i < 3; i++)
-
-                feed.append(stringDiv);
-            }
-
-
-          }
+              }
 
 
     });
