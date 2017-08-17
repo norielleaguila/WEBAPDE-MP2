@@ -303,6 +303,7 @@ function postPhoto(data, album, user, stringDiv){
             $('.captionTitle').removeClass('editable');
             $('.captionDescription').removeClass('editable');
             $('.captionTags').removeClass('editable');
+            $('.captionTags').css("pointer-events", "none");
             $('.edit').css('color', "grey");
         }
     });
