@@ -43,6 +43,7 @@ html {
 
 .taggle_input {
   border: none;
+    color: darkgrey;
   outline: none;
   font-size: 16px;
   font-weight: 300; }
